@@ -45,6 +45,7 @@ def debug_1(action=None, success=None, container=None, results=None, handle=None
 
     filtered_artifact_0_data_filter_1 = phantom.collect2(container=container, datapath=["filtered-data:filter_1:condition_1:artifact:*.id","filtered-data:filter_1:condition_1:artifact:*.id"])
     url_safelink_extract_2__result = phantom.collect2(container=container, datapath=["url_safelink_extract_2:custom_function_result.data.actual_url"])
+    format_json_artifact_update = phantom.get_format_data(name="format_json_artifact_update")
 
     filtered_artifact_0__id = [item[0] for item in filtered_artifact_0_data_filter_1]
     url_safelink_extract_2_data_actual_url = [item[0] for item in url_safelink_extract_2__result]
@@ -54,7 +55,7 @@ def debug_1(action=None, success=None, container=None, results=None, handle=None
     parameters.append({
         "input_1": filtered_artifact_0__id,
         "input_2": url_safelink_extract_2_data_actual_url,
-        "input_3": None,
+        "input_3": format_json_artifact_update,
         "input_4": None,
         "input_5": None,
         "input_6": None,
@@ -103,7 +104,36 @@ def url_safelink_extract_2(action=None, success=None, container=None, results=No
     ## Custom Code End
     ################################################################################
 
-    phantom.custom_function(custom_function="poc1220/url_safelink_extract", parameters=parameters, name="url_safelink_extract_2", callback=debug_1)
+    phantom.custom_function(custom_function="poc1220/url_safelink_extract", parameters=parameters, name="url_safelink_extract_2", callback=format_json_artifact_update)
+
+    return
+
+
+@phantom.playbook_block()
+def format_json_artifact_update(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug("format_json_artifact_update() called")
+
+    template = """{{\"cef\": {{ \"requestURL\": {0}, \"requestURL_old\": {1} }}\n}}"""
+
+    # parameter list for template variable replacement
+    parameters = [
+        "url_safelink_extract_2:custom_function_result.data.actual_url",
+        "filtered-data:filter_safelinks_url_artifacts:condition_1:artifact:*.cef.requestURL"
+    ]
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.format(container=container, template=template, parameters=parameters, name="format_json_artifact_update")
+
+    debug_1(container=container)
 
     return
 

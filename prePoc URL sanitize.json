@@ -26,14 +26,21 @@
                     "targetPort": "4_in"
                 },
                 {
-                    "id": "port_4_to_port_3",
+                    "id": "port_4_to_port_5",
                     "sourceNode": "4",
                     "sourcePort": "4_out",
+                    "targetNode": "5",
+                    "targetPort": "5_in"
+                },
+                {
+                    "id": "port_5_to_port_3",
+                    "sourceNode": "5",
+                    "sourcePort": "5_out",
                     "targetNode": "3",
                     "targetPort": "3_in"
                 }
             ],
-            "hash": "22c401dd7d0093201b87d7270b53cbbe2818af92",
+            "hash": "4c44fe7d6c8c9b33ed267a73f918ce1e1d6a758a",
             "nodes": {
                 "0": {
                     "data": {
@@ -64,8 +71,8 @@
                     "id": "1",
                     "type": "end",
                     "warnings": {},
-                    "x": 1020,
-                    "y": 1000
+                    "x": 1340,
+                    "y": 1160
                 },
                 "2": {
                     "data": {
@@ -260,7 +267,9 @@
                                 "input_2": [
                                     "url_safelink_extract_2:custom_function_result.data.actual_url"
                                 ],
-                                "input_3": null,
+                                "input_3": [
+                                    "format_json_artifact_update:formatted_data"
+                                ],
                                 "input_4": null,
                                 "input_5": null,
                                 "input_6": null,
@@ -278,8 +287,8 @@
                             "Reconfigure invalid datapath."
                         ]
                     },
-                    "x": 1220,
-                    "y": 920
+                    "x": 1340,
+                    "y": 1040
                 },
                 "4": {
                     "data": {
@@ -328,6 +337,30 @@
                     "warnings": {},
                     "x": 1000,
                     "y": 800
+                },
+                "5": {
+                    "data": {
+                        "advanced": {
+                            "customName": "format JSON  Artifact update",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "functionId": 1,
+                        "functionName": "format_json_artifact_update",
+                        "id": "5",
+                        "parameters": [
+                            "url_safelink_extract_2:custom_function_result.data.actual_url",
+                            "filtered-data:filter_safelinks_url_artifacts:condition_1:artifact:*.cef.requestURL"
+                        ],
+                        "template": "{{\"cef\": {{ \"requestURL\": {0}, \"requestURL_old\": {1} }}\n}}",
+                        "type": "format"
+                    },
+                    "errors": {},
+                    "id": "5",
+                    "type": "format",
+                    "warnings": {},
+                    "x": 1000,
+                    "y": 980
                 }
             },
             "notes": ""
@@ -339,7 +372,7 @@
         "schema": "5.0.10",
         "version": "6.1.1.211"
     },
-    "create_time": "2023-11-24T12:25:10.762471+00:00",
+    "create_time": "2023-11-24T12:32:03.061803+00:00",
     "draft_mode": false,
     "labels": [
         "*"
