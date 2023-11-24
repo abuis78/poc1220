@@ -113,7 +113,7 @@ def url_safelink_extract_2(action=None, success=None, container=None, results=No
 def format_json_artifact_update(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
     phantom.debug("format_json_artifact_update() called")
 
-    template = """%%\n{{\"cef\": {{ \"requestURL\": {0}, \"requestURL_old\": {1} }}\n}}\n%%"""
+    template = """%%\n{{\"cef\": {{ \"requestURL\": \"{0}\", \"requestURL_old\": \"{1}\" }}\n}}\n%%"""
 
     # parameter list for template variable replacement
     parameters = [

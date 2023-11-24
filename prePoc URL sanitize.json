@@ -40,6 +40,7 @@
                     "targetPort": "6_in"
                 }
             ],
+            "hash": "516ef1d7de044469231240cda851b352a2138ddb",
             "nodes": {
                 "0": {
                     "data": {
@@ -284,6 +285,9 @@
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
+                        ],
+                        "context": [
+                            "Connect block to playbook flow."
                         ]
                     },
                     "x": 1340,
@@ -351,7 +355,7 @@
                             "url_safelink_extract_2:custom_function_result.data.actual_url",
                             "filtered-data:filter_safelinks_url_artifacts:condition_1:artifact:*.cef.requestURL"
                         ],
-                        "template": "%%\n{{\"cef\": {{ \"requestURL\": {0}, \"requestURL_old\": {1} }}\n}}\n%%",
+                        "template": "%%\n{{\"cef\": {{ \"requestURL\": \"{0}\", \"requestURL_old\": \"{1}\" }}\n}}\n%%",
                         "type": "format"
                     },
                     "errors": {},
@@ -524,7 +528,7 @@
         "schema": "5.0.10",
         "version": "6.1.1.211"
     },
-    "create_time": "2023-11-24T12:36:09.194368+00:00",
+    "create_time": "2023-11-24T12:40:17.293274+00:00",
     "draft_mode": false,
     "labels": [
         "*"
