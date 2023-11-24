@@ -5,8 +5,16 @@
     "coa": {
         "data": {
             "description": "",
-            "edges": [],
-            "hash": "34f214649e27c33ea22c0dd6363172679b9d6dd0",
+            "edges": [
+                {
+                    "id": "port_0_to_port_2",
+                    "sourceNode": "0",
+                    "sourcePort": "0_out",
+                    "targetNode": "2",
+                    "targetPort": "2_in"
+                }
+            ],
+            "hash": "40423c8cb41a9cdc04cf072a8fb5595c966f26bc",
             "nodes": {
                 "0": {
                     "data": {
@@ -17,18 +25,12 @@
                         "id": "0",
                         "type": "start"
                     },
-                    "errors": {
-                        "input_spec": [
-                            {
-                                "name": "Name is required"
-                            }
-                        ]
-                    },
+                    "errors": {},
                     "id": "0",
                     "type": "start",
                     "warnings": {},
                     "x": 1000,
-                    "y": 419.9999999999999
+                    "y": 419.9999999999998
                 },
                 "1": {
                     "data": {
@@ -45,18 +47,59 @@
                     "warnings": {},
                     "x": 1000,
                     "y": 1000
+                },
+                "2": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "conditions": [
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 0,
+                                        "op": "==",
+                                        "param": "artifact:*.name",
+                                        "value": "URL Artifact"
+                                    }
+                                ],
+                                "conditionIndex": 0,
+                                "customName": "URL Artifact",
+                                "logic": "and"
+                            }
+                        ],
+                        "functionId": 1,
+                        "functionName": "filter_1",
+                        "id": "2",
+                        "type": "filter"
+                    },
+                    "errors": {},
+                    "id": "2",
+                    "type": "filter",
+                    "warnings": {},
+                    "x": 1040,
+                    "y": 644.5
                 }
             },
             "notes": ""
         },
         "input_spec": null,
-        "output_spec": null,
+        "output_spec": [
+            {
+                "contains": [],
+                "datapaths": [],
+                "deduplicate": false,
+                "description": "",
+                "metadata": {},
+                "name": "report"
+            }
+        ],
         "playbook_type": "data",
         "python_version": "3",
         "schema": "5.0.10",
         "version": "6.1.1.211"
     },
-    "create_time": "2023-11-24T10:11:20.871336+00:00",
+    "create_time": "2023-11-24T11:49:22.950729+00:00",
     "draft_mode": false,
     "labels": [
         "*"
