@@ -26,7 +26,7 @@ def url_safelink_extract(protected_url=None, **kwargs):
         actual_url = urllib.parse.unquote(encoded_actual_url[0])
     else:
         return "Keine 'url' Parameter gefunden."
-    
+    outputs["actual_url"] = actual_url
     # Return a JSON-serializable object
     assert json.dumps(outputs)  # Will raise an exception if the :outputs: object is not JSON-serializable
     return outputs
