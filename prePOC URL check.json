@@ -7,13 +7,6 @@
             "description": "",
             "edges": [
                 {
-                    "id": "port_0_to_port_2",
-                    "sourceNode": "0",
-                    "sourcePort": "0_out",
-                    "targetNode": "2",
-                    "targetPort": "2_in"
-                },
-                {
                     "conditions": [
                         {
                             "index": 0
@@ -76,9 +69,16 @@
                     "sourcePort": "8_out",
                     "targetNode": "1",
                     "targetPort": "1_in"
+                },
+                {
+                    "id": "port_0_to_port_2",
+                    "sourceNode": "0",
+                    "sourcePort": "0_out",
+                    "targetNode": "2",
+                    "targetPort": "2_in"
                 }
             ],
-            "hash": "f0a75e6464dff16145627f00196c39b76062b055",
+            "hash": "34f214649e27c33ea22c0dd6363172679b9d6dd0",
             "nodes": {
                 "0": {
                     "data": {
@@ -94,7 +94,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 1000,
-                    "y": 419.9999999999998
+                    "y": 320
                 },
                 "1": {
                     "data": {
@@ -144,7 +144,7 @@
                     "type": "filter",
                     "warnings": {},
                     "x": 1040,
-                    "y": 640
+                    "y": 560
                 },
                 "3": {
                     "data": {
