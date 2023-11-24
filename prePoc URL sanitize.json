@@ -19,14 +19,21 @@
                             "index": 0
                         }
                     ],
-                    "id": "port_2_to_port_3",
+                    "id": "port_2_to_port_4",
                     "sourceNode": "2",
                     "sourcePort": "2_out",
+                    "targetNode": "4",
+                    "targetPort": "4_in"
+                },
+                {
+                    "id": "port_4_to_port_3",
+                    "sourceNode": "4",
+                    "sourcePort": "4_out",
                     "targetNode": "3",
                     "targetPort": "3_in"
                 }
             ],
-            "hash": "963f60b6bdec87c30ce991be02410a4d60a43e70",
+            "hash": "22c401dd7d0093201b87d7270b53cbbe2818af92",
             "nodes": {
                 "0": {
                     "data": {
@@ -57,12 +64,14 @@
                     "id": "1",
                     "type": "end",
                     "warnings": {},
-                    "x": 1000,
+                    "x": 1020,
                     "y": 1000
                 },
                 "2": {
                     "data": {
                         "advanced": {
+                            "customName": "filter safelinks URL Artifacts",
+                            "customNameId": 0,
                             "join": []
                         },
                         "conditions": [
@@ -75,6 +84,7 @@
                                         "value": "URL Artifact"
                                     },
                                     {
+                                        "conditionIndex": 0,
                                         "op": "in",
                                         "param": "safelinks.protection.outlook.com",
                                         "value": "artifact:*.cef.requestURL"
@@ -85,7 +95,7 @@
                             }
                         ],
                         "functionId": 1,
-                        "functionName": "filter_1",
+                        "functionName": "filter_safelinks_url_artifacts",
                         "id": "2",
                         "type": "filter"
                     },
@@ -247,7 +257,9 @@
                                     "filtered-data:filter_1:condition_1:artifact:*.id"
                                 ],
                                 "input_10": null,
-                                "input_2": null,
+                                "input_2": [
+                                    "url_safelink_extract_2:custom_function_result.data.actual_url"
+                                ],
                                 "input_3": null,
                                 "input_4": null,
                                 "input_5": null,
@@ -261,9 +273,61 @@
                     "errors": {},
                     "id": "3",
                     "type": "utility",
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
+                    "x": 1220,
+                    "y": 920
+                },
+                "4": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "customFunction": {
+                            "draftMode": false,
+                            "name": "url_safelink_extract",
+                            "repoName": "poc1220"
+                        },
+                        "functionId": 2,
+                        "functionName": "url_safelink_extract_2",
+                        "id": "4",
+                        "selectMore": false,
+                        "type": "utility",
+                        "utilities": {
+                            "url_safelink_extract": {
+                                "description": "",
+                                "fields": [
+                                    {
+                                        "dataTypes": [],
+                                        "description": "asasd",
+                                        "inputType": "item",
+                                        "label": "protected_url",
+                                        "name": "protected_url",
+                                        "placeholder": "",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    }
+                                ],
+                                "label": "url_safelink_extract",
+                                "name": "url_safelink_extract"
+                            }
+                        },
+                        "utilityType": "custom_function",
+                        "values": {
+                            "url_safelink_extract": {
+                                "protected_url": "filtered-data:filter_safelinks_url_artifacts:condition_1:artifact:*.cef.requestURL"
+                            }
+                        }
+                    },
+                    "errors": {},
+                    "id": "4",
+                    "type": "utility",
                     "warnings": {},
-                    "x": 980,
-                    "y": 784.5
+                    "x": 1000,
+                    "y": 800
                 }
             },
             "notes": ""
@@ -275,7 +339,7 @@
         "schema": "5.0.10",
         "version": "6.1.1.211"
     },
-    "create_time": "2023-11-24T12:21:49.670599+00:00",
+    "create_time": "2023-11-24T12:25:10.762471+00:00",
     "draft_mode": false,
     "labels": [
         "*"
