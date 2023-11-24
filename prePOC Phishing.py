@@ -12,8 +12,8 @@ from datetime import datetime, timedelta
 def on_start(container):
     phantom.debug('on_start() called')
 
-    # call 'playbook_prepoc_url_check_1' block
-    playbook_prepoc_url_check_1(container=container)
+    # call 'playbook_prepoc_url_sanitize_1' block
+    playbook_prepoc_url_sanitize_1(container=container)
 
     return
 
@@ -58,6 +58,28 @@ def add_note_2(action=None, success=None, container=None, results=None, handle=N
     ################################################################################
 
     phantom.add_note(container=container, content=playbook_prepoc_url_check_1_output_report_values, note_format="markdown", note_type="general", title="Virus Total")
+
+    return
+
+
+@phantom.playbook_block()
+def playbook_prepoc_url_sanitize_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug("playbook_prepoc_url_sanitize_1() called")
+
+    inputs = {}
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    # call playbook "poc1220/prePoc URL sanitize", returns the playbook_run_id
+    playbook_run_id = phantom.playbook("poc1220/prePoc URL sanitize", container=container, name="playbook_prepoc_url_sanitize_1", callback=playbook_prepoc_url_check_1, inputs=inputs)
 
     return
 

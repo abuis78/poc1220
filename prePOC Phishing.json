@@ -7,13 +7,6 @@
             "description": "",
             "edges": [
                 {
-                    "id": "port_0_to_port_2",
-                    "sourceNode": "0",
-                    "sourcePort": "0_out",
-                    "targetNode": "2",
-                    "targetPort": "2_in"
-                },
-                {
                     "id": "port_2_to_port_4",
                     "sourceNode": "2",
                     "sourcePort": "2_out",
@@ -26,8 +19,23 @@
                     "sourcePort": "4_out",
                     "targetNode": "1",
                     "targetPort": "1_in"
+                },
+                {
+                    "id": "port_0_to_port_5",
+                    "sourceNode": "0",
+                    "sourcePort": "0_out",
+                    "targetNode": "5",
+                    "targetPort": "5_in"
+                },
+                {
+                    "id": "port_5_to_port_2",
+                    "sourceNode": "5",
+                    "sourcePort": "5_out",
+                    "targetNode": "2",
+                    "targetPort": "2_in"
                 }
             ],
+            "hash": "8212637e35daf4dba07710bce306f03702565c1f",
             "nodes": {
                 "0": {
                     "data": {
@@ -43,7 +51,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 1000,
-                    "y": 419.99999999999966
+                    "y": 300
                 },
                 "1": {
                     "data": {
@@ -188,6 +196,29 @@
                     "warnings": {},
                     "x": 980,
                     "y": 760
+                },
+                "5": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionId": 1,
+                        "functionName": "playbook_prePoc_URL_sanitize_1",
+                        "id": "5",
+                        "inputs": {},
+                        "playbookName": "prePoc URL sanitize",
+                        "playbookRepo": 30,
+                        "playbookRepoName": "poc1220",
+                        "playbookType": "data",
+                        "synchronous": true,
+                        "type": "playbook"
+                    },
+                    "errors": {},
+                    "id": "5",
+                    "type": "playbook",
+                    "warnings": {},
+                    "x": 980,
+                    "y": 444.5
                 }
             },
             "notes": ""
@@ -199,7 +230,7 @@
         "schema": "5.0.10",
         "version": "6.1.1.211"
     },
-    "create_time": "2023-11-24T11:58:06.459458+00:00",
+    "create_time": "2023-11-24T12:44:50.820753+00:00",
     "draft_mode": false,
     "labels": [
         "*"
