@@ -72,7 +72,94 @@ def parse_indicator_from_eml(action=None, success=None, container=None, results=
     ## Custom Code End
     ################################################################################
 
-    phantom.act("extract ioc", parameters=parameters, name="parse_indicator_from_eml", assets=["parser"])
+    phantom.act("extract ioc", parameters=parameters, name="parse_indicator_from_eml", assets=["parser"], callback=decision_1)
+
+    return
+
+
+@phantom.playbook_block()
+def decision_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug("decision_1() called")
+
+    # check for 'if' condition 1
+    found_match_1 = phantom.decision(
+        container=container,
+        conditions=[
+            ["artifact:*.name", "==", "File Artifact"]
+        ],
+        delimiter=None)
+
+    # call connected blocks if condition 1 matched
+    if found_match_1:
+        playbook_prepoc_malware_1(action=action, success=success, container=container, results=results, handle=handle)
+        return
+
+    # check for 'else' condition 2
+    playbook_prepoc_phishing_1(action=action, success=success, container=container, results=results, handle=handle)
+
+    return
+
+
+@phantom.playbook_block()
+def playbook_prepoc_malware_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug("playbook_prepoc_malware_1() called")
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    # call playbook "poc1220/prePOC Malware", returns the playbook_run_id
+    playbook_run_id = phantom.playbook("poc1220/prePOC Malware", container=container, name="playbook_prepoc_malware_1", callback=playbook_prepoc_malware_1_callback)
+
+    return
+
+
+@phantom.playbook_block()
+def playbook_prepoc_malware_1_callback(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug("playbook_prepoc_malware_1_callback() called")
+
+    
+    # Downstream End block cannot be called directly, since execution will call on_finish automatically.
+    # Using placeholder callback function so child playbook is run synchronously.
+
+
+    return
+
+
+@phantom.playbook_block()
+def playbook_prepoc_phishing_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug("playbook_prepoc_phishing_1() called")
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    # call playbook "poc1220/prePOC Phishing", returns the playbook_run_id
+    playbook_run_id = phantom.playbook("poc1220/prePOC Phishing", container=container, name="playbook_prepoc_phishing_1", callback=playbook_prepoc_phishing_1_callback)
+
+    return
+
+
+@phantom.playbook_block()
+def playbook_prepoc_phishing_1_callback(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug("playbook_prepoc_phishing_1_callback() called")
+
+    
+    # Downstream End block cannot be called directly, since execution will call on_finish automatically.
+    # Using placeholder callback function so child playbook is run synchronously.
+
 
     return
 
