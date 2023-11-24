@@ -28,6 +28,7 @@ def filter_url_artifact(action=None, success=None, container=None, results=None,
             ["artifact:*.name", "==", "URL Artifact"]
         ],
         name="filter_url_artifact:condition_1",
+        scope="all",
         delimiter=None)
 
     # call connected blocks if filtered artifacts or results
@@ -43,7 +44,7 @@ def url_reputation_vt(action=None, success=None, container=None, results=None, h
 
     # phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
 
-    filtered_artifact_0_data_filter_url_artifact = phantom.collect2(container=container, datapath=["filtered-data:filter_url_artifact:condition_1:artifact:*.cef.requestURL","filtered-data:filter_url_artifact:condition_1:artifact:*.id"])
+    filtered_artifact_0_data_filter_url_artifact = phantom.collect2(container=container, datapath=["filtered-data:filter_url_artifact:condition_1:artifact:*.cef.requestURL","filtered-data:filter_url_artifact:condition_1:artifact:*.id"], scope="all")
 
     parameters = []
 

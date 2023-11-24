@@ -78,7 +78,7 @@
                     "targetPort": "2_in"
                 }
             ],
-            "hash": "34f214649e27c33ea22c0dd6363172679b9d6dd0",
+            "hash": "e65df9472eec28e348e3d185380dbf89be471db4",
             "nodes": {
                 "0": {
                     "data": {
@@ -117,7 +117,8 @@
                         "advanced": {
                             "customName": "filter url artifact",
                             "customNameId": 0,
-                            "join": []
+                            "join": [],
+                            "scope": "all"
                         },
                         "conditions": [
                             {
@@ -153,7 +154,8 @@
                         "advanced": {
                             "customName": "url reputation VT",
                             "customNameId": 0,
-                            "join": []
+                            "join": [],
+                            "scope": "all"
                         },
                         "connector": "VirusTotal v3",
                         "connectorConfigs": [
@@ -323,7 +325,7 @@
         "schema": "5.0.10",
         "version": "6.1.1.211"
     },
-    "create_time": "2023-11-24T12:04:58.620790+00:00",
+    "create_time": "2023-11-24T12:41:59.635837+00:00",
     "draft_mode": false,
     "labels": [
         "*"
