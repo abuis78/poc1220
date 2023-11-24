@@ -26,7 +26,7 @@
                     "targetPort": "3_in"
                 }
             ],
-            "hash": "07ddac2be7d43d294ad733f42e71f9474dda356d",
+            "hash": "6e199dc4e261706120c17b166530de1ac84461b7",
             "nodes": {
                 "0": {
                     "data": {
@@ -113,6 +113,7 @@
                         "functionName": "parse_indicator_from_eml",
                         "id": "3",
                         "parameters": {
+                            "container_id": "container:id",
                             "custom_remap_json": "{}",
                             "file_type": "email",
                             "parse_domains": true,
@@ -167,7 +168,7 @@
         "schema": "5.0.10",
         "version": "6.1.1.211"
     },
-    "create_time": "2023-11-24T11:36:46.359951+00:00",
+    "create_time": "2023-11-24T11:37:36.615541+00:00",
     "draft_mode": false,
     "labels": [
         "phishing inbox"

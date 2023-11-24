@@ -43,6 +43,7 @@ def parse_indicator_from_eml(action=None, success=None, container=None, results=
 
     # phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
 
+    id_value = container.get("id", None)
     filtered_artifact_0_data_filter_eml_file = phantom.collect2(container=container, datapath=["filtered-data:filter_eml_file:condition_1:artifact:*.cef.vaultId","filtered-data:filter_eml_file:condition_1:artifact:*.id"])
 
     parameters = []
@@ -57,6 +58,7 @@ def parse_indicator_from_eml(action=None, success=None, container=None, results=
             "custom_remap_json": "{}",
             "vault_id": filtered_artifact_0_item_filter_eml_file[0],
             "file_type": "email",
+            "container_id": id_value,
             "context": {'artifact_id': filtered_artifact_0_item_filter_eml_file[1]},
         })
 
