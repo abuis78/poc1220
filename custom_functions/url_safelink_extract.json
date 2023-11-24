@@ -1,0 +1,25 @@
+{
+    "create_time": "2023-11-24T12:12:54.442170+00:00",
+    "custom_function_id": "a03c6812f2334d769186fa43b4f0d5d9a9c6dae1",
+    "description": "",
+    "draft_mode": false,
+    "inputs": [
+        {
+            "contains_type": [],
+            "description": "asasd",
+            "input_type": "item",
+            "name": "protected_url",
+            "placeholder": ""
+        }
+    ],
+    "outputs": [
+        {
+            "contains_type": [],
+            "data_path": "actual_url",
+            "description": ""
+        }
+    ],
+    "outputs_type": "item",
+    "platform_version": "6.1.1.211",
+    "python_version": "3"
+}
