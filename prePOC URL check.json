@@ -12,9 +12,73 @@
                     "sourcePort": "0_out",
                     "targetNode": "2",
                     "targetPort": "2_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_2_to_port_3",
+                    "sourceNode": "2",
+                    "sourcePort": "2_out",
+                    "targetNode": "3",
+                    "targetPort": "3_in"
+                },
+                {
+                    "id": "port_3_to_port_4",
+                    "sourceNode": "3",
+                    "sourcePort": "3_out",
+                    "targetNode": "4",
+                    "targetPort": "4_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_4_to_port_5",
+                    "sourceNode": "4",
+                    "sourcePort": "4_out",
+                    "targetNode": "5",
+                    "targetPort": "5_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 1
+                        }
+                    ],
+                    "id": "port_4_to_port_6",
+                    "sourceNode": "4",
+                    "sourcePort": "4_out",
+                    "targetNode": "6",
+                    "targetPort": "6_in"
+                },
+                {
+                    "id": "port_5_to_port_8",
+                    "sourceNode": "5",
+                    "sourcePort": "5_out",
+                    "targetNode": "8",
+                    "targetPort": "8_in"
+                },
+                {
+                    "id": "port_6_to_port_8",
+                    "sourceNode": "6",
+                    "sourcePort": "6_out",
+                    "targetNode": "8",
+                    "targetPort": "8_in"
+                },
+                {
+                    "id": "port_8_to_port_1",
+                    "sourceNode": "8",
+                    "sourcePort": "8_out",
+                    "targetNode": "1",
+                    "targetPort": "1_in"
                 }
             ],
-            "hash": "40423c8cb41a9cdc04cf072a8fb5595c966f26bc",
+            "hash": "b94aba9dabb16829bda9a731422e80ed86b2c5ee",
             "nodes": {
                 "0": {
                     "data": {
@@ -45,12 +109,14 @@
                     "id": "1",
                     "type": "end",
                     "warnings": {},
-                    "x": 1000,
-                    "y": 1000
+                    "x": 1020,
+                    "y": 1440
                 },
                 "2": {
                     "data": {
                         "advanced": {
+                            "customName": "filter url artifact",
+                            "customNameId": 0,
                             "join": []
                         },
                         "conditions": [
@@ -69,7 +135,7 @@
                             }
                         ],
                         "functionId": 1,
-                        "functionName": "filter_1",
+                        "functionName": "filter_url_artifact",
                         "id": "2",
                         "type": "filter"
                     },
@@ -78,7 +144,160 @@
                     "type": "filter",
                     "warnings": {},
                     "x": 1040,
-                    "y": 644.5
+                    "y": 640
+                },
+                "3": {
+                    "data": {
+                        "action": "url reputation",
+                        "actionType": "investigate",
+                        "advanced": {
+                            "customName": "url reputation VT",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "connector": "VirusTotal v3",
+                        "connectorConfigs": [
+                            "virustotal"
+                        ],
+                        "connectorId": "3fe4875d-a4a7-47d3-9ef1-f9e63a6653a4",
+                        "connectorVersion": "v1",
+                        "functionId": 1,
+                        "functionName": "url_reputation_vt",
+                        "id": "3",
+                        "parameters": {
+                            "url": "filtered-data:filter_url_artifact:condition_1:artifact:*.cef.requestURL"
+                        },
+                        "requiredParameters": [
+                            {
+                                "data_type": "string",
+                                "field": "url"
+                            }
+                        ],
+                        "type": "action"
+                    },
+                    "errors": {},
+                    "id": "3",
+                    "type": "action",
+                    "warnings": {},
+                    "x": 980,
+                    "y": 800
+                },
+                "4": {
+                    "data": {
+                        "advanced": {
+                            "customName": "filter vt result",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "conditions": [
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 0,
+                                        "op": ">",
+                                        "param": "url_reputation_vt:action_result.summary.malicious",
+                                        "value": "0"
+                                    }
+                                ],
+                                "conditionIndex": 0,
+                                "customName": "malicious greater 0",
+                                "logic": "and"
+                            },
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 1,
+                                        "op": "==",
+                                        "param": "url_reputation_vt:action_result.summary.malicious",
+                                        "value": "0"
+                                    }
+                                ],
+                                "conditionIndex": 1,
+                                "customName": "malicious equal 0",
+                                "logic": "and"
+                            }
+                        ],
+                        "functionId": 2,
+                        "functionName": "filter_vt_result",
+                        "id": "4",
+                        "type": "filter"
+                    },
+                    "errors": {},
+                    "id": "4",
+                    "type": "filter",
+                    "warnings": {},
+                    "x": 1040,
+                    "y": 960
+                },
+                "5": {
+                    "data": {
+                        "advanced": {
+                            "customName": "Liste malicious greater 0",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "functionId": 1,
+                        "functionName": "liste_malicious_greater_0",
+                        "id": "5",
+                        "parameters": [
+                            "filtered-data:filter_vt_result:condition_1:url_reputation_vt:action_result.parameter.url"
+                        ],
+                        "template": "Das ist die Liste aller URL die einen malicious score gr\u00f6\u00dfer 0 haben:\n%%\n{0}\n%%",
+                        "type": "format"
+                    },
+                    "errors": {},
+                    "id": "5",
+                    "type": "format",
+                    "warnings": {},
+                    "x": 820,
+                    "y": 1120
+                },
+                "6": {
+                    "data": {
+                        "advanced": {
+                            "customName": "Liste malicious gleich 0",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "functionId": 2,
+                        "functionName": "liste_malicious_gleich_0",
+                        "id": "6",
+                        "parameters": [
+                            "filtered-data:filter_vt_result:condition_2:url_reputation_vt:action_result.parameter.url"
+                        ],
+                        "template": "Das ist die Liste aller URL die einen malicious score gr\u00f6\u00dfer 0 haben:\n%%\n{0}\n%%\n",
+                        "type": "format"
+                    },
+                    "errors": {},
+                    "id": "6",
+                    "type": "format",
+                    "warnings": {},
+                    "x": 1160,
+                    "y": 1120
+                },
+                "8": {
+                    "data": {
+                        "advanced": {
+                            "customName": "report",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "functionId": 4,
+                        "functionName": "report",
+                        "id": "8",
+                        "parameters": [
+                            "liste_malicious_greater_0:formatted_data",
+                            "liste_malicious_gleich_0:formatted_data"
+                        ],
+                        "template": "Das sind die Ergebnisse vom VT Check:\n\n{0}\n\n######\n{1}",
+                        "type": "format"
+                    },
+                    "errors": {},
+                    "id": "8",
+                    "type": "format",
+                    "warnings": {},
+                    "x": 1000,
+                    "y": 1300
                 }
             },
             "notes": ""
@@ -99,7 +318,7 @@
         "schema": "5.0.10",
         "version": "6.1.1.211"
     },
-    "create_time": "2023-11-24T11:49:22.950729+00:00",
+    "create_time": "2023-11-24T11:56:32.340264+00:00",
     "draft_mode": false,
     "labels": [
         "*"
