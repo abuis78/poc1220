@@ -133,7 +133,47 @@ def format_json_artifact_update(action=None, success=None, container=None, resul
 
     phantom.format(container=container, template=template, parameters=parameters, name="format_json_artifact_update")
 
-    debug_1(container=container)
+    artifact_update_3(container=container)
+
+    return
+
+
+@phantom.playbook_block()
+def artifact_update_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug("artifact_update_3() called")
+
+    filtered_artifact_0_data_filter_safelinks_url_artifacts = phantom.collect2(container=container, datapath=["filtered-data:filter_safelinks_url_artifacts:condition_1:artifact:*.id","filtered-data:filter_safelinks_url_artifacts:condition_1:artifact:*.id"])
+    format_json_artifact_update__as_list = phantom.get_format_data(name="format_json_artifact_update__as_list")
+
+    parameters = []
+
+    # build parameters list for 'artifact_update_3' call
+    for filtered_artifact_0_item_filter_safelinks_url_artifacts in filtered_artifact_0_data_filter_safelinks_url_artifacts:
+        for format_json_artifact_update__item in format_json_artifact_update__as_list:
+            parameters.append({
+                "artifact_id": filtered_artifact_0_item_filter_safelinks_url_artifacts[0],
+                "name": None,
+                "label": None,
+                "severity": None,
+                "cef_field": None,
+                "cef_value": None,
+                "cef_data_type": None,
+                "tags": None,
+                "overwrite_tags": None,
+                "input_json": format_json_artifact_update__item,
+            })
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.custom_function(custom_function="community/artifact_update", parameters=parameters, name="artifact_update_3")
 
     return
 
