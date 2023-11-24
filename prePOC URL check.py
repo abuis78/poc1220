@@ -107,11 +107,12 @@ def filter_vt_result(action=None, success=None, container=None, results=None, ha
 def liste_malicious_greater_0(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
     phantom.debug("liste_malicious_greater_0() called")
 
-    template = """Das ist die Liste aller URL die einen malicious score größer 0 haben:\n%%\n{0}\n%%"""
+    template = """Das ist die Liste aller URL die einen malicious score größer 0 haben:\n%%\n{0}\n{1}\n%%"""
 
     # parameter list for template variable replacement
     parameters = [
-        "filtered-data:filter_vt_result:condition_1:url_reputation_vt:action_result.parameter.url"
+        "filtered-data:filter_vt_result:condition_1:url_reputation_vt:action_result.parameter.url",
+        "url_reputation_vt:action_result.message"
     ]
 
     ################################################################################
@@ -135,11 +136,12 @@ def liste_malicious_greater_0(action=None, success=None, container=None, results
 def liste_malicious_gleich_0(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
     phantom.debug("liste_malicious_gleich_0() called")
 
-    template = """Das ist die Liste aller URL die einen malicious score größer 0 haben:\n%%\n{0}\n%%\n"""
+    template = """Das ist die Liste aller URL die einen malicious score größer 0 haben:\n%%\n{0}\n{1}\n%%\n"""
 
     # parameter list for template variable replacement
     parameters = [
-        "filtered-data:filter_vt_result:condition_2:url_reputation_vt:action_result.parameter.url"
+        "filtered-data:filter_vt_result:condition_2:url_reputation_vt:action_result.parameter.url",
+        "url_reputation_vt:action_result.message"
     ]
 
     ################################################################################
