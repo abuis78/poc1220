@@ -78,7 +78,7 @@
                     "targetPort": "1_in"
                 }
             ],
-            "hash": "34f214649e27c33ea22c0dd6363172679b9d6dd0",
+            "hash": "f0a75e6464dff16145627f00196c39b76062b055",
             "nodes": {
                 "0": {
                     "data": {
@@ -187,7 +187,8 @@
                         "advanced": {
                             "customName": "filter vt result",
                             "customNameId": 0,
-                            "join": []
+                            "join": [],
+                            "note": "vt result filter\n0 = nichts\n1 0 das"
                         },
                         "conditions": [
                             {
@@ -308,7 +309,9 @@
         "output_spec": [
             {
                 "contains": [],
-                "datapaths": [],
+                "datapaths": [
+                    "report:formatted_data"
+                ],
                 "deduplicate": false,
                 "description": "",
                 "metadata": {},
@@ -320,7 +323,7 @@
         "schema": "5.0.10",
         "version": "6.1.1.211"
     },
-    "create_time": "2023-11-24T11:59:44.432822+00:00",
+    "create_time": "2023-11-24T12:04:58.620790+00:00",
     "draft_mode": false,
     "labels": [
         "*"

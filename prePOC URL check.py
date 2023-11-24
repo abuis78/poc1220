@@ -203,8 +203,10 @@ def report(action=None, success=None, container=None, results=None, handle=None,
 def on_finish(container, summary):
     phantom.debug("on_finish() called")
 
+    report = phantom.get_format_data(name="report")
+
     output = {
-        "report": [],
+        "report": report,
     }
 
     ################################################################################
