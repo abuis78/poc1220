@@ -1,0 +1,184 @@
+{
+    "blockly": false,
+    "blockly_xml": "<xml></xml>",
+    "category": "Uncategorized",
+    "coa": {
+        "data": {
+            "description": "",
+            "edges": [
+                {
+                    "id": "port_3_to_port_2",
+                    "sourceNode": "3",
+                    "sourcePort": "3_out",
+                    "targetNode": "2",
+                    "targetPort": "2_in"
+                },
+                {
+                    "id": "port_0_to_port_4",
+                    "sourceNode": "0",
+                    "sourcePort": "0_out",
+                    "targetNode": "4",
+                    "targetPort": "4_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_4_to_port_3",
+                    "sourceNode": "4",
+                    "sourcePort": "4_out",
+                    "targetNode": "3",
+                    "targetPort": "3_in"
+                }
+            ],
+            "hash": "7781996f7bddd66410f51ecb0cc7dadadbcf45df",
+            "nodes": {
+                "0": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionName": "on_start",
+                        "id": "0",
+                        "type": "start"
+                    },
+                    "errors": {},
+                    "id": "0",
+                    "type": "start",
+                    "warnings": {},
+                    "x": 19.999999999999986,
+                    "y": -6.394884621840902e-14
+                },
+                "1": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionName": "on_finish",
+                        "id": "1",
+                        "type": "end"
+                    },
+                    "errors": {},
+                    "id": "1",
+                    "type": "end",
+                    "warnings": {},
+                    "x": 320,
+                    "y": -6.394884621840902e-14
+                },
+                "2": {
+                    "data": {
+                        "action": "create incidents",
+                        "actionType": "post",
+                        "advanced": {
+                            "join": []
+                        },
+                        "connector": "Mission Control",
+                        "connectorConfigs": [
+                            "builtin_mc_connector"
+                        ],
+                        "connectorId": 185,
+                        "connectorVersion": "v1",
+                        "functionId": 1,
+                        "functionName": "create_incidents_1",
+                        "id": "2",
+                        "parameters": {
+                            "incident_type": "phishing",
+                            "name": "format_icident_name:formatted_data"
+                        },
+                        "requiredParameters": [
+                            {
+                                "data_type": "string",
+                                "default": "",
+                                "field": "name"
+                            },
+                            {
+                                "data_type": "string",
+                                "default": "",
+                                "field": "incident_type"
+                            }
+                        ],
+                        "type": "missionControl"
+                    },
+                    "errors": {},
+                    "id": "2",
+                    "type": "missionControl",
+                    "warnings": {},
+                    "x": 0,
+                    "y": 476
+                },
+                "3": {
+                    "data": {
+                        "advanced": {
+                            "customName": "Format Icident name",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "functionId": 1,
+                        "functionName": "format_icident_name",
+                        "id": "3",
+                        "parameters": [
+                            "filtered-data:filter_email_artifact:condition_1:artifact:*.name"
+                        ],
+                        "template": "Phishing Incident: {0}\n",
+                        "type": "format"
+                    },
+                    "errors": {},
+                    "id": "3",
+                    "type": "format",
+                    "warnings": {},
+                    "x": 0,
+                    "y": 328
+                },
+                "4": {
+                    "data": {
+                        "advanced": {
+                            "customName": "Filter Email Artifact",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "conditions": [
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 0,
+                                        "op": "==",
+                                        "param": "artifact:*.name",
+                                        "value": "Email Artifact"
+                                    }
+                                ],
+                                "conditionIndex": 0,
+                                "customName": "Email Artifact",
+                                "logic": "and"
+                            }
+                        ],
+                        "functionId": 1,
+                        "functionName": "filter_email_artifact",
+                        "id": "4",
+                        "type": "filter"
+                    },
+                    "errors": {},
+                    "id": "4",
+                    "type": "filter",
+                    "warnings": {},
+                    "x": 180,
+                    "y": 60
+                }
+            },
+            "notes": ""
+        },
+        "input_spec": null,
+        "output_spec": null,
+        "playbook_type": "automation",
+        "python_version": "3",
+        "schema": "5.0.10",
+        "version": "6.1.1.211"
+    },
+    "create_time": "2023-11-30T15:38:12.665344+00:00",
+    "draft_mode": false,
+    "labels": [
+        "phishing_mail"
+    ],
+    "tags": []
+}
