@@ -43,7 +43,7 @@ def create_incidents_1(action=None, success=None, container=None, results=None, 
     ## Custom Code End
     ################################################################################
 
-    phantom.act("create incidents", parameters=parameters, name="create_incidents_1", assets=["builtin_mc_connector"])
+    phantom.act("create incidents", parameters=parameters, name="create_incidents_1", assets=["builtin_mc_connector"], callback=artifact_create_1)
 
     return
 
@@ -92,6 +92,45 @@ def filter_email_artifact(action=None, success=None, container=None, results=Non
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_1 or matched_results_1:
         format_icident_name(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+
+    return
+
+
+@phantom.playbook_block()
+def artifact_create_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug("artifact_create_1() called")
+
+    id_value = container.get("id", None)
+    create_incidents_1_result_data = phantom.collect2(container=container, datapath=["create_incidents_1:action_result.data.*.id","create_incidents_1:action_result.parameter.context.artifact_id","create_incidents_1:action_result.parameter.context.artifact_external_id"], action_results=results)
+
+    parameters = []
+
+    # build parameters list for 'artifact_create_1' call
+    for create_incidents_1_result_item in create_incidents_1_result_data:
+        parameters.append({
+            "container": id_value,
+            "name": "mc_id",
+            "label": None,
+            "severity": "Low",
+            "cef_field": "id",
+            "cef_value": create_incidents_1_result_item[0],
+            "cef_data_type": None,
+            "tags": None,
+            "run_automation": None,
+            "input_json": None,
+        })
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.custom_function(custom_function="community/artifact_create", parameters=parameters, name="artifact_create_1")
 
     return
 
