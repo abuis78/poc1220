@@ -40,7 +40,7 @@
                     "targetPort": "6_in"
                 }
             ],
-            "hash": "7fe2f1df6f74bb3a6bf712244877b00d5e595420",
+            "hash": "4aefecbf1c6754f54de7ea8cedb189893e8659d7",
             "nodes": {
                 "0": {
                     "data": {
@@ -126,7 +126,7 @@
                         "functionName": "format_icident_name",
                         "id": "3",
                         "parameters": [
-                            "filtered-data:filter_email_artifact:condition_1:artifact:*.name"
+                            "container:name"
                         ],
                         "template": "Phishing Incident: {0}\n",
                         "type": "format"
@@ -136,7 +136,7 @@
                     "type": "format",
                     "warnings": {},
                     "x": 0,
-                    "y": 328
+                    "y": 320
                 },
                 "4": {
                     "data": {
@@ -335,7 +335,7 @@
         "schema": "5.0.10",
         "version": "6.1.1.211"
     },
-    "create_time": "2023-11-30T15:49:37.050772+00:00",
+    "create_time": "2023-11-30T15:53:58.172661+00:00",
     "draft_mode": false,
     "labels": [
         "phishing_mail"

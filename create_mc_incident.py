@@ -56,7 +56,7 @@ def format_icident_name(action=None, success=None, container=None, results=None,
 
     # parameter list for template variable replacement
     parameters = [
-        "filtered-data:filter_email_artifact:condition_1:artifact:*.name"
+        "container:name"
     ]
 
     ################################################################################
