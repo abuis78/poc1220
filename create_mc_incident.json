@@ -163,7 +163,7 @@
                     "type": "filter",
                     "warnings": {},
                     "x": 180,
-                    "y": 60
+                    "y": 140
                 }
             },
             "notes": ""
@@ -175,7 +175,7 @@
         "schema": "5.0.10",
         "version": "6.1.1.211"
     },
-    "create_time": "2023-11-30T15:38:12.665344+00:00",
+    "create_time": "2023-11-30T15:40:29.482392+00:00",
     "draft_mode": false,
     "labels": [
         "phishing_mail"
