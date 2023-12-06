@@ -24,7 +24,9 @@ def select_email_vault(action=None, success=None, container=None, results=None, 
     # collect filtered artifact ids and results for 'if' condition 1
     matched_artifacts_1, matched_results_1 = phantom.condition(
         container=container,
+        logical_operator="and",
         conditions=[
+            ["artifact:*.name", "==", "Email Artifact"],
             ["reported_mail", "in", "artifact:*.tags"]
         ],
         name="select_email_vault:condition_1",
@@ -59,7 +61,7 @@ def extract_ioc_1(action=None, success=None, container=None, results=None, handl
             "vault_id": "",
             "file_type": "html",
             "label": "",
-            "artifact_tags": "reporting_mail",
+            "artifact_tags": "reported_mail",
             "container_id": id_value,
             "text": filtered_artifact_0_item_select_email_vault[0],
             "context": {'artifact_id': filtered_artifact_0_item_select_email_vault[1], 'artifact_external_id': filtered_artifact_0_item_select_email_vault[2]},
