@@ -51,7 +51,7 @@ def extract_ioc_1(action=None, success=None, container=None, results=None, handl
         "run_automation": True,
         "remap_cef_fields": "Do not apply CEF -> CIM remapping, only apply custom remap",
         "custom_remap_json": "{}",
-        "container_id": 64,
+        "container_id": 24,
     })
 
     ################################################################################
