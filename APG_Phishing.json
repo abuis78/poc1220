@@ -26,7 +26,7 @@
                     "targetPort": "3_in"
                 }
             ],
-            "hash": "efec143e9b1e82328f2baca48a56053665b43bea",
+            "hash": "045dc709b8b473c59833ee6991fbc042280b8c44",
             "nodes": {
                 "0": {
                     "data": {
@@ -41,8 +41,8 @@
                     "id": "0",
                     "type": "start",
                     "warnings": {},
-                    "x": 980,
-                    "y": 400
+                    "x": 20,
+                    "y": 0
                 },
                 "1": {
                     "data": {
@@ -57,8 +57,8 @@
                     "id": "1",
                     "type": "end",
                     "warnings": {},
-                    "x": 1000,
-                    "y": 1000
+                    "x": 320,
+                    "y": 0
                 },
                 "2": {
                     "data": {
@@ -73,8 +73,8 @@
                                     {
                                         "conditionIndex": 0,
                                         "op": "==",
-                                        "param": "artifact:*.name",
-                                        "value": "Vault Artifact"
+                                        "param": "reported_mail",
+                                        "value": "artifact:*.tags"
                                     }
                                 ],
                                 "conditionIndex": 0,
@@ -91,8 +91,8 @@
                     "id": "2",
                     "type": "filter",
                     "warnings": {},
-                    "x": 1020,
-                    "y": 520
+                    "x": 60,
+                    "y": 148
                 },
                 "3": {
                     "data": {
@@ -123,13 +123,14 @@
                             "artifact_tags": "reporting_mail",
                             "container_id": "container:id",
                             "custom_remap_json": "{}",
-                            "file_type": "email",
+                            "file_type": "",
                             "label": "",
                             "parse_domains": false,
                             "remap_cef_fields": "Do not apply CEF -> CIM remapping, only apply custom remap",
                             "run_automation": false,
                             "severity": "medium",
-                            "vault_id": "filtered-data:select_email_vault:condition_1:artifact:*.cef.vaultId"
+                            "text": "filtered-data:select_email_vault:condition_1:artifact:*.cef.bodyHtml",
+                            "vault_id": ""
                         },
                         "requiredParameters": [
                             {
@@ -169,8 +170,8 @@
                             "Reconfigure invalid datapath."
                         ]
                     },
-                    "x": 720,
-                    "y": 700
+                    "x": 0,
+                    "y": 328
                 }
             },
             "notes": ""
@@ -182,7 +183,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-06T14:10:27.439805+00:00",
+    "create_time": "2023-12-06T14:36:59.200648+00:00",
     "draft_mode": false,
     "labels": [
         "phishing_mail"

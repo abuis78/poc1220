@@ -25,7 +25,7 @@ def select_email_vault(action=None, success=None, container=None, results=None, 
     matched_artifacts_1, matched_results_1 = phantom.condition(
         container=container,
         conditions=[
-            ["artifact:*.name", "==", "Vault Artifact"]
+            ["reported_mail", "==", "artifact:*.tags"]
         ],
         name="select_email_vault:condition_1",
         delimiter=None)
@@ -44,7 +44,7 @@ def extract_ioc_1(action=None, success=None, container=None, results=None, handl
     # phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
 
     id_value = container.get("id", None)
-    filtered_artifact_0_data_select_email_vault = phantom.collect2(container=container, datapath=["filtered-data:select_email_vault:condition_1:artifact:*.cef.vaultId","filtered-data:select_email_vault:condition_1:artifact:*.id","filtered-data:select_email_vault:condition_1:artifact:*.external_id"])
+    filtered_artifact_0_data_select_email_vault = phantom.collect2(container=container, datapath=["filtered-data:select_email_vault:condition_1:artifact:*.cef.bodyHtml","filtered-data:select_email_vault:condition_1:artifact:*.id","filtered-data:select_email_vault:condition_1:artifact:*.external_id"])
 
     parameters = []
 
@@ -56,11 +56,12 @@ def extract_ioc_1(action=None, success=None, container=None, results=None, handl
             "run_automation": False,
             "remap_cef_fields": "Do not apply CEF -> CIM remapping, only apply custom remap",
             "custom_remap_json": "{}",
-            "vault_id": filtered_artifact_0_item_select_email_vault[0],
-            "file_type": "email",
+            "vault_id": "",
+            "file_type": "",
             "label": "",
             "artifact_tags": "reporting_mail",
             "container_id": id_value,
+            "text": filtered_artifact_0_item_select_email_vault[0],
             "context": {'artifact_id': filtered_artifact_0_item_select_email_vault[1], 'artifact_external_id': filtered_artifact_0_item_select_email_vault[2]},
         })
 
