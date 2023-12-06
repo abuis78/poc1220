@@ -12,14 +12,14 @@ from datetime import datetime, timedelta
 def on_start(container):
     phantom.debug('on_start() called')
 
-    # call 'filter_1' block
-    filter_1(container=container)
+    # call 'select_email_vault' block
+    select_email_vault(container=container)
 
     return
 
 @phantom.playbook_block()
-def filter_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("filter_1() called")
+def select_email_vault(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("select_email_vault() called")
 
     # collect filtered artifact ids and results for 'if' condition 1
     matched_artifacts_1, matched_results_1 = phantom.condition(
@@ -27,32 +27,23 @@ def filter_1(action=None, success=None, container=None, results=None, handle=Non
         conditions=[
             ["reported_mail", "in", "artifact:*.tags"]
         ],
-        name="filter_1:condition_1",
+        name="select_email_vault:condition_1",
         delimiter=None)
 
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_1 or matched_results_1:
-        extract_ioc_1(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+        action_3(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
     return
 
 
 @phantom.playbook_block()
-def extract_ioc_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("extract_ioc_1() called")
+def action_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("action_3() called")
 
     # phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
 
     parameters = []
-
-    parameters.append({
-        "severity": "medium",
-        "parse_domains": True,
-        "run_automation": True,
-        "remap_cef_fields": "Do not apply CEF -> CIM remapping, only apply custom remap",
-        "custom_remap_json": "{}",
-        "container_id": 24,
-    })
 
     ################################################################################
     ## Custom Code Start
@@ -64,7 +55,7 @@ def extract_ioc_1(action=None, success=None, container=None, results=None, handl
     ## Custom Code End
     ################################################################################
 
-    phantom.act("extract ioc", parameters=parameters, name="extract_ioc_1", assets=["parser"])
+    phantom.act("null", parameters=parameters, name="action_3")
 
     return
 
