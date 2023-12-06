@@ -26,7 +26,7 @@
                     "targetPort": "3_in"
                 }
             ],
-            "hash": "b74db78c2278f7a33d1b38d0470304a8a0964c9b",
+            "hash": "ae631665ef7a89a71a58f3ff2149fb88f375c1cd",
             "nodes": {
                 "0": {
                     "data": {
@@ -123,7 +123,7 @@
                             "artifact_tags": "reporting_mail",
                             "container_id": "container:id",
                             "custom_remap_json": "{}",
-                            "file_type": "",
+                            "file_type": "html",
                             "label": "",
                             "parse_domains": false,
                             "remap_cef_fields": "Do not apply CEF -> CIM remapping, only apply custom remap",
@@ -183,7 +183,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-06T14:37:26.702837+00:00",
+    "create_time": "2023-12-06T14:37:59.516738+00:00",
     "draft_mode": false,
     "labels": [
         "phishing_mail"
