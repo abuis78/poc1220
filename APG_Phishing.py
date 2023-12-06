@@ -44,7 +44,7 @@ def extract_ioc_1(action=None, success=None, container=None, results=None, handl
     # phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
 
     id_value = container.get("id", None)
-    filtered_artifact_0_data_select_email_vault = phantom.collect2(container=container, datapath=["filtered-data:select_email_vault:condition_1:artifact:*.artifact:*.cef.vaultId","filtered-data:select_email_vault:condition_1:artifact:*.id","filtered-data:select_email_vault:condition_1:artifact:*.external_id"])
+    filtered_artifact_0_data_select_email_vault = phantom.collect2(container=container, datapath=["filtered-data:select_email_vault:condition_1:artifact:*.cef.vaultId","filtered-data:select_email_vault:condition_1:artifact:*.id","filtered-data:select_email_vault:condition_1:artifact:*.external_id"])
 
     parameters = []
 

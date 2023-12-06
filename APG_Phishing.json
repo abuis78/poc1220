@@ -26,7 +26,7 @@
                     "targetPort": "3_in"
                 }
             ],
-            "hash": "e66368169554141cc23014353f97cfb50c00d26b",
+            "hash": "efec143e9b1e82328f2baca48a56053665b43bea",
             "nodes": {
                 "0": {
                     "data": {
@@ -129,7 +129,7 @@
                             "remap_cef_fields": "Do not apply CEF -> CIM remapping, only apply custom remap",
                             "run_automation": false,
                             "severity": "medium",
-                            "vault_id": "filtered-data:select_email_vault:condition_1:artifact:*.artifact:*.cef.vaultId"
+                            "vault_id": "filtered-data:select_email_vault:condition_1:artifact:*.cef.vaultId"
                         },
                         "requiredParameters": [
                             {
@@ -182,7 +182,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-06T14:09:15.192897+00:00",
+    "create_time": "2023-12-06T14:10:27.439805+00:00",
     "draft_mode": false,
     "labels": [
         "phishing_mail"
