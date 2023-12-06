@@ -25,7 +25,7 @@ def filter_1(action=None, success=None, container=None, results=None, handle=Non
     matched_artifacts_1, matched_results_1 = phantom.condition(
         container=container,
         conditions=[
-            ["artifact:*.tags", "==", "reported_mail"]
+            ["reported_mail", "in", "artifact:*.tags"]
         ],
         name="filter_1:condition_1",
         delimiter=None)

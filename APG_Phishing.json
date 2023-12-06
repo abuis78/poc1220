@@ -26,7 +26,7 @@
                     "targetPort": "3_in"
                 }
             ],
-            "hash": "2cf09fe440c43dd91b44fd9081517ce7d1b4ba3d",
+            "hash": "868577cab3b353ce7b9d9a3e7eba1dfa0be7a28b",
             "nodes": {
                 "0": {
                     "data": {
@@ -70,9 +70,9 @@
                                 "comparisons": [
                                     {
                                         "conditionIndex": 0,
-                                        "op": "==",
-                                        "param": "artifact:*.tags",
-                                        "value": "reported_mail"
+                                        "op": "in",
+                                        "param": "reported_mail",
+                                        "value": "artifact:*.tags"
                                     }
                                 ],
                                 "conditionIndex": 0,
@@ -171,7 +171,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-06T13:32:25.751852+00:00",
+    "create_time": "2023-12-06T13:33:12.732953+00:00",
     "draft_mode": false,
     "labels": [
         "phishing_mail"
