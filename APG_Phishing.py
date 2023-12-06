@@ -25,7 +25,7 @@ def select_email_vault(action=None, success=None, container=None, results=None, 
     matched_artifacts_1, matched_results_1 = phantom.condition(
         container=container,
         conditions=[
-            ["reported_mail", "==", "artifact:*.tags"]
+            ["reported_mail", "in", "artifact:*.tags"]
         ],
         name="select_email_vault:condition_1",
         delimiter=None)
