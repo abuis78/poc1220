@@ -26,7 +26,7 @@
                     "targetPort": "3_in"
                 }
             ],
-            "hash": "017eebddefb5948b39709dab612e607a5d79f669",
+            "hash": "e66368169554141cc23014353f97cfb50c00d26b",
             "nodes": {
                 "0": {
                     "data": {
@@ -72,9 +72,9 @@
                                 "comparisons": [
                                     {
                                         "conditionIndex": 0,
-                                        "op": "in",
-                                        "param": "reported_mail",
-                                        "value": "artifact:*.tags"
+                                        "op": "==",
+                                        "param": "artifact:*.name",
+                                        "value": "Vault Artifact"
                                     }
                                 ],
                                 "conditionIndex": 0,
@@ -96,17 +96,19 @@
                 },
                 "3": {
                     "data": {
-                        "action": null,
-                        "actionType": null,
+                        "action": "extract ioc",
+                        "actionType": "generic",
                         "advanced": {
                             "join": []
                         },
-                        "connector": null,
-                        "connectorConfigs": [],
-                        "connectorId": null,
-                        "connectorVersion": null,
-                        "functionId": 3,
-                        "functionName": "action_3",
+                        "connector": "Parser",
+                        "connectorConfigs": [
+                            "parser"
+                        ],
+                        "connectorId": "4004f489-1826-44a1-af12-9c74eea82eb0",
+                        "connectorVersion": "v1",
+                        "functionId": 1,
+                        "functionName": "extract_ioc_1",
                         "id": "3",
                         "loop": {
                             "enabled": false,
@@ -117,17 +119,58 @@
                             "pauseUnit": "m",
                             "pauseValue": 2
                         },
-                        "parameters": {},
-                        "requiredParameters": [],
-                        "tab": "byAction",
+                        "parameters": {
+                            "artifact_tags": "reporting_mail",
+                            "container_id": "container:id",
+                            "custom_remap_json": "{}",
+                            "file_type": "email",
+                            "label": "",
+                            "parse_domains": false,
+                            "remap_cef_fields": "Do not apply CEF -> CIM remapping, only apply custom remap",
+                            "run_automation": false,
+                            "severity": "medium",
+                            "vault_id": "filtered-data:select_email_vault:condition_1:artifact:*.artifact:*.cef.vaultId"
+                        },
+                        "requiredParameters": [
+                            {
+                                "data_type": "string",
+                                "default": "medium",
+                                "field": "severity"
+                            },
+                            {
+                                "data_type": "boolean",
+                                "default": true,
+                                "field": "parse_domains"
+                            },
+                            {
+                                "data_type": "boolean",
+                                "default": true,
+                                "field": "run_automation"
+                            },
+                            {
+                                "data_type": "string",
+                                "default": "Do not apply CEF -> CIM remapping, only apply custom remap",
+                                "field": "remap_cef_fields"
+                            },
+                            {
+                                "data_type": "string",
+                                "default": "{}",
+                                "field": "custom_remap_json"
+                            }
+                        ],
+                        "tab": "byConnector",
                         "type": "action"
                     },
                     "errors": {},
                     "id": "3",
                     "type": "action",
-                    "warnings": {},
-                    "x": 760,
-                    "y": 680
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
+                    "x": 720,
+                    "y": 700
                 }
             },
             "notes": ""
@@ -139,7 +182,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-06T14:00:15.996368+00:00",
+    "create_time": "2023-12-06T14:09:15.192897+00:00",
     "draft_mode": false,
     "labels": [
         "phishing_mail"

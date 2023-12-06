@@ -25,25 +25,44 @@ def select_email_vault(action=None, success=None, container=None, results=None, 
     matched_artifacts_1, matched_results_1 = phantom.condition(
         container=container,
         conditions=[
-            ["reported_mail", "in", "artifact:*.tags"]
+            ["artifact:*.name", "==", "Vault Artifact"]
         ],
         name="select_email_vault:condition_1",
         delimiter=None)
 
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_1 or matched_results_1:
-        action_3(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+        extract_ioc_1(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
     return
 
 
 @phantom.playbook_block()
-def action_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("action_3() called")
+def extract_ioc_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("extract_ioc_1() called")
 
     # phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
 
+    id_value = container.get("id", None)
+    filtered_artifact_0_data_select_email_vault = phantom.collect2(container=container, datapath=["filtered-data:select_email_vault:condition_1:artifact:*.artifact:*.cef.vaultId","filtered-data:select_email_vault:condition_1:artifact:*.id","filtered-data:select_email_vault:condition_1:artifact:*.external_id"])
+
     parameters = []
+
+    # build parameters list for 'extract_ioc_1' call
+    for filtered_artifact_0_item_select_email_vault in filtered_artifact_0_data_select_email_vault:
+        parameters.append({
+            "severity": "medium",
+            "parse_domains": False,
+            "run_automation": False,
+            "remap_cef_fields": "Do not apply CEF -> CIM remapping, only apply custom remap",
+            "custom_remap_json": "{}",
+            "vault_id": filtered_artifact_0_item_select_email_vault[0],
+            "file_type": "email",
+            "label": "",
+            "artifact_tags": "reporting_mail",
+            "container_id": id_value,
+            "context": {'artifact_id': filtered_artifact_0_item_select_email_vault[1], 'artifact_external_id': filtered_artifact_0_item_select_email_vault[2]},
+        })
 
     ################################################################################
     ## Custom Code Start
@@ -55,7 +74,7 @@ def action_3(action=None, success=None, container=None, results=None, handle=Non
     ## Custom Code End
     ################################################################################
 
-    phantom.act("null", parameters=parameters, name="action_3")
+    phantom.act("extract ioc", parameters=parameters, name="extract_ioc_1", assets=["parser"])
 
     return
 
