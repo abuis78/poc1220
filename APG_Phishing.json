@@ -26,7 +26,7 @@
                     "targetPort": "3_in"
                 }
             ],
-            "hash": "7616e7ab304f39aafd8655f7a50081bf0eab0f94",
+            "hash": "cd3c49a7d879df39e36489add771cf5f6989313b",
             "nodes": {
                 "0": {
                     "data": {
@@ -118,6 +118,7 @@
                             "pauseValue": 2
                         },
                         "parameters": {
+                            "container_id": "64",
                             "custom_remap_json": "{}",
                             "parse_domains": true,
                             "remap_cef_fields": "Do not apply CEF -> CIM remapping, only apply custom remap",
@@ -170,7 +171,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-06T13:30:45.236975+00:00",
+    "create_time": "2023-12-06T13:31:20.140163+00:00",
     "draft_mode": false,
     "labels": [
         "phishing_mail"
