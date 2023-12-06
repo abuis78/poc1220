@@ -5,8 +5,28 @@
     "coa": {
         "data": {
             "description": "",
-            "edges": [],
-            "hash": "34f214649e27c33ea22c0dd6363172679b9d6dd0",
+            "edges": [
+                {
+                    "id": "port_0_to_port_2",
+                    "sourceNode": "0",
+                    "sourcePort": "0_out",
+                    "targetNode": "2",
+                    "targetPort": "2_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_2_to_port_3",
+                    "sourceNode": "2",
+                    "sourcePort": "2_out",
+                    "targetNode": "3",
+                    "targetPort": "3_in"
+                }
+            ],
+            "hash": "7616e7ab304f39aafd8655f7a50081bf0eab0f94",
             "nodes": {
                 "0": {
                     "data": {
@@ -21,8 +41,8 @@
                     "id": "0",
                     "type": "start",
                     "warnings": {},
-                    "x": 1000,
-                    "y": 419.9999999999999
+                    "x": 980,
+                    "y": 400
                 },
                 "1": {
                     "data": {
@@ -39,6 +59,106 @@
                     "warnings": {},
                     "x": 1000,
                     "y": 1000
+                },
+                "2": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "conditions": [
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 0,
+                                        "op": "==",
+                                        "param": "artifact:*.tags",
+                                        "value": "reported_mail"
+                                    }
+                                ],
+                                "conditionIndex": 0,
+                                "customName": "Select reported mail",
+                                "logic": "and"
+                            }
+                        ],
+                        "functionId": 1,
+                        "functionName": "filter_1",
+                        "id": "2",
+                        "type": "filter"
+                    },
+                    "errors": {},
+                    "id": "2",
+                    "type": "filter",
+                    "warnings": {},
+                    "x": 1020,
+                    "y": 520
+                },
+                "3": {
+                    "data": {
+                        "action": "extract ioc",
+                        "actionType": "generic",
+                        "advanced": {
+                            "join": []
+                        },
+                        "connector": "Parser",
+                        "connectorConfigs": [
+                            "parser"
+                        ],
+                        "connectorId": "4004f489-1826-44a1-af12-9c74eea82eb0",
+                        "connectorVersion": "v1",
+                        "functionId": 1,
+                        "functionName": "extract_ioc_1",
+                        "id": "3",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "parameters": {
+                            "custom_remap_json": "{}",
+                            "parse_domains": true,
+                            "remap_cef_fields": "Do not apply CEF -> CIM remapping, only apply custom remap",
+                            "run_automation": true,
+                            "severity": "medium"
+                        },
+                        "requiredParameters": [
+                            {
+                                "data_type": "string",
+                                "default": "medium",
+                                "field": "severity"
+                            },
+                            {
+                                "data_type": "boolean",
+                                "default": true,
+                                "field": "parse_domains"
+                            },
+                            {
+                                "data_type": "boolean",
+                                "default": true,
+                                "field": "run_automation"
+                            },
+                            {
+                                "data_type": "string",
+                                "default": "Do not apply CEF -> CIM remapping, only apply custom remap",
+                                "field": "remap_cef_fields"
+                            },
+                            {
+                                "data_type": "string",
+                                "default": "{}",
+                                "field": "custom_remap_json"
+                            }
+                        ],
+                        "type": "action"
+                    },
+                    "errors": {},
+                    "id": "3",
+                    "type": "action",
+                    "warnings": {},
+                    "x": 760,
+                    "y": 680
                 }
             },
             "notes": ""
@@ -50,7 +170,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-06T13:24:05.466628+00:00",
+    "create_time": "2023-12-06T13:30:45.236975+00:00",
     "draft_mode": false,
     "labels": [
         "phishing_mail"
