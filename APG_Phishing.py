@@ -12,14 +12,14 @@ from datetime import datetime, timedelta
 def on_start(container):
     phantom.debug('on_start() called')
 
-    # call 'select_reported_mail' block
-    select_reported_mail(container=container)
+    # call 'select_reported_info' block
+    select_reported_info(container=container)
 
     return
 
 @phantom.playbook_block()
-def select_reported_mail(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("select_reported_mail() called")
+def select_reported_info(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("select_reported_info() called")
 
     # collect filtered artifact ids and results for 'if' condition 1
     matched_artifacts_1, matched_results_1 = phantom.condition(
@@ -27,7 +27,7 @@ def select_reported_mail(action=None, success=None, container=None, results=None
         conditions=[
             ["artifact:*.name", "==", "Vault Artifact"]
         ],
-        name="select_reported_mail:condition_1",
+        name="select_reported_info:condition_1",
         delimiter=None)
 
     # call connected blocks if filtered artifacts or results
@@ -40,11 +40,26 @@ def select_reported_mail(action=None, success=None, container=None, results=None
         conditions=[
             [".eml", "in", "artifact:*.cef.fileName"]
         ],
-        name="select_reported_mail:condition_2",
+        name="select_reported_info:condition_2",
         delimiter=None)
 
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_2 or matched_results_2:
+        pass
+
+    # collect filtered artifact ids and results for 'if' condition 3
+    matched_artifacts_3, matched_results_3 = phantom.condition(
+        container=container,
+        logical_operator="and",
+        conditions=[
+            ["artifact:*.name", "==", "Vault Artifact"],
+            [".json", "in", "artifact:*.cef.fileName"]
+        ],
+        name="select_reported_info:condition_3",
+        delimiter=None)
+
+    # call connected blocks if filtered artifacts or results
+    if matched_artifacts_3 or matched_results_3:
         pass
 
     return
@@ -57,17 +72,17 @@ def extract_ioc_1(action=None, success=None, container=None, results=None, handl
     # phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
 
     id_value = container.get("id", None)
-    filtered_artifact_0_data_select_reported_mail = phantom.collect2(container=container, datapath=["filtered-data:select_reported_mail:condition_1:artifact:*.cef.vaultId","filtered-data:select_reported_mail:condition_1:artifact:*.id","filtered-data:select_reported_mail:condition_1:artifact:*.external_id"])
+    filtered_artifact_0_data_select_reported_info = phantom.collect2(container=container, datapath=["filtered-data:select_reported_info:condition_1:artifact:*.cef.vaultId","filtered-data:select_reported_info:condition_1:artifact:*.id","filtered-data:select_reported_info:condition_1:artifact:*.external_id"])
 
     parameters = []
 
     # build parameters list for 'extract_ioc_1' call
-    for filtered_artifact_0_item_select_reported_mail in filtered_artifact_0_data_select_reported_mail:
+    for filtered_artifact_0_item_select_reported_info in filtered_artifact_0_data_select_reported_info:
         parameters.append({
             "text": "",
             "label": "",
             "severity": "medium",
-            "vault_id": filtered_artifact_0_item_select_reported_mail[0],
+            "vault_id": filtered_artifact_0_item_select_reported_info[0],
             "file_type": "email",
             "container_id": id_value,
             "artifact_tags": "reported_mail",
@@ -75,7 +90,7 @@ def extract_ioc_1(action=None, success=None, container=None, results=None, handl
             "run_automation": False,
             "remap_cef_fields": "Do not apply CEF -> CIM remapping, only apply custom remap",
             "custom_remap_json": "{}",
-            "context": {'artifact_id': filtered_artifact_0_item_select_reported_mail[1], 'artifact_external_id': filtered_artifact_0_item_select_reported_mail[2]},
+            "context": {'artifact_id': filtered_artifact_0_item_select_reported_info[1], 'artifact_external_id': filtered_artifact_0_item_select_reported_info[2]},
         })
 
     ################################################################################
