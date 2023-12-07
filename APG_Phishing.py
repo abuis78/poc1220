@@ -12,24 +12,22 @@ from datetime import datetime, timedelta
 def on_start(container):
     phantom.debug('on_start() called')
 
-    # call 'select_email_vault' block
-    select_email_vault(container=container)
+    # call 'select_reported_mail' block
+    select_reported_mail(container=container)
 
     return
 
 @phantom.playbook_block()
-def select_email_vault(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("select_email_vault() called")
+def select_reported_mail(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("select_reported_mail() called")
 
     # collect filtered artifact ids and results for 'if' condition 1
     matched_artifacts_1, matched_results_1 = phantom.condition(
         container=container,
-        logical_operator="and",
         conditions=[
-            ["artifact:*.name", "==", "Email Artifact"],
             ["reported_mail", "in", "artifact:*.tags"]
         ],
-        name="select_email_vault:condition_1",
+        name="select_reported_mail:condition_1",
         delimiter=None)
 
     # call connected blocks if filtered artifacts or results
@@ -46,12 +44,12 @@ def extract_ioc_1(action=None, success=None, container=None, results=None, handl
     # phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
 
     id_value = container.get("id", None)
-    filtered_artifact_0_data_select_email_vault = phantom.collect2(container=container, datapath=["filtered-data:select_email_vault:condition_1:artifact:*.cef.bodyHtml","filtered-data:select_email_vault:condition_1:artifact:*.id","filtered-data:select_email_vault:condition_1:artifact:*.external_id"])
+    filtered_artifact_0_data_select_reported_mail = phantom.collect2(container=container, datapath=["filtered-data:select_reported_mail:condition_1:artifact:*.cef.bodyHtml","filtered-data:select_reported_mail:condition_1:artifact:*.id","filtered-data:select_reported_mail:condition_1:artifact:*.external_id"])
 
     parameters = []
 
     # build parameters list for 'extract_ioc_1' call
-    for filtered_artifact_0_item_select_email_vault in filtered_artifact_0_data_select_email_vault:
+    for filtered_artifact_0_item_select_reported_mail in filtered_artifact_0_data_select_reported_mail:
         parameters.append({
             "severity": "medium",
             "parse_domains": False,
@@ -63,8 +61,8 @@ def extract_ioc_1(action=None, success=None, container=None, results=None, handl
             "label": "",
             "artifact_tags": "reported_mail",
             "container_id": id_value,
-            "text": filtered_artifact_0_item_select_email_vault[0],
-            "context": {'artifact_id': filtered_artifact_0_item_select_email_vault[1], 'artifact_external_id': filtered_artifact_0_item_select_email_vault[2]},
+            "text": filtered_artifact_0_item_select_reported_mail[0],
+            "context": {'artifact_id': filtered_artifact_0_item_select_reported_mail[1], 'artifact_external_id': filtered_artifact_0_item_select_reported_mail[2]},
         })
 
     ################################################################################
