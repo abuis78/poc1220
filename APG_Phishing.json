@@ -31,9 +31,21 @@
                     "sourcePort": "3_out",
                     "targetNode": "5",
                     "targetPort": "5_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 1
+                        }
+                    ],
+                    "id": "port_2_to_port_6",
+                    "sourceNode": "2",
+                    "sourcePort": "2_out",
+                    "targetNode": "6",
+                    "targetPort": "6_in"
                 }
             ],
-            "hash": "caa2368bdabf3caf00806f012860a4707441e903",
+            "hash": "3b32123b60c1b3e98fdcb8a0bb6054844e3e9fc7",
             "nodes": {
                 "0": {
                     "data": {
@@ -98,16 +110,19 @@
                                     }
                                 ],
                                 "conditionIndex": 1,
+                                "customName": "Select KB4 User Comment",
                                 "logic": "and"
                             },
                             {
                                 "comparisons": [
                                     {
+                                        "conditionIndex": 2,
                                         "op": "==",
                                         "param": "artifact:*.name",
                                         "value": "Vault Artifact"
                                     },
                                     {
+                                        "conditionIndex": 2,
                                         "op": "in",
                                         "param": ".json",
                                         "value": "artifact:*.cef.fileName"
@@ -239,6 +254,32 @@
                     "warnings": {},
                     "x": 0,
                     "y": 420
+                },
+                "6": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionId": 1,
+                        "functionName": "call_api_1",
+                        "id": "6",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "type": "utility"
+                    },
+                    "errors": {},
+                    "id": "6",
+                    "type": "utility",
+                    "warnings": {},
+                    "x": 460,
+                    "y": 264.5
                 }
             },
             "notes": ""
@@ -250,7 +291,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-07T13:56:13.189545+00:00",
+    "create_time": "2023-12-07T14:15:12.249587+00:00",
     "draft_mode": false,
     "labels": [
         "phishing_mail"
