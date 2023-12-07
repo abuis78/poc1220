@@ -77,7 +77,29 @@ def extract_ioc_1(action=None, success=None, container=None, results=None, handl
     ## Custom Code End
     ################################################################################
 
-    phantom.act("extract ioc", parameters=parameters, name="extract_ioc_1", assets=["parser"])
+    phantom.act("extract ioc", parameters=parameters, name="extract_ioc_1", assets=["parser"], callback=playbook_prepoc_url_sanitize_1)
+
+    return
+
+
+@phantom.playbook_block()
+def playbook_prepoc_url_sanitize_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("playbook_prepoc_url_sanitize_1() called")
+
+    inputs = {}
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    # call playbook "poc1220/prePoc URL sanitize", returns the playbook_run_id
+    playbook_run_id = phantom.playbook("poc1220/prePoc URL sanitize", container=container, inputs=inputs)
 
     return
 

@@ -24,9 +24,16 @@
                     "sourcePort": "2_out",
                     "targetNode": "3",
                     "targetPort": "3_in"
+                },
+                {
+                    "id": "port_3_to_port_5",
+                    "sourceNode": "3",
+                    "sourcePort": "3_out",
+                    "targetNode": "5",
+                    "targetPort": "5_in"
                 }
             ],
-            "hash": "887d2a3dda20e19e986dfa6c3d9be2371f1d8c1a",
+            "hash": "e3c12881f1bd3e1337abfd8f4887975707ffbd02",
             "nodes": {
                 "0": {
                     "data": {
@@ -41,8 +48,8 @@
                     "id": "0",
                     "type": "start",
                     "warnings": {},
-                    "x": 20,
-                    "y": 0
+                    "x": 19.999999999999986,
+                    "y": -3.197442310920451e-14
                 },
                 "1": {
                     "data": {
@@ -58,7 +65,7 @@
                     "type": "end",
                     "warnings": {},
                     "x": 320,
-                    "y": 0
+                    "y": -3.197442310920451e-14
                 },
                 "2": {
                     "data": {
@@ -177,7 +184,39 @@
                         ]
                     },
                     "x": 0,
-                    "y": 328
+                    "y": 300
+                },
+                "5": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionId": 1,
+                        "functionName": "playbook_prePoc_URL_sanitize_1",
+                        "id": "5",
+                        "inputs": {},
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "playbookName": "prePoc URL sanitize",
+                        "playbookRepo": 3,
+                        "playbookRepoName": "poc1220",
+                        "playbookType": "data",
+                        "synchronous": false,
+                        "type": "playbook"
+                    },
+                    "errors": {},
+                    "id": "5",
+                    "type": "playbook",
+                    "warnings": {},
+                    "x": 0,
+                    "y": 420
                 }
             },
             "notes": ""
@@ -189,7 +228,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-06T14:43:51.892851+00:00",
+    "create_time": "2023-12-07T12:23:07.921075+00:00",
     "draft_mode": false,
     "labels": [
         "phishing_mail"
