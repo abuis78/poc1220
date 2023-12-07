@@ -19,7 +19,10 @@ def APG_extractJsonFromFile(vaultId=None, containerId=None, **kwargs):
     
     with open(path, "r") as file:
         data = json.load(file)
+        raw={}
+        
         phantom.debug(data)
+        success, message, artifact_id = phantom.add_artifact(container=containerId, raw_data=raw, cef_data=data, label='artifact', name='user_comment', severity='informational', identifier=None, artifact_type='network')
     
     phantom.debug(path)
     # Return a JSON-serializable object
