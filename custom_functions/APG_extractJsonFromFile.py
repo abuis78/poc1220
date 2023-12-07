@@ -15,7 +15,8 @@ def APG_extractJsonFromFile(vaultId=None, containerId=None, **kwargs):
     
     # Write your custom code here...
     success, message, info = phantom.vault_info(vault_id=vaultId, file_name=None, container_id=containerId, trace=False)
-    phantom.debug(info)
+    path = info[0]["path"]
+    phantom.debug(path)
     # Return a JSON-serializable object
     assert json.dumps(outputs)  # Will raise an exception if the :outputs: object is not JSON-serializable
     return outputs
