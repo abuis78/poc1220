@@ -178,7 +178,45 @@ def artifact_update_5(action=None, success=None, container=None, results=None, h
     ## Custom Code End
     ################################################################################
 
-    phantom.custom_function(custom_function="community/artifact_update", parameters=parameters, name="artifact_update_5")
+    phantom.custom_function(custom_function="community/artifact_update", parameters=parameters, name="artifact_update_5", callback=artifact_update_6)
+
+    return
+
+
+@phantom.playbook_block()
+def artifact_update_6(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("artifact_update_6() called")
+
+    filtered_artifact_0_data_filter_email_artifact = phantom.collect2(container=container, datapath=["filtered-data:filter_email_artifact:condition_1:artifact:*.id","filtered-data:filter_email_artifact:condition_1:artifact:*.id","filtered-data:filter_email_artifact:condition_1:artifact:*.external_id"])
+
+    parameters = []
+
+    # build parameters list for 'artifact_update_6' call
+    for filtered_artifact_0_item_filter_email_artifact in filtered_artifact_0_data_filter_email_artifact:
+        parameters.append({
+            "artifact_id": filtered_artifact_0_item_filter_email_artifact[0],
+            "name": None,
+            "label": None,
+            "severity": None,
+            "cef_field": None,
+            "cef_value": None,
+            "cef_data_type": None,
+            "tags": None,
+            "overwrite_tags": None,
+            "input_json": None,
+        })
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.custom_function(custom_function="community/artifact_update", parameters=parameters, name="artifact_update_6")
 
     return
 
