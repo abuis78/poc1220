@@ -178,7 +178,7 @@ def artifact_update_5(action=None, success=None, container=None, results=None, h
     ## Custom Code End
     ################################################################################
 
-    phantom.custom_function(custom_function="community/artifact_update", parameters=parameters, name="artifact_update_5", callback=join_artifact_update_6)
+    phantom.custom_function(custom_function="community/artifact_update", parameters=parameters, name="artifact_update_5")
 
     return
 
@@ -187,7 +187,7 @@ def artifact_update_5(action=None, success=None, container=None, results=None, h
 def join_artifact_update_6(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("join_artifact_update_6() called")
 
-    if phantom.completed(custom_function_names=["artifact_update_1", "artifact_update_2", "artifact_update_5"]):
+    if phantom.completed(custom_function_names=["artifact_update_1", "artifact_update_2"]):
         # call connected block "artifact_update_6"
         artifact_update_6(container=container, handle=handle)
 
