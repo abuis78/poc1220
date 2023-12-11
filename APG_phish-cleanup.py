@@ -12,8 +12,8 @@ from datetime import datetime, timedelta
 def on_start(container):
     phantom.debug('on_start() called')
 
-    # call 'categorize_artifact' block
-    categorize_artifact(container=container)
+    # call 'call_api_7' block
+    call_api_7(container=container)
 
     return
 
@@ -179,6 +179,25 @@ def artifact_update_5(action=None, success=None, container=None, results=None, h
     ################################################################################
 
     phantom.custom_function(custom_function="community/artifact_update", parameters=parameters, name="artifact_update_5")
+
+    return
+
+
+@phantom.playbook_block()
+def call_api_7(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("call_api_7() called")
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    categorize_artifact(container=container)
 
     return
 
