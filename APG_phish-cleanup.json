@@ -50,7 +50,7 @@
                     "targetPort": "10_in"
                 }
             ],
-            "hash": "4ca9fb37d259d1b1547d5e5ff54e79e02afcee7f",
+            "hash": "1379013a42aa963599c76b8d3e0072028d170efb",
             "nodes": {
                 "0": {
                     "data": {
@@ -283,7 +283,7 @@
                                         "conditionIndex": 1,
                                         "op": "==",
                                         "param": "artifact:*.name",
-                                        "value": "Vault Aritfact"
+                                        "value": "Vault Artifact"
                                     },
                                     {
                                         "conditionIndex": 1,
@@ -302,7 +302,7 @@
                                         "conditionIndex": 2,
                                         "op": "==",
                                         "param": "artifact:*.name",
-                                        "value": "Vault Aritfact"
+                                        "value": "Vault Artifact"
                                     },
                                     {
                                         "conditionIndex": 2,
@@ -670,7 +670,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-11T10:03:14.669760+00:00",
+    "create_time": "2023-12-11T10:11:38.687152+00:00",
     "draft_mode": false,
     "labels": [
         "*"

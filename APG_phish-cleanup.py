@@ -41,7 +41,7 @@ def filter_email_artifact(action=None, success=None, container=None, results=Non
         container=container,
         logical_operator="and",
         conditions=[
-            ["artifact:*.name", "==", "Vault Aritfact"],
+            ["artifact:*.name", "==", "Vault Artifact"],
             [".eml", "in", "artifact:*.cef.fileName"]
         ],
         name="filter_email_artifact:condition_2",
@@ -56,7 +56,7 @@ def filter_email_artifact(action=None, success=None, container=None, results=Non
         container=container,
         logical_operator="and",
         conditions=[
-            ["artifact:*.name", "==", "Vault Aritfact"],
+            ["artifact:*.name", "==", "Vault Artifact"],
             [".json", "in", "artifact:*.cef.fileName"]
         ],
         name="filter_email_artifact:condition_3",
