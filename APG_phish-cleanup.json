@@ -50,7 +50,7 @@
                     "targetPort": "10_in"
                 }
             ],
-            "hash": "bc40ad692abf3dd5ea99eb6577653d9555c756b5",
+            "hash": "7dee34879b354d1a5021960a2b58d3a397e2a543",
             "nodes": {
                 "0": {
                     "data": {
@@ -232,7 +232,7 @@
                                 "cef_value": null,
                                 "input_json": null,
                                 "label": null,
-                                "name": null,
+                                "name": "Transport Mail",
                                 "overwrite_tags": null,
                                 "severity": null,
                                 "tags": null
@@ -470,7 +470,7 @@
                         "utilityType": "custom_function",
                         "values": {
                             "artifact_update": {
-                                "artifact_id": "filtered-data:filter_email_artifact:condition_1:artifact:*.id",
+                                "artifact_id": "filtered-data:filter_email_artifact:condition_2:artifact:*.id",
                                 "cef_data_type": null,
                                 "cef_field": null,
                                 "cef_value": null,
@@ -636,7 +636,7 @@
                         "utilityType": "custom_function",
                         "values": {
                             "artifact_update": {
-                                "artifact_id": "filtered-data:filter_email_artifact:condition_1:artifact:*.id",
+                                "artifact_id": "filtered-data:filter_email_artifact:condition_3:artifact:*.id",
                                 "cef_data_type": null,
                                 "cef_field": null,
                                 "cef_value": null,
@@ -658,7 +658,7 @@
                         ]
                     },
                     "x": 680,
-                    "y": 328
+                    "y": 320
                 }
             },
             "notes": ""
@@ -670,7 +670,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-11T09:58:40.802057+00:00",
+    "create_time": "2023-12-11T10:03:14.669760+00:00",
     "draft_mode": false,
     "labels": [
         "*"

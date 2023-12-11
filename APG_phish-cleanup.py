@@ -73,7 +73,7 @@ def filter_email_artifact(action=None, success=None, container=None, results=Non
 def artifact_update_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("artifact_update_1() called")
 
-    filtered_artifact_0_data_filter_email_artifact = phantom.collect2(container=container, datapath=["filtered-data:filter_email_artifact:condition_1:artifact:*.id","filtered-data:filter_email_artifact:condition_1:artifact:*.id","filtered-data:filter_email_artifact:condition_1:artifact:*.external_id"])
+    filtered_artifact_0_data_filter_email_artifact = phantom.collect2(container=container, datapath=["filtered-data:filter_email_artifact:condition_2:artifact:*.id","filtered-data:filter_email_artifact:condition_2:artifact:*.id","filtered-data:filter_email_artifact:condition_2:artifact:*.external_id"])
 
     parameters = []
 
@@ -111,7 +111,7 @@ def artifact_update_1(action=None, success=None, container=None, results=None, h
 def artifact_update_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("artifact_update_2() called")
 
-    filtered_artifact_0_data_filter_email_artifact = phantom.collect2(container=container, datapath=["filtered-data:filter_email_artifact:condition_1:artifact:*.id","filtered-data:filter_email_artifact:condition_1:artifact:*.id","filtered-data:filter_email_artifact:condition_1:artifact:*.external_id"])
+    filtered_artifact_0_data_filter_email_artifact = phantom.collect2(container=container, datapath=["filtered-data:filter_email_artifact:condition_3:artifact:*.id","filtered-data:filter_email_artifact:condition_3:artifact:*.id","filtered-data:filter_email_artifact:condition_3:artifact:*.external_id"])
 
     parameters = []
 
@@ -157,7 +157,7 @@ def artifact_update_5(action=None, success=None, container=None, results=None, h
     for filtered_artifact_0_item_filter_email_artifact in filtered_artifact_0_data_filter_email_artifact:
         parameters.append({
             "artifact_id": filtered_artifact_0_item_filter_email_artifact[0],
-            "name": None,
+            "name": "Transport Mail",
             "label": None,
             "severity": None,
             "cef_field": None,
