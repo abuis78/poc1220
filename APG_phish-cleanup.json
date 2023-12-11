@@ -55,9 +55,23 @@
                     "sourcePort": "6_out",
                     "targetNode": "9",
                     "targetPort": "9_in"
+                },
+                {
+                    "id": "port_7_to_port_9",
+                    "sourceNode": "7",
+                    "sourcePort": "7_out",
+                    "targetNode": "9",
+                    "targetPort": "9_in"
+                },
+                {
+                    "id": "port_8_to_port_9",
+                    "sourceNode": "8",
+                    "sourcePort": "8_out",
+                    "targetNode": "9",
+                    "targetPort": "9_in"
                 }
             ],
-            "hash": "c631ec6b37adbc39a93e9e3d2ead130e5b5b93d1",
+            "hash": "02b9917ba2dcc2c59fd6b68a84548e9d60178e49",
             "nodes": {
                 "0": {
                     "data": {
@@ -830,11 +844,17 @@
                             "Reconfigure invalid datapath."
                         ]
                     },
-                    "x": 100,
-                    "y": 464.5
+                    "x": 190,
+                    "y": 476
                 }
             },
-            "notes": ""
+            "notes": "",
+            "origin": {
+                "playbook_id": 191,
+                "playbook_name": "APG_cleanup",
+                "playbook_repo_id": 3,
+                "playbook_repo_name": "poc1220"
+            }
         },
         "input_spec": null,
         "output_spec": null,
@@ -843,7 +863,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-11T09:48:40.929452+00:00",
+    "create_time": "2023-12-11T09:49:32.924422+00:00",
     "draft_mode": false,
     "labels": [
         "*"
