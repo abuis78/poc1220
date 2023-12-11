@@ -1,0 +1,852 @@
+{
+    "blockly": false,
+    "blockly_xml": "<xml></xml>",
+    "category": "Uncategorized",
+    "coa": {
+        "data": {
+            "description": "",
+            "edges": [
+                {
+                    "id": "port_0_to_port_2",
+                    "sourceNode": "0",
+                    "sourcePort": "0_out",
+                    "targetNode": "2",
+                    "targetPort": "2_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_2_to_port_6",
+                    "sourceNode": "2",
+                    "sourcePort": "2_out",
+                    "targetNode": "6",
+                    "targetPort": "6_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 1
+                        }
+                    ],
+                    "id": "port_2_to_port_7",
+                    "sourceNode": "2",
+                    "sourcePort": "2_out",
+                    "targetNode": "7",
+                    "targetPort": "7_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 2
+                        }
+                    ],
+                    "id": "port_2_to_port_8",
+                    "sourceNode": "2",
+                    "sourcePort": "2_out",
+                    "targetNode": "8",
+                    "targetPort": "8_in"
+                },
+                {
+                    "id": "port_6_to_port_9",
+                    "sourceNode": "6",
+                    "sourcePort": "6_out",
+                    "targetNode": "9",
+                    "targetPort": "9_in"
+                }
+            ],
+            "hash": "c631ec6b37adbc39a93e9e3d2ead130e5b5b93d1",
+            "nodes": {
+                "0": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionName": "on_start",
+                        "id": "0",
+                        "type": "start"
+                    },
+                    "errors": {},
+                    "id": "0",
+                    "type": "start",
+                    "warnings": {},
+                    "x": 360,
+                    "y": 0
+                },
+                "1": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionName": "on_finish",
+                        "id": "1",
+                        "type": "end"
+                    },
+                    "errors": {},
+                    "id": "1",
+                    "type": "end",
+                    "warnings": {},
+                    "x": 660,
+                    "y": 0
+                },
+                "2": {
+                    "data": {
+                        "advanced": {
+                            "customName": "filter email artifact",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "conditions": [
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 0,
+                                        "op": "==",
+                                        "param": "artifact:*.name",
+                                        "value": "Email Artifact"
+                                    },
+                                    {
+                                        "conditionIndex": 0,
+                                        "op": "in",
+                                        "param": "soardemo@apg.at",
+                                        "value": "artifact:*.cef.toEmail"
+                                    }
+                                ],
+                                "conditionIndex": 0,
+                                "customName": "transport mail",
+                                "logic": "and"
+                            },
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 1,
+                                        "op": "==",
+                                        "param": "artifact:*.name",
+                                        "value": "Vault Aritfact"
+                                    },
+                                    {
+                                        "conditionIndex": 1,
+                                        "op": "in",
+                                        "param": ".eml",
+                                        "value": "artifact:*.cef.fileName"
+                                    }
+                                ],
+                                "conditionIndex": 1,
+                                "customName": "reported mail",
+                                "logic": "and"
+                            },
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 2,
+                                        "op": "==",
+                                        "param": "artifact:*.name",
+                                        "value": "Vault Aritfact"
+                                    },
+                                    {
+                                        "conditionIndex": 2,
+                                        "op": "in",
+                                        "param": ".json",
+                                        "value": "artifact:*.cef.fileName"
+                                    }
+                                ],
+                                "conditionIndex": 2,
+                                "customName": "user comment",
+                                "logic": "and"
+                            }
+                        ],
+                        "functionId": 1,
+                        "functionName": "filter_email_artifact",
+                        "id": "2",
+                        "type": "filter"
+                    },
+                    "errors": {},
+                    "id": "2",
+                    "type": "filter",
+                    "warnings": {},
+                    "x": 400,
+                    "y": 148
+                },
+                "6": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "customFunction": {
+                            "draftMode": false,
+                            "name": "artifact_update",
+                            "repoName": "community"
+                        },
+                        "functionId": 3,
+                        "functionName": "artifact_update_3",
+                        "id": "6",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "selectMore": false,
+                        "type": "utility",
+                        "utilities": {
+                            "artifact_update": {
+                                "description": "Update an artifact with the specified attributes. All parameters are optional, except that an artifact_id must be provided and if one of cef_field or cef_value is provided then they must both be provided. Supports all fields available in /rest/artifact. Add any unlisted inputs as dictionary keys in input_json. Unsupported keys will automatically be dropped.",
+                                "fields": [
+                                    {
+                                        "dataTypes": [
+                                            "phantom artifact id"
+                                        ],
+                                        "description": "ID of the artifact to update, which is required unless artifact_id is a key within input_json",
+                                        "inputType": "item",
+                                        "label": "artifact_id",
+                                        "name": "artifact_id",
+                                        "placeholder": "1234",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "Change the name of the artifact.",
+                                        "inputType": "item",
+                                        "label": "name",
+                                        "name": "name",
+                                        "placeholder": "artifact",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [
+                                            ""
+                                        ],
+                                        "description": "Change the label of the artifact.",
+                                        "inputType": "item",
+                                        "label": "label",
+                                        "name": "label",
+                                        "placeholder": "events",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "Change the severity of the artifact. Typically this is either \"High\", \"Medium\", or \"Low\".",
+                                        "inputType": "item",
+                                        "label": "severity",
+                                        "name": "severity",
+                                        "placeholder": "Medium",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "The name of the CEF field to populate in the artifact, such as \"destinationAddress\" or \"sourceDnsDomain\". Required only if cef_value is provided.",
+                                        "inputType": "item",
+                                        "label": "cef_field",
+                                        "name": "cef_field",
+                                        "placeholder": "destinationAddress",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [
+                                            "*"
+                                        ],
+                                        "description": "The value of the CEF field to populate in the artifact, such as the IP address, domain name, or file hash. Required only if cef_field is provided.",
+                                        "inputType": "item",
+                                        "label": "cef_value",
+                                        "name": "cef_value",
+                                        "placeholder": "192.0.2.192",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "The CEF data type of the data in cef_value. For example, this could be \"ip\", \"hash\", or \"domain\". Optional, but only operational if cef_field is provided.",
+                                        "inputType": "item",
+                                        "label": "cef_data_type",
+                                        "name": "cef_data_type",
+                                        "placeholder": "ip",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "A comma-separated list of tags to apply to the artifact, which is optional.",
+                                        "inputType": "item",
+                                        "label": "tags",
+                                        "name": "tags",
+                                        "placeholder": "tag1, tag2, tag3",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "Optional input. Either True or False with default as False. If set to True, existing tags on the indicator record will be replaced by the provided input. If set to False, the new tags will be appended to the existing indicator tags.",
+                                        "inputType": "item",
+                                        "label": "overwrite_tags",
+                                        "name": "overwrite_tags",
+                                        "placeholder": "True or False",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "Optional parameter to modify any extra attributes of the artifact. Input_json will be merged with other inputs. In the event of a conflict, input_json will take precedence.",
+                                        "inputType": "item",
+                                        "label": "input_json",
+                                        "name": "input_json",
+                                        "placeholder": "{\"source_data_identifier\": \"1234\", \"data\": \"5678\"}",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    }
+                                ],
+                                "label": "artifact_update",
+                                "name": "artifact_update"
+                            }
+                        },
+                        "utilityType": "custom_function",
+                        "values": {
+                            "artifact_update": {
+                                "artifact_id": "filtered-data:filter_email_artifact:condition_1:artifact:*.id",
+                                "cef_data_type": null,
+                                "cef_field": null,
+                                "cef_value": null,
+                                "input_json": null,
+                                "label": null,
+                                "name": "Transport Mail",
+                                "overwrite_tags": null,
+                                "severity": "",
+                                "tags": ""
+                            }
+                        }
+                    },
+                    "errors": {},
+                    "id": "6",
+                    "type": "utility",
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
+                    "x": 0,
+                    "y": 328
+                },
+                "7": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "customFunction": {
+                            "draftMode": false,
+                            "name": "artifact_update",
+                            "repoName": "community"
+                        },
+                        "functionId": 1,
+                        "functionName": "artifact_update_1",
+                        "id": "7",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "selectMore": false,
+                        "type": "utility",
+                        "utilities": {
+                            "artifact_update": {
+                                "description": "Update an artifact with the specified attributes. All parameters are optional, except that an artifact_id must be provided and if one of cef_field or cef_value is provided then they must both be provided. Supports all fields available in /rest/artifact. Add any unlisted inputs as dictionary keys in input_json. Unsupported keys will automatically be dropped.",
+                                "fields": [
+                                    {
+                                        "dataTypes": [
+                                            "phantom artifact id"
+                                        ],
+                                        "description": "ID of the artifact to update, which is required unless artifact_id is a key within input_json",
+                                        "inputType": "item",
+                                        "label": "artifact_id",
+                                        "name": "artifact_id",
+                                        "placeholder": "1234",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "Change the name of the artifact.",
+                                        "inputType": "item",
+                                        "label": "name",
+                                        "name": "name",
+                                        "placeholder": "artifact",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [
+                                            ""
+                                        ],
+                                        "description": "Change the label of the artifact.",
+                                        "inputType": "item",
+                                        "label": "label",
+                                        "name": "label",
+                                        "placeholder": "events",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "Change the severity of the artifact. Typically this is either \"High\", \"Medium\", or \"Low\".",
+                                        "inputType": "item",
+                                        "label": "severity",
+                                        "name": "severity",
+                                        "placeholder": "Medium",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "The name of the CEF field to populate in the artifact, such as \"destinationAddress\" or \"sourceDnsDomain\". Required only if cef_value is provided.",
+                                        "inputType": "item",
+                                        "label": "cef_field",
+                                        "name": "cef_field",
+                                        "placeholder": "destinationAddress",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [
+                                            "*"
+                                        ],
+                                        "description": "The value of the CEF field to populate in the artifact, such as the IP address, domain name, or file hash. Required only if cef_field is provided.",
+                                        "inputType": "item",
+                                        "label": "cef_value",
+                                        "name": "cef_value",
+                                        "placeholder": "192.0.2.192",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "The CEF data type of the data in cef_value. For example, this could be \"ip\", \"hash\", or \"domain\". Optional, but only operational if cef_field is provided.",
+                                        "inputType": "item",
+                                        "label": "cef_data_type",
+                                        "name": "cef_data_type",
+                                        "placeholder": "ip",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "A comma-separated list of tags to apply to the artifact, which is optional.",
+                                        "inputType": "item",
+                                        "label": "tags",
+                                        "name": "tags",
+                                        "placeholder": "tag1, tag2, tag3",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "Optional input. Either True or False with default as False. If set to True, existing tags on the indicator record will be replaced by the provided input. If set to False, the new tags will be appended to the existing indicator tags.",
+                                        "inputType": "item",
+                                        "label": "overwrite_tags",
+                                        "name": "overwrite_tags",
+                                        "placeholder": "True or False",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "Optional parameter to modify any extra attributes of the artifact. Input_json will be merged with other inputs. In the event of a conflict, input_json will take precedence.",
+                                        "inputType": "item",
+                                        "label": "input_json",
+                                        "name": "input_json",
+                                        "placeholder": "{\"source_data_identifier\": \"1234\", \"data\": \"5678\"}",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    }
+                                ],
+                                "label": "artifact_update",
+                                "name": "artifact_update"
+                            }
+                        },
+                        "utilityType": "custom_function",
+                        "values": {
+                            "artifact_update": {
+                                "artifact_id": "filtered-data:filter_email_artifact:condition_1:artifact:*.id",
+                                "cef_data_type": null,
+                                "cef_field": null,
+                                "cef_value": null,
+                                "input_json": null,
+                                "label": null,
+                                "name": "Reported Mail",
+                                "overwrite_tags": null,
+                                "severity": null,
+                                "tags": null
+                            }
+                        }
+                    },
+                    "errors": {},
+                    "id": "7",
+                    "type": "utility",
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
+                    "x": 340,
+                    "y": 328
+                },
+                "8": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "customFunction": {
+                            "draftMode": false,
+                            "name": "artifact_update",
+                            "repoName": "community"
+                        },
+                        "functionId": 2,
+                        "functionName": "artifact_update_2",
+                        "id": "8",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "selectMore": false,
+                        "type": "utility",
+                        "utilities": {
+                            "artifact_update": {
+                                "description": "Update an artifact with the specified attributes. All parameters are optional, except that an artifact_id must be provided and if one of cef_field or cef_value is provided then they must both be provided. Supports all fields available in /rest/artifact. Add any unlisted inputs as dictionary keys in input_json. Unsupported keys will automatically be dropped.",
+                                "fields": [
+                                    {
+                                        "dataTypes": [
+                                            "phantom artifact id"
+                                        ],
+                                        "description": "ID of the artifact to update, which is required unless artifact_id is a key within input_json",
+                                        "inputType": "item",
+                                        "label": "artifact_id",
+                                        "name": "artifact_id",
+                                        "placeholder": "1234",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "Change the name of the artifact.",
+                                        "inputType": "item",
+                                        "label": "name",
+                                        "name": "name",
+                                        "placeholder": "artifact",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [
+                                            ""
+                                        ],
+                                        "description": "Change the label of the artifact.",
+                                        "inputType": "item",
+                                        "label": "label",
+                                        "name": "label",
+                                        "placeholder": "events",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "Change the severity of the artifact. Typically this is either \"High\", \"Medium\", or \"Low\".",
+                                        "inputType": "item",
+                                        "label": "severity",
+                                        "name": "severity",
+                                        "placeholder": "Medium",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "The name of the CEF field to populate in the artifact, such as \"destinationAddress\" or \"sourceDnsDomain\". Required only if cef_value is provided.",
+                                        "inputType": "item",
+                                        "label": "cef_field",
+                                        "name": "cef_field",
+                                        "placeholder": "destinationAddress",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [
+                                            "*"
+                                        ],
+                                        "description": "The value of the CEF field to populate in the artifact, such as the IP address, domain name, or file hash. Required only if cef_field is provided.",
+                                        "inputType": "item",
+                                        "label": "cef_value",
+                                        "name": "cef_value",
+                                        "placeholder": "192.0.2.192",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "The CEF data type of the data in cef_value. For example, this could be \"ip\", \"hash\", or \"domain\". Optional, but only operational if cef_field is provided.",
+                                        "inputType": "item",
+                                        "label": "cef_data_type",
+                                        "name": "cef_data_type",
+                                        "placeholder": "ip",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "A comma-separated list of tags to apply to the artifact, which is optional.",
+                                        "inputType": "item",
+                                        "label": "tags",
+                                        "name": "tags",
+                                        "placeholder": "tag1, tag2, tag3",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "Optional input. Either True or False with default as False. If set to True, existing tags on the indicator record will be replaced by the provided input. If set to False, the new tags will be appended to the existing indicator tags.",
+                                        "inputType": "item",
+                                        "label": "overwrite_tags",
+                                        "name": "overwrite_tags",
+                                        "placeholder": "True or False",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "Optional parameter to modify any extra attributes of the artifact. Input_json will be merged with other inputs. In the event of a conflict, input_json will take precedence.",
+                                        "inputType": "item",
+                                        "label": "input_json",
+                                        "name": "input_json",
+                                        "placeholder": "{\"source_data_identifier\": \"1234\", \"data\": \"5678\"}",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    }
+                                ],
+                                "label": "artifact_update",
+                                "name": "artifact_update"
+                            }
+                        },
+                        "utilityType": "custom_function",
+                        "values": {
+                            "artifact_update": {
+                                "artifact_id": "filtered-data:filter_email_artifact:condition_1:artifact:*.id",
+                                "cef_data_type": null,
+                                "cef_field": null,
+                                "cef_value": null,
+                                "input_json": null,
+                                "label": null,
+                                "name": "User Comment",
+                                "overwrite_tags": null,
+                                "severity": null,
+                                "tags": null
+                            }
+                        }
+                    },
+                    "errors": {},
+                    "id": "8",
+                    "type": "utility",
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
+                    "x": 680,
+                    "y": 328
+                },
+                "9": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "customFunction": {
+                            "draftMode": false,
+                            "name": "artifact_update",
+                            "repoName": "community"
+                        },
+                        "functionId": 4,
+                        "functionName": "artifact_update_4",
+                        "id": "9",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "selectMore": false,
+                        "type": "utility",
+                        "utilities": {
+                            "artifact_update": {
+                                "description": "Update an artifact with the specified attributes. All parameters are optional, except that an artifact_id must be provided and if one of cef_field or cef_value is provided then they must both be provided. Supports all fields available in /rest/artifact. Add any unlisted inputs as dictionary keys in input_json. Unsupported keys will automatically be dropped.",
+                                "fields": [
+                                    {
+                                        "dataTypes": [
+                                            "phantom artifact id"
+                                        ],
+                                        "description": "ID of the artifact to update, which is required unless artifact_id is a key within input_json",
+                                        "inputType": "item",
+                                        "label": "artifact_id",
+                                        "name": "artifact_id",
+                                        "placeholder": "1234",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "Change the name of the artifact.",
+                                        "inputType": "item",
+                                        "label": "name",
+                                        "name": "name",
+                                        "placeholder": "artifact",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [
+                                            ""
+                                        ],
+                                        "description": "Change the label of the artifact.",
+                                        "inputType": "item",
+                                        "label": "label",
+                                        "name": "label",
+                                        "placeholder": "events",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "Change the severity of the artifact. Typically this is either \"High\", \"Medium\", or \"Low\".",
+                                        "inputType": "item",
+                                        "label": "severity",
+                                        "name": "severity",
+                                        "placeholder": "Medium",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "The name of the CEF field to populate in the artifact, such as \"destinationAddress\" or \"sourceDnsDomain\". Required only if cef_value is provided.",
+                                        "inputType": "item",
+                                        "label": "cef_field",
+                                        "name": "cef_field",
+                                        "placeholder": "destinationAddress",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [
+                                            "*"
+                                        ],
+                                        "description": "The value of the CEF field to populate in the artifact, such as the IP address, domain name, or file hash. Required only if cef_field is provided.",
+                                        "inputType": "item",
+                                        "label": "cef_value",
+                                        "name": "cef_value",
+                                        "placeholder": "192.0.2.192",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "The CEF data type of the data in cef_value. For example, this could be \"ip\", \"hash\", or \"domain\". Optional, but only operational if cef_field is provided.",
+                                        "inputType": "item",
+                                        "label": "cef_data_type",
+                                        "name": "cef_data_type",
+                                        "placeholder": "ip",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "A comma-separated list of tags to apply to the artifact, which is optional.",
+                                        "inputType": "item",
+                                        "label": "tags",
+                                        "name": "tags",
+                                        "placeholder": "tag1, tag2, tag3",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "Optional input. Either True or False with default as False. If set to True, existing tags on the indicator record will be replaced by the provided input. If set to False, the new tags will be appended to the existing indicator tags.",
+                                        "inputType": "item",
+                                        "label": "overwrite_tags",
+                                        "name": "overwrite_tags",
+                                        "placeholder": "True or False",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "Optional parameter to modify any extra attributes of the artifact. Input_json will be merged with other inputs. In the event of a conflict, input_json will take precedence.",
+                                        "inputType": "item",
+                                        "label": "input_json",
+                                        "name": "input_json",
+                                        "placeholder": "{\"source_data_identifier\": \"1234\", \"data\": \"5678\"}",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    }
+                                ],
+                                "label": "artifact_update",
+                                "name": "artifact_update"
+                            }
+                        },
+                        "utilityType": "custom_function",
+                        "values": {
+                            "artifact_update": {
+                                "artifact_id": "filtered-data:filter_email_artifact:condition_1:artifact:*.id",
+                                "cef_data_type": null,
+                                "cef_field": null,
+                                "cef_value": null,
+                                "input_json": null,
+                                "label": null,
+                                "name": null,
+                                "overwrite_tags": null,
+                                "severity": null,
+                                "tags": "transport_mail"
+                            }
+                        }
+                    },
+                    "errors": {},
+                    "id": "9",
+                    "type": "utility",
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
+                    "x": 100,
+                    "y": 464.5
+                }
+            },
+            "notes": ""
+        },
+        "input_spec": null,
+        "output_spec": null,
+        "playbook_type": "data",
+        "python_version": "3",
+        "schema": "5.0.11",
+        "version": "6.2.0.355"
+    },
+    "create_time": "2023-12-11T09:48:40.929452+00:00",
+    "draft_mode": false,
+    "labels": [
+        "*"
+    ],
+    "tags": []
+}
