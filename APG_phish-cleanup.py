@@ -12,8 +12,8 @@ from datetime import datetime, timedelta
 def on_start(container):
     phantom.debug('on_start() called')
 
-    # call 'call_api_7' block
-    call_api_7(container=container)
+    # call 'artifact_update_7' block
+    artifact_update_7(container=container)
 
     return
 
@@ -184,8 +184,23 @@ def artifact_update_5(action=None, success=None, container=None, results=None, h
 
 
 @phantom.playbook_block()
-def call_api_7(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("call_api_7() called")
+def artifact_update_7(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("artifact_update_7() called")
+
+    parameters = []
+
+    parameters.append({
+        "artifact_id": None,
+        "name": None,
+        "label": "transport_mail",
+        "severity": None,
+        "cef_field": None,
+        "cef_value": None,
+        "cef_data_type": None,
+        "tags": None,
+        "overwrite_tags": None,
+        "input_json": None,
+    })
 
     ################################################################################
     ## Custom Code Start
@@ -197,7 +212,7 @@ def call_api_7(action=None, success=None, container=None, results=None, handle=N
     ## Custom Code End
     ################################################################################
 
-    categorize_artifact(container=container)
+    phantom.custom_function(custom_function="community/artifact_update", parameters=parameters, name="artifact_update_7", callback=categorize_artifact)
 
     return
 
