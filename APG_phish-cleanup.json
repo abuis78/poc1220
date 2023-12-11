@@ -55,9 +55,23 @@
                     "sourcePort": "10_out",
                     "targetNode": "11",
                     "targetPort": "11_in"
+                },
+                {
+                    "id": "port_7_to_port_11",
+                    "sourceNode": "7",
+                    "sourcePort": "7_out",
+                    "targetNode": "11",
+                    "targetPort": "11_in"
+                },
+                {
+                    "id": "port_8_to_port_11",
+                    "sourceNode": "8",
+                    "sourcePort": "8_out",
+                    "targetNode": "11",
+                    "targetPort": "11_in"
                 }
             ],
-            "hash": "6097ed742498e774b5c00413666da96a46750f6f",
+            "hash": "5f1df4b4e850028006d738373d0b30cf3e2552d9",
             "nodes": {
                 "0": {
                     "data": {
@@ -254,7 +268,7 @@
                             "Reconfigure invalid datapath."
                         ]
                     },
-                    "x": 340,
+                    "x": 0,
                     "y": 328
                 },
                 "11": {
@@ -420,8 +434,8 @@
                             "Reconfigure invalid datapath."
                         ]
                     },
-                    "x": 340,
-                    "y": 480
+                    "x": 190,
+                    "y": 476
                 },
                 "2": {
                     "data": {
@@ -664,7 +678,7 @@
                             "Reconfigure invalid datapath."
                         ]
                     },
-                    "x": 0,
+                    "x": 340,
                     "y": 328
                 },
                 "8": {
@@ -843,7 +857,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-11T11:43:27.682919+00:00",
+    "create_time": "2023-12-11T11:46:27.185330+00:00",
     "draft_mode": false,
     "labels": [
         "*"
