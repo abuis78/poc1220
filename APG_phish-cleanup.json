@@ -57,7 +57,7 @@
                     "targetPort": "13_in"
                 }
             ],
-            "hash": "06008c8dbfde31b86f9705d7b4906d42117f2ee1",
+            "hash": "ecf1c411567f2b568841d93865fb30267413560f",
             "nodes": {
                 "0": {
                     "data": {
@@ -73,7 +73,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 360,
-                    "y": -6.394884621840902e-14
+                    "y": 0
                 },
                 "1": {
                     "data": {
@@ -89,7 +89,7 @@
                     "type": "end",
                     "warnings": {},
                     "x": 660,
-                    "y": -6.394884621840902e-14
+                    "y": 0
                 },
                 "10": {
                     "data": {
@@ -254,8 +254,8 @@
                             "Reconfigure invalid datapath."
                         ]
                     },
-                    "x": 340,
-                    "y": 476
+                    "x": 680,
+                    "y": 328
                 },
                 "13": {
                     "data": {
@@ -413,7 +413,9 @@
                         "utilityType": "custom_function",
                         "values": {
                             "debug": {
-                                "input_1": null,
+                                "input_1": [
+                                    "artifact:*.id"
+                                ],
                                 "input_10": null,
                                 "input_2": null,
                                 "input_3": null,
@@ -430,8 +432,8 @@
                     "id": "13",
                     "type": "utility",
                     "warnings": {},
-                    "x": 360,
-                    "y": 660
+                    "x": 680,
+                    "y": 476
                 },
                 "2": {
                     "data": {
@@ -509,7 +511,7 @@
                     "type": "filter",
                     "warnings": {},
                     "x": 400,
-                    "y": 296
+                    "y": 148
                 },
                 "7": {
                     "data": {
@@ -675,7 +677,7 @@
                         ]
                     },
                     "x": 0,
-                    "y": 476
+                    "y": 328
                 },
                 "8": {
                     "data": {
@@ -840,8 +842,8 @@
                             "Reconfigure invalid datapath."
                         ]
                     },
-                    "x": 680,
-                    "y": 476
+                    "x": 340,
+                    "y": 328
                 }
             },
             "notes": ""
@@ -853,7 +855,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-11T11:57:34.810233+00:00",
+    "create_time": "2023-12-11T11:58:25.437460+00:00",
     "draft_mode": false,
     "labels": [
         "*"
