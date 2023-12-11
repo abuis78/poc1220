@@ -57,7 +57,7 @@
                     "targetPort": "11_in"
                 }
             ],
-            "hash": "21c15474df5c542ef622cf3aab33cdbde2aebe72",
+            "hash": "6097ed742498e774b5c00413666da96a46750f6f",
             "nodes": {
                 "0": {
                     "data": {
@@ -238,8 +238,8 @@
                                 "cef_field": null,
                                 "cef_value": null,
                                 "input_json": null,
-                                "label": null,
-                                "name": "Transport Mail",
+                                "label": "Transport Mail",
+                                "name": "",
                                 "overwrite_tags": null,
                                 "severity": null,
                                 "tags": null
@@ -404,11 +404,11 @@
                                 "cef_field": null,
                                 "cef_value": null,
                                 "input_json": null,
-                                "label": null,
+                                "label": "",
                                 "name": null,
                                 "overwrite_tags": null,
                                 "severity": null,
-                                "tags": null
+                                "tags": "transport_mail"
                             }
                         }
                     },
@@ -648,8 +648,8 @@
                                 "cef_field": null,
                                 "cef_value": null,
                                 "input_json": null,
-                                "label": null,
-                                "name": "Reported Mail",
+                                "label": "Reported Mail",
+                                "name": "",
                                 "overwrite_tags": null,
                                 "severity": null,
                                 "tags": null
@@ -814,8 +814,8 @@
                                 "cef_field": null,
                                 "cef_value": null,
                                 "input_json": null,
-                                "label": null,
-                                "name": "User Comment",
+                                "label": "User Comment",
+                                "name": "",
                                 "overwrite_tags": null,
                                 "severity": null,
                                 "tags": null
@@ -843,7 +843,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-11T11:41:34.714034+00:00",
+    "create_time": "2023-12-11T11:43:27.682919+00:00",
     "draft_mode": false,
     "labels": [
         "*"

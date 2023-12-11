@@ -81,8 +81,8 @@ def artifact_update_1(action=None, success=None, container=None, results=None, h
     for filtered_artifact_0_item_filter_email_artifact in filtered_artifact_0_data_filter_email_artifact:
         parameters.append({
             "artifact_id": filtered_artifact_0_item_filter_email_artifact[0],
-            "name": "Reported Mail",
-            "label": None,
+            "name": None,
+            "label": "Reported Mail",
             "severity": None,
             "cef_field": None,
             "cef_value": None,
@@ -119,8 +119,8 @@ def artifact_update_2(action=None, success=None, container=None, results=None, h
     for filtered_artifact_0_item_filter_email_artifact in filtered_artifact_0_data_filter_email_artifact:
         parameters.append({
             "artifact_id": filtered_artifact_0_item_filter_email_artifact[0],
-            "name": "User Comment",
-            "label": None,
+            "name": None,
+            "label": "User Comment",
             "severity": None,
             "cef_field": None,
             "cef_value": None,
@@ -157,8 +157,8 @@ def artifact_update_5(action=None, success=None, container=None, results=None, h
     for filtered_artifact_0_item_filter_email_artifact in filtered_artifact_0_data_filter_email_artifact:
         parameters.append({
             "artifact_id": filtered_artifact_0_item_filter_email_artifact[0],
-            "name": "Transport Mail",
-            "label": None,
+            "name": None,
+            "label": "Transport Mail",
             "severity": None,
             "cef_field": None,
             "cef_value": None,
@@ -201,7 +201,7 @@ def artifact_update_6(action=None, success=None, container=None, results=None, h
             "cef_field": None,
             "cef_value": None,
             "cef_data_type": None,
-            "tags": None,
+            "tags": "transport_mail",
             "overwrite_tags": None,
             "input_json": None,
         })
