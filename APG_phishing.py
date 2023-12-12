@@ -111,8 +111,10 @@ def select_reported_mail(action=None, success=None, container=None, results=None
     # collect filtered artifact ids and results for 'if' condition 1
     matched_artifacts_1, matched_results_1 = phantom.condition(
         container=container,
+        logical_operator="and",
         conditions=[
-            ["reported_mail", "in", "artifact:*.tags"]
+            ["reported_mail", "in", "artifact:*.tags"],
+            ["artifact:*.name", "==", "Email Artifact"]
         ],
         name="select_reported_mail:condition_1",
         delimiter=None)
@@ -120,19 +122,6 @@ def select_reported_mail(action=None, success=None, container=None, results=None
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_1 or matched_results_1:
         playbook_apg_create_mc_incident_1(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
-
-    # collect filtered artifact ids and results for 'if' condition 2
-    matched_artifacts_2, matched_results_2 = phantom.condition(
-        container=container,
-        conditions=[
-            ["artifact:*.name", "==", "Email Artifact"]
-        ],
-        name="select_reported_mail:condition_2",
-        delimiter=None)
-
-    # call connected blocks if filtered artifacts or results
-    if matched_artifacts_2 or matched_results_2:
-        pass
 
     return
 
