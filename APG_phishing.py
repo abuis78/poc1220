@@ -91,7 +91,7 @@ def create_events_1(action=None, success=None, container=None, results=None, han
 
     # phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
 
-    filtered_artifact_0_data_select_reported_mail = phantom.collect2(container=container, datapath=["filtered-data:select_reported_mail:condition_1:artifact:*.cef.emailHeaders.From","filtered-data:select_reported_mail:condition_1:artifact:*.id","filtered-data:select_reported_mail:condition_1:artifact:*.external_id"])
+    filtered_artifact_0_data_select_reported_mail = phantom.collect2(container=container, datapath=["filtered-data:select_reported_mail:condition_1:artifact:*.cef.emailHeaders","filtered-data:select_reported_mail:condition_1:artifact:*.id","filtered-data:select_reported_mail:condition_1:artifact:*.external_id"])
     playbook_apg_create_mc_incident_2_output_mc_id = phantom.collect2(container=container, datapath=["playbook_apg_create_mc_incident_2:playbook_output:mc_id"])
 
     parameters = []
@@ -102,7 +102,7 @@ def create_events_1(action=None, success=None, container=None, results=None, han
             if playbook_apg_create_mc_incident_2_output_mc_id_item[0] is not None:
                 parameters.append({
                     "pairs": [
-                        { "name": "sender", "value": filtered_artifact_0_item_select_reported_mail[0] },
+                        { "name": "headers", "value": filtered_artifact_0_item_select_reported_mail[0] },
                     ],
                     "incident_id": playbook_apg_create_mc_incident_2_output_mc_id_item[0],
                     "context": {'artifact_id': filtered_artifact_0_item_select_reported_mail[1], 'artifact_external_id': filtered_artifact_0_item_select_reported_mail[2]},

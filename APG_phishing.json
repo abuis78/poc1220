@@ -54,7 +54,7 @@
                     "targetPort": "6_in"
                 }
             ],
-            "hash": "84a30284e93995eca25c8dc1b6a5b85c35fb80ec",
+            "hash": "ee6169bdcf209f007c166ef1c9e08df6b3e281f6",
             "nodes": {
                 "0": {
                     "data": {
@@ -221,8 +221,8 @@
                             "incident_id": "playbook_apg_create_mc_incident_2:playbook_output:mc_id",
                             "pairs": [
                                 {
-                                    "name": "sender",
-                                    "value": "filtered-data:select_reported_mail:condition_1:artifact:*.cef.emailHeaders.From"
+                                    "name": "headers",
+                                    "value": "filtered-data:select_reported_mail:condition_1:artifact:*.cef.emailHeaders"
                                 }
                             ]
                         },
@@ -305,7 +305,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-12T15:12:10.761561+00:00",
+    "create_time": "2023-12-12T15:15:12.950979+00:00",
     "draft_mode": false,
     "labels": [
         "phishing_mail"
