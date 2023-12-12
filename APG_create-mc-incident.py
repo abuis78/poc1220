@@ -95,6 +95,14 @@ def artifact_create_1(action=None, success=None, container=None, results=None, h
 def on_finish(container, summary):
     phantom.debug("on_finish() called")
 
+    create_incidents_1_result_data = phantom.collect2(container=container, datapath=["create_incidents_1:action_result.data.*.id"])
+
+    create_incidents_1_result_item_0 = [item[0] for item in create_incidents_1_result_data]
+
+    output = {
+        "mc_id": create_incidents_1_result_item_0,
+    }
+
     ################################################################################
     ## Custom Code Start
     ################################################################################
@@ -104,5 +112,7 @@ def on_finish(container, summary):
     ################################################################################
     ## Custom Code End
     ################################################################################
+
+    phantom.save_playbook_output_data(output=output)
 
     return
