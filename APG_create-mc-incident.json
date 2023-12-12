@@ -28,7 +28,7 @@
                     "targetPort": "1_in"
                 }
             ],
-            "hash": "ce5d0b00b28513a63b7429d664b0ff6da7f937c1",
+            "hash": "dc113fc5ab8c6bdaa5bfeb98276e3988a762e4c8",
             "nodes": {
                 "0": {
                     "data": {
@@ -262,7 +262,7 @@
                                 "label": null,
                                 "name": "mc_id",
                                 "run_automation": null,
-                                "severity": "Low",
+                                "severity": "Informational",
                                 "tags": null
                             }
                         }
@@ -295,7 +295,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-12T14:47:00.733366+00:00",
+    "create_time": "2023-12-12T14:48:20.793233+00:00",
     "draft_mode": false,
     "labels": [
         "*"

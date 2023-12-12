@@ -67,7 +67,7 @@ def artifact_create_1(action=None, success=None, container=None, results=None, h
             "name": "mc_id",
             "tags": None,
             "label": None,
-            "severity": "Low",
+            "severity": "Informational",
             "cef_field": "id",
             "cef_value": create_incidents_1_result_item[0],
             "container": id_value,
