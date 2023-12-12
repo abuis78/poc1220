@@ -89,7 +89,7 @@ def artifact_update_1(action=None, success=None, container=None, results=None, h
             "input_json": None,
             "artifact_id": filtered_artifact_0_item_categorize_artifact[0],
             "cef_data_type": None,
-            "overwrite_tags": None,
+            "overwrite_tags": "transport_mail",
         })
 
     ################################################################################
@@ -127,7 +127,7 @@ def artifact_update_2(action=None, success=None, container=None, results=None, h
             "input_json": None,
             "artifact_id": filtered_artifact_0_item_categorize_artifact[0],
             "cef_data_type": None,
-            "overwrite_tags": None,
+            "overwrite_tags": "transport_mail",
         })
 
     ################################################################################
@@ -165,7 +165,7 @@ def artifact_update_5(action=None, success=None, container=None, results=None, h
             "input_json": None,
             "artifact_id": filtered_artifact_0_item_categorize_artifact[0],
             "cef_data_type": None,
-            "overwrite_tags": None,
+            "overwrite_tags": "transport_mail",
         })
 
     ################################################################################
@@ -178,45 +178,7 @@ def artifact_update_5(action=None, success=None, container=None, results=None, h
     ## Custom Code End
     ################################################################################
 
-    phantom.custom_function(custom_function="community/artifact_update", parameters=parameters, name="artifact_update_5", callback=debug_8)
-
-    return
-
-
-@phantom.playbook_block()
-def debug_8(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("debug_8() called")
-
-    container_artifact_data = phantom.collect2(container=container, datapath=["artifact:*.id","artifact:*.id","artifact:*.external_id"])
-
-    container_artifact_header_item_0 = [item[0] for item in container_artifact_data]
-
-    parameters = []
-
-    parameters.append({
-        "input_1": container_artifact_header_item_0,
-        "input_2": None,
-        "input_3": None,
-        "input_4": None,
-        "input_5": None,
-        "input_6": None,
-        "input_7": None,
-        "input_8": None,
-        "input_9": None,
-        "input_10": None,
-    })
-
-    ################################################################################
-    ## Custom Code Start
-    ################################################################################
-
-    # Write your custom code here...
-
-    ################################################################################
-    ## Custom Code End
-    ################################################################################
-
-    phantom.custom_function(custom_function="community/debug", parameters=parameters, name="debug_8")
+    phantom.custom_function(custom_function="community/artifact_update", parameters=parameters, name="artifact_update_5")
 
     return
 
