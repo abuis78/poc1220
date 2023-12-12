@@ -80,16 +80,16 @@ def artifact_update_1(action=None, success=None, container=None, results=None, h
     # build parameters list for 'artifact_update_1' call
     for filtered_artifact_0_item_categorize_artifact in filtered_artifact_0_data_categorize_artifact:
         parameters.append({
-            "artifact_id": filtered_artifact_0_item_categorize_artifact[0],
             "name": None,
+            "tags": None,
             "label": "Reported Mail",
             "severity": None,
             "cef_field": None,
             "cef_value": None,
-            "cef_data_type": None,
-            "tags": None,
-            "overwrite_tags": None,
             "input_json": None,
+            "artifact_id": filtered_artifact_0_item_categorize_artifact[0],
+            "cef_data_type": None,
+            "overwrite_tags": None,
         })
 
     ################################################################################
@@ -118,16 +118,16 @@ def artifact_update_2(action=None, success=None, container=None, results=None, h
     # build parameters list for 'artifact_update_2' call
     for filtered_artifact_0_item_categorize_artifact in filtered_artifact_0_data_categorize_artifact:
         parameters.append({
-            "artifact_id": filtered_artifact_0_item_categorize_artifact[0],
             "name": None,
+            "tags": None,
             "label": "User Comment",
             "severity": None,
             "cef_field": None,
             "cef_value": None,
-            "cef_data_type": None,
-            "tags": None,
-            "overwrite_tags": None,
             "input_json": None,
+            "artifact_id": filtered_artifact_0_item_categorize_artifact[0],
+            "cef_data_type": None,
+            "overwrite_tags": None,
         })
 
     ################################################################################
@@ -156,16 +156,16 @@ def artifact_update_5(action=None, success=None, container=None, results=None, h
     # build parameters list for 'artifact_update_5' call
     for filtered_artifact_0_item_categorize_artifact in filtered_artifact_0_data_categorize_artifact:
         parameters.append({
-            "artifact_id": filtered_artifact_0_item_categorize_artifact[0],
             "name": None,
+            "tags": None,
             "label": "Transport Mail",
             "severity": None,
             "cef_field": None,
             "cef_value": None,
-            "cef_data_type": None,
-            "tags": None,
-            "overwrite_tags": None,
             "input_json": None,
+            "artifact_id": filtered_artifact_0_item_categorize_artifact[0],
+            "cef_data_type": None,
+            "overwrite_tags": None,
         })
 
     ################################################################################
