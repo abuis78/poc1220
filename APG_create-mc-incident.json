@@ -40,7 +40,7 @@
                     "targetPort": "6_in"
                 }
             ],
-            "hash": "4aefecbf1c6754f54de7ea8cedb189893e8659d7",
+            "hash": "635d7301831314cecd93c6a66467d5905da64f35",
             "nodes": {
                 "0": {
                     "data": {
@@ -56,7 +56,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 19.999999999999986,
-                    "y": -6.394884621840902e-14
+                    "y": -1.2789769243681803e-13
                 },
                 "1": {
                     "data": {
@@ -72,7 +72,7 @@
                     "type": "end",
                     "warnings": {},
                     "x": 320,
-                    "y": -6.394884621840902e-14
+                    "y": -1.2789769243681803e-13
                 },
                 "2": {
                     "data": {
@@ -90,6 +90,15 @@
                         "functionId": 1,
                         "functionName": "create_incidents_1",
                         "id": "2",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
                         "parameters": {
                             "incident_type": "phishing",
                             "name": "format_icident_name:formatted_data"
@@ -185,6 +194,15 @@
                         "functionId": 1,
                         "functionName": "artifact_create_1",
                         "id": "6",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
                         "selectMore": false,
                         "type": "utility",
                         "utilities": {
@@ -326,16 +344,22 @@
                     "y": 605.0186767578125
                 }
             },
-            "notes": ""
+            "notes": "",
+            "origin": {
+                "playbook_id": 148,
+                "playbook_name": "create_mc_incident",
+                "playbook_repo_id": 3,
+                "playbook_repo_name": "poc1220"
+            }
         },
         "input_spec": null,
         "output_spec": null,
         "playbook_type": "automation",
         "python_version": "3",
-        "schema": "5.0.10",
-        "version": "6.1.1.211"
+        "schema": "5.0.11",
+        "version": "6.2.0.355"
     },
-    "create_time": "2023-11-30T15:53:58.172661+00:00",
+    "create_time": "2023-12-12T14:23:54.458560+00:00",
     "draft_mode": false,
     "labels": [
         "phishing_mail"

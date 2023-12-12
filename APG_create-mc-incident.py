@@ -18,7 +18,7 @@ def on_start(container):
     return
 
 @phantom.playbook_block()
-def create_incidents_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+def create_incidents_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("create_incidents_1() called")
 
     # phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
@@ -49,7 +49,7 @@ def create_incidents_1(action=None, success=None, container=None, results=None, 
 
 
 @phantom.playbook_block()
-def format_icident_name(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+def format_icident_name(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("format_icident_name() called")
 
     template = """Phishing Incident: {0}\n"""
@@ -77,7 +77,7 @@ def format_icident_name(action=None, success=None, container=None, results=None,
 
 
 @phantom.playbook_block()
-def filter_email_artifact(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+def filter_email_artifact(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("filter_email_artifact() called")
 
     # collect filtered artifact ids and results for 'if' condition 1
@@ -97,7 +97,7 @@ def filter_email_artifact(action=None, success=None, container=None, results=Non
 
 
 @phantom.playbook_block()
-def artifact_create_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+def artifact_create_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("artifact_create_1() called")
 
     id_value = container.get("id", None)
@@ -108,16 +108,16 @@ def artifact_create_1(action=None, success=None, container=None, results=None, h
     # build parameters list for 'artifact_create_1' call
     for create_incidents_1_result_item in create_incidents_1_result_data:
         parameters.append({
-            "container": id_value,
             "name": "mc_id",
+            "tags": None,
             "label": None,
             "severity": "Low",
             "cef_field": "id",
             "cef_value": create_incidents_1_result_item[0],
-            "cef_data_type": None,
-            "tags": None,
-            "run_automation": None,
+            "container": id_value,
             "input_json": None,
+            "cef_data_type": None,
+            "run_automation": None,
         })
 
     ################################################################################
