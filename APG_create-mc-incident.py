@@ -56,6 +56,7 @@ def create_incidents_1(action=None, success=None, container=None, results=None, 
 def artifact_create_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("artifact_create_1() called")
 
+    id_value = container.get("id", None)
     create_incidents_1_result_data = phantom.collect2(container=container, datapath=["create_incidents_1:action_result.data.*.id","create_incidents_1:action_result.parameter.context.artifact_id","create_incidents_1:action_result.parameter.context.artifact_external_id"], action_results=results)
 
     parameters = []
@@ -63,16 +64,16 @@ def artifact_create_1(action=None, success=None, container=None, results=None, h
     # build parameters list for 'artifact_create_1' call
     for create_incidents_1_result_item in create_incidents_1_result_data:
         parameters.append({
-            "container": None,
             "name": "mc_id",
+            "tags": None,
             "label": None,
             "severity": "Low",
             "cef_field": "id",
             "cef_value": create_incidents_1_result_item[0],
-            "cef_data_type": None,
-            "tags": None,
-            "run_automation": None,
+            "container": id_value,
             "input_json": None,
+            "cef_data_type": None,
+            "run_automation": None,
         })
 
     ################################################################################
