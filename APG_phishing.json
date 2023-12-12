@@ -28,26 +28,33 @@
                     "targetPort": "5_in"
                 },
                 {
+                    "id": "port_6_to_port_1",
+                    "sourceNode": "6",
+                    "sourcePort": "6_out",
+                    "targetNode": "1",
+                    "targetPort": "1_in"
+                },
+                {
                     "conditions": [
                         {
                             "index": 0
                         }
                     ],
-                    "id": "port_5_to_port_4",
+                    "id": "port_5_to_port_8",
                     "sourceNode": "5",
                     "sourcePort": "5_out",
-                    "targetNode": "4",
-                    "targetPort": "4_in"
+                    "targetNode": "8",
+                    "targetPort": "8_in"
                 },
                 {
-                    "id": "port_4_to_port_1",
-                    "sourceNode": "4",
-                    "sourcePort": "4_out",
-                    "targetNode": "1",
-                    "targetPort": "1_in"
+                    "id": "port_8_to_port_6",
+                    "sourceNode": "8",
+                    "sourcePort": "8_out",
+                    "targetNode": "6",
+                    "targetPort": "6_in"
                 }
             ],
-            "hash": "97f2fdf1f60a2bd3e11e419f094134c2ba46e0c5",
+            "hash": "84a30284e93995eca25c8dc1b6a5b85c35fb80ec",
             "nodes": {
                 "0": {
                     "data": {
@@ -79,7 +86,7 @@
                     "type": "end",
                     "warnings": {},
                     "x": 20,
-                    "y": 788
+                    "y": 952
                 },
                 "2": {
                     "data": {
@@ -145,14 +152,108 @@
                     "x": 0,
                     "y": 296
                 },
-                "4": {
+                "5": {
+                    "data": {
+                        "advanced": {
+                            "customName": "select reported mail",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "conditions": [
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 0,
+                                        "op": "in",
+                                        "param": "reported_mail",
+                                        "value": "artifact:*.tags"
+                                    },
+                                    {
+                                        "conditionIndex": 0,
+                                        "op": "==",
+                                        "param": "artifact:*.name",
+                                        "value": "Email Artifact"
+                                    }
+                                ],
+                                "conditionIndex": 0,
+                                "customName": "select reported mail",
+                                "logic": "and"
+                            }
+                        ],
+                        "functionId": 1,
+                        "functionName": "select_reported_mail",
+                        "id": "5",
+                        "type": "filter"
+                    },
+                    "errors": {},
+                    "id": "5",
+                    "type": "filter",
+                    "warnings": {},
+                    "x": 60,
+                    "y": 460
+                },
+                "6": {
+                    "data": {
+                        "action": "create events",
+                        "actionType": "post",
+                        "advanced": {
+                            "join": []
+                        },
+                        "connector": "Mission Control",
+                        "connectorConfigs": [
+                            "builtin_mc_connector"
+                        ],
+                        "connectorId": 185,
+                        "connectorVersion": "v1",
+                        "functionId": 1,
+                        "functionName": "create_events_1",
+                        "id": "6",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "parameters": {
+                            "incident_id": "playbook_apg_create_mc_incident_2:playbook_output:mc_id",
+                            "pairs": [
+                                {
+                                    "name": "sender",
+                                    "value": "filtered-data:select_reported_mail:condition_1:artifact:*.cef.emailHeaders.From"
+                                }
+                            ]
+                        },
+                        "requiredParameters": [
+                            {
+                                "data_type": "array",
+                                "field": "pairs"
+                            },
+                            {
+                                "data_type": "string",
+                                "default": "",
+                                "field": "incident_id"
+                            }
+                        ],
+                        "type": "missionControl"
+                    },
+                    "errors": {},
+                    "id": "6",
+                    "type": "missionControl",
+                    "warnings": {},
+                    "x": 0,
+                    "y": 860
+                },
+                "8": {
                     "data": {
                         "advanced": {
                             "join": []
                         },
-                        "functionId": 1,
-                        "functionName": "playbook_APG_create_mc_incident_1",
-                        "id": "4",
+                        "functionId": 2,
+                        "functionName": "playbook_APG_create_mc_incident_2",
+                        "id": "8",
                         "inputs": {
                             "incident_type": {
                                 "datapaths": [
@@ -184,54 +285,15 @@
                         "type": "playbook"
                     },
                     "errors": {},
-                    "id": "4",
+                    "id": "8",
                     "type": "playbook",
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
                         ]
                     },
-                    "x": -1.4210854715202004e-14,
-                    "y": 640
-                },
-                "5": {
-                    "data": {
-                        "advanced": {
-                            "customName": "select reported mail",
-                            "customNameId": 0,
-                            "join": []
-                        },
-                        "conditions": [
-                            {
-                                "comparisons": [
-                                    {
-                                        "conditionIndex": 0,
-                                        "op": "in",
-                                        "param": "reported_mail",
-                                        "value": "artifact:*.tags"
-                                    },
-                                    {
-                                        "op": "==",
-                                        "param": "artifact:*.name",
-                                        "value": "Email Artifact"
-                                    }
-                                ],
-                                "conditionIndex": 0,
-                                "customName": "select reported mail",
-                                "logic": "and"
-                            }
-                        ],
-                        "functionId": 1,
-                        "functionName": "select_reported_mail",
-                        "id": "5",
-                        "type": "filter"
-                    },
-                    "errors": {},
-                    "id": "5",
-                    "type": "filter",
-                    "warnings": {},
-                    "x": 60,
-                    "y": 460
+                    "x": 3.583312988281236,
+                    "y": 703.75
                 }
             },
             "notes": ""
@@ -243,7 +305,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-12T14:58:26.674436+00:00",
+    "create_time": "2023-12-12T15:12:10.761561+00:00",
     "draft_mode": false,
     "labels": [
         "phishing_mail"
