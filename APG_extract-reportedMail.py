@@ -124,7 +124,7 @@ def apg_extractjsonfromfile_1(action=None, success=None, container=None, results
     phantom.debug("apg_extractjsonfromfile_1() called")
 
     id_value = container.get("id", None)
-    filtered_artifact_0_data_select_reported_info = phantom.collect2(container=container, datapath=["filtered-data:select_reported_info:condition_2:artifact:*.id","filtered-data:select_reported_info:condition_2:artifact:*.id","filtered-data:select_reported_info:condition_2:artifact:*.external_id"])
+    filtered_artifact_0_data_select_reported_info = phantom.collect2(container=container, datapath=["filtered-data:select_reported_info:condition_2:artifact:*.cef.vaultId","filtered-data:select_reported_info:condition_2:artifact:*.id","filtered-data:select_reported_info:condition_2:artifact:*.external_id"])
 
     parameters = []
 

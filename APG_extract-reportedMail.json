@@ -71,7 +71,7 @@
                     "targetPort": "2_in"
                 }
             ],
-            "hash": "62b0ab577ca01127e3411c9a4f47ddcfb1223370",
+            "hash": "10aa734ed3eb1b3faeb2a7e65777141fe49d22c2",
             "nodes": {
                 "0": {
                     "data": {
@@ -332,7 +332,7 @@
                         "values": {
                             "APG_extractJsonFromFile": {
                                 "containerId": "container:id",
-                                "vaultId": "filtered-data:select_reported_info:condition_2:artifact:*.id"
+                                "vaultId": "filtered-data:select_reported_info:condition_2:artifact:*.cef.vaultId"
                             }
                         }
                     },
@@ -391,7 +391,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-12T11:24:42.789358+00:00",
+    "create_time": "2023-12-12T11:26:23.888391+00:00",
     "draft_mode": false,
     "labels": [
         "phishing_mail"
