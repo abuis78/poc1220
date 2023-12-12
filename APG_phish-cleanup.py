@@ -120,7 +120,7 @@ def artifact_update_2(action=None, success=None, container=None, results=None, h
         parameters.append({
             "name": None,
             "tags": "transport_mail",
-            "label": "User Comment",
+            "label": "KB4 User Comment",
             "severity": None,
             "cef_field": None,
             "cef_value": None,

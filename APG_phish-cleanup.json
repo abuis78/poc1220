@@ -78,7 +78,7 @@
                     "targetPort": "1_in"
                 }
             ],
-            "hash": "ecf1c411567f2b568841d93865fb30267413560f",
+            "hash": "1551e4e53d40fc966b0378ecfe70e2d5f473d62a",
             "nodes": {
                 "0": {
                     "data": {
@@ -831,7 +831,7 @@
                                 "cef_field": null,
                                 "cef_value": null,
                                 "input_json": null,
-                                "label": "User Comment",
+                                "label": "KB4 User Comment",
                                 "name": "",
                                 "overwrite_tags": "",
                                 "severity": null,
@@ -860,7 +860,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-12T11:03:05.335057+00:00",
+    "create_time": "2023-12-12T11:11:46.706485+00:00",
     "draft_mode": false,
     "labels": [
         "*"
