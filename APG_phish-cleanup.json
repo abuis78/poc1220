@@ -50,7 +50,7 @@
                     "targetPort": "2_in"
                 }
             ],
-            "hash": "61152c817f5355212998e2edb08ef990fc3113a7",
+            "hash": "afcdc58187d0c48df211d1920201fbf92681dc9d",
             "nodes": {
                 "0": {
                     "data": {
@@ -233,9 +233,9 @@
                                 "input_json": null,
                                 "label": "Transport Mail",
                                 "name": "",
-                                "overwrite_tags": "transport_mail",
+                                "overwrite_tags": "",
                                 "severity": null,
-                                "tags": null
+                                "tags": "transport_mail"
                             }
                         }
                     },
@@ -670,7 +670,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-12T10:56:01.841526+00:00",
+    "create_time": "2023-12-12T10:56:36.907243+00:00",
     "draft_mode": false,
     "labels": [
         "*"
