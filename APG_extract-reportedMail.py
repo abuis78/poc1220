@@ -12,8 +12,8 @@ from datetime import datetime, timedelta
 def on_start(container):
     phantom.debug('on_start() called')
 
-    # call 'select_reported_info' block
-    select_reported_info(container=container)
+    # call 'filter_transport_mail_artifacts_0' block
+    filter_transport_mail_artifacts_0(container=container)
 
     return
 
@@ -146,6 +146,26 @@ def apg_extractjsonfromfile_1(action=None, success=None, container=None, results
     ################################################################################
 
     phantom.custom_function(custom_function="poc1220/APG_extractJsonFromFile", parameters=parameters, name="apg_extractjsonfromfile_1")
+
+    return
+
+
+@phantom.playbook_block()
+def filter_transport_mail_artifacts_0(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("filter_transport_mail_artifacts_0() called")
+
+    # collect filtered artifact ids and results for 'if' condition 1
+    matched_artifacts_1, matched_results_1 = phantom.condition(
+        container=container,
+        conditions=[
+            ["transport_mail", "in", "artifact:*.tags"]
+        ],
+        name="filter_transport_mail_artifacts_0:condition_1",
+        delimiter=None)
+
+    # call connected blocks if filtered artifacts or results
+    if matched_artifacts_1 or matched_results_1:
+        select_reported_info(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
     return
 

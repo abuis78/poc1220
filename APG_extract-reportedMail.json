@@ -7,13 +7,6 @@
             "description": "",
             "edges": [
                 {
-                    "id": "port_0_to_port_2",
-                    "sourceNode": "0",
-                    "sourcePort": "0_out",
-                    "targetNode": "2",
-                    "targetPort": "2_in"
-                },
-                {
                     "conditions": [
                         {
                             "index": 0
@@ -57,9 +50,28 @@
                     "sourcePort": "6_out",
                     "targetNode": "1",
                     "targetPort": "1_in"
+                },
+                {
+                    "id": "port_0_to_port_7",
+                    "sourceNode": "0",
+                    "sourcePort": "0_out",
+                    "targetNode": "7",
+                    "targetPort": "7_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_7_to_port_2",
+                    "sourceNode": "7",
+                    "sourcePort": "7_out",
+                    "targetNode": "2",
+                    "targetPort": "2_in"
                 }
             ],
-            "hash": "66998a50770c879cf313c1ce46067998b20eff51",
+            "hash": "62b0ab577ca01127e3411c9a4f47ddcfb1223370",
             "nodes": {
                 "0": {
                     "data": {
@@ -91,7 +103,7 @@
                     "type": "end",
                     "warnings": {},
                     "x": 190,
-                    "y": 640
+                    "y": 820
                 },
                 "2": {
                     "data": {
@@ -110,6 +122,7 @@
                                         "value": "Vault Artifact"
                                     },
                                     {
+                                        "conditionIndex": 0,
                                         "op": "==",
                                         "param": "artifact:*.label",
                                         "value": "Reported Mail"
@@ -128,6 +141,7 @@
                                         "value": "Vault Artifact"
                                     },
                                     {
+                                        "conditionIndex": 1,
                                         "op": "==",
                                         "param": "artifact:*.label",
                                         "value": "KB4 User Comment"
@@ -148,7 +162,7 @@
                     "type": "filter",
                     "warnings": {},
                     "x": 230,
-                    "y": 148
+                    "y": 328
                 },
                 "3": {
                     "data": {
@@ -227,7 +241,7 @@
                         ]
                     },
                     "x": 0,
-                    "y": 328
+                    "y": 508
                 },
                 "5": {
                     "data": {
@@ -259,7 +273,7 @@
                     "type": "playbook",
                     "warnings": {},
                     "x": 0,
-                    "y": 484
+                    "y": 664
                 },
                 "6": {
                     "data": {
@@ -331,7 +345,41 @@
                         ]
                     },
                     "x": 340,
-                    "y": 476
+                    "y": 656
+                },
+                "7": {
+                    "data": {
+                        "advanced": {
+                            "customName": "filter transport mail artifacts",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "conditions": [
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 0,
+                                        "op": "in",
+                                        "param": "transport_mail",
+                                        "value": "artifact:*.tags"
+                                    }
+                                ],
+                                "conditionIndex": 0,
+                                "customName": "transport mail artifact",
+                                "logic": "and"
+                            }
+                        ],
+                        "functionId": 2,
+                        "functionName": "filter_transport_mail_artifacts_0",
+                        "id": "7",
+                        "type": "filter"
+                    },
+                    "errors": {},
+                    "id": "7",
+                    "type": "filter",
+                    "warnings": {},
+                    "x": 230,
+                    "y": 148
                 }
             },
             "notes": ""
@@ -343,7 +391,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-12T11:20:18.410157+00:00",
+    "create_time": "2023-12-12T11:24:42.789358+00:00",
     "draft_mode": false,
     "labels": [
         "phishing_mail"
