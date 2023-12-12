@@ -19,8 +19,28 @@
                     "sourcePort": "2_out",
                     "targetNode": "3",
                     "targetPort": "3_in"
+                },
+                {
+                    "id": "port_3_to_port_5",
+                    "sourceNode": "3",
+                    "sourcePort": "3_out",
+                    "targetNode": "5",
+                    "targetPort": "5_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_5_to_port_4",
+                    "sourceNode": "5",
+                    "sourcePort": "5_out",
+                    "targetNode": "4",
+                    "targetPort": "4_in"
                 }
             ],
+            "hash": "988dba728ef9670df95dc466dd7cf42ed61a259a",
             "nodes": {
                 "0": {
                     "data": {
@@ -35,8 +55,8 @@
                     "id": "0",
                     "type": "start",
                     "warnings": {},
-                    "x": 19.999999999999986,
-                    "y": -6.394884621840902e-14
+                    "x": 20,
+                    "y": 0
                 },
                 "1": {
                     "data": {
@@ -52,7 +72,7 @@
                     "type": "end",
                     "warnings": {},
                     "x": 320,
-                    "y": -6.394884621840902e-14
+                    "y": 0
                 },
                 "2": {
                     "data": {
@@ -115,8 +135,103 @@
                     "id": "3",
                     "type": "playbook",
                     "warnings": {},
-                    "x": -1.4210854715202004e-14,
-                    "y": 295.99999999999994
+                    "x": 0,
+                    "y": 296
+                },
+                "4": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionId": 1,
+                        "functionName": "playbook_APG_create_mc_incident_1",
+                        "id": "4",
+                        "inputs": {
+                            "incident_type": {
+                                "datapaths": [
+                                    "phishing"
+                                ],
+                                "deduplicate": false
+                            },
+                            "subject": {
+                                "datapaths": [
+                                    "filtered-data:select_reported_mail:condition_1:artifact:*.cef.emailHeaders.Subject"
+                                ],
+                                "deduplicate": false
+                            }
+                        },
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "playbookName": "APG_create-mc-incident",
+                        "playbookRepo": 3,
+                        "playbookRepoName": "poc1220",
+                        "playbookType": "data",
+                        "synchronous": true,
+                        "type": "playbook"
+                    },
+                    "errors": {},
+                    "id": "4",
+                    "type": "playbook",
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
+                    "x": 0,
+                    "y": 640
+                },
+                "5": {
+                    "data": {
+                        "advanced": {
+                            "customName": "select reported mail",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "conditions": [
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 0,
+                                        "op": "in",
+                                        "param": "reported_mail",
+                                        "value": "artifact:*.tags"
+                                    }
+                                ],
+                                "conditionIndex": 0,
+                                "customName": "select reported mail",
+                                "logic": "and"
+                            },
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 1,
+                                        "op": "==",
+                                        "param": "artifact:*.name",
+                                        "value": "Email Artifact"
+                                    }
+                                ],
+                                "conditionIndex": 1,
+                                "logic": "and"
+                            }
+                        ],
+                        "functionId": 1,
+                        "functionName": "select_reported_mail",
+                        "id": "5",
+                        "type": "filter"
+                    },
+                    "errors": {},
+                    "id": "5",
+                    "type": "filter",
+                    "warnings": {},
+                    "x": 60,
+                    "y": 460
                 }
             },
             "notes": ""
@@ -128,7 +243,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-12T11:38:58.421166+00:00",
+    "create_time": "2023-12-12T14:44:46.702140+00:00",
     "draft_mode": false,
     "labels": [
         "phishing_mail"
