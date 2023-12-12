@@ -5,8 +5,16 @@
     "coa": {
         "data": {
             "description": "",
-            "edges": [],
-            "hash": "34f214649e27c33ea22c0dd6363172679b9d6dd0",
+            "edges": [
+                {
+                    "id": "port_0_to_port_2",
+                    "sourceNode": "0",
+                    "sourcePort": "0_out",
+                    "targetNode": "2",
+                    "targetPort": "2_in"
+                }
+            ],
+            "hash": "ae3b8df373931e67dcb5f366c2c9cffbf9f894f6",
             "nodes": {
                 "0": {
                     "data": {
@@ -39,6 +47,55 @@
                     "warnings": {},
                     "x": 1000,
                     "y": 1000
+                },
+                "2": {
+                    "data": {
+                        "action": "create incidents",
+                        "actionType": "post",
+                        "advanced": {
+                            "join": []
+                        },
+                        "connector": "Mission Control",
+                        "connectorConfigs": [
+                            "builtin_mc_connector"
+                        ],
+                        "connectorId": 185,
+                        "connectorVersion": "v1",
+                        "functionId": 1,
+                        "functionName": "create_incidents_1",
+                        "id": "2",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "parameters": {
+                            "name": "playbook_input:subject"
+                        },
+                        "requiredParameters": [
+                            {
+                                "data_type": "string",
+                                "default": "",
+                                "field": "name"
+                            },
+                            {
+                                "data_type": "string",
+                                "default": "",
+                                "field": "incident_type"
+                            }
+                        ],
+                        "type": "missionControl"
+                    },
+                    "errors": {},
+                    "id": "2",
+                    "type": "missionControl",
+                    "warnings": {},
+                    "x": 980,
+                    "y": 540
                 }
             },
             "notes": ""
@@ -48,6 +105,11 @@
                 "contains": [],
                 "description": "",
                 "name": "subject"
+            },
+            {
+                "contains": [],
+                "description": "",
+                "name": "incident_type"
             }
         ],
         "output_spec": null,
@@ -56,7 +118,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-12T14:26:59.721679+00:00",
+    "create_time": "2023-12-12T14:29:05.236744+00:00",
     "draft_mode": false,
     "labels": [
         "*"
