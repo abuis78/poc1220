@@ -62,8 +62,8 @@
                     "id": "0",
                     "type": "start",
                     "warnings": {},
-                    "x": 20,
-                    "y": 0
+                    "x": 19.999999999999986,
+                    "y": -6.394884621840902e-14
                 },
                 "1": {
                     "data": {
@@ -78,7 +78,7 @@
                     "id": "1",
                     "type": "end",
                     "warnings": {},
-                    "x": 20,
+                    "x": 19.999999999999986,
                     "y": 772
                 },
                 "2": {
@@ -127,7 +127,11 @@
                     "errors": {},
                     "id": "2",
                     "type": "missionControl",
-                    "warnings": {},
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
                     "x": 0,
                     "y": 476
                 },
@@ -346,12 +350,22 @@
                     "errors": {},
                     "id": "6",
                     "type": "utility",
-                    "warnings": {},
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
                     "x": 0,
                     "y": 624
                 }
             },
-            "notes": ""
+            "notes": "",
+            "origin": {
+                "playbook_id": 220,
+                "playbook_name": "APG_create-mc-incident",
+                "playbook_repo_id": 3,
+                "playbook_repo_name": "poc1220"
+            }
         },
         "input_spec": null,
         "output_spec": null,
