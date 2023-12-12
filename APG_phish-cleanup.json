@@ -48,6 +48,27 @@
                     "sourcePort": "0_out",
                     "targetNode": "2",
                     "targetPort": "2_in"
+                },
+                {
+                    "id": "port_7_to_port_1",
+                    "sourceNode": "7",
+                    "sourcePort": "7_out",
+                    "targetNode": "1",
+                    "targetPort": "1_in"
+                },
+                {
+                    "id": "port_8_to_port_1",
+                    "sourceNode": "8",
+                    "sourcePort": "8_out",
+                    "targetNode": "1",
+                    "targetPort": "1_in"
+                },
+                {
+                    "id": "port_10_to_port_1",
+                    "sourceNode": "10",
+                    "sourcePort": "10_out",
+                    "targetNode": "1",
+                    "targetPort": "1_in"
                 }
             ],
             "hash": "ecf1c411567f2b568841d93865fb30267413560f",
@@ -81,8 +102,8 @@
                     "id": "1",
                     "type": "end",
                     "warnings": {},
-                    "x": 660,
-                    "y": -6.394884621840902e-14
+                    "x": 360,
+                    "y": 580
                 },
                 "10": {
                     "data": {
