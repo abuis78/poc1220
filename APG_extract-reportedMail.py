@@ -24,8 +24,10 @@ def select_reported_info(action=None, success=None, container=None, results=None
     # collect filtered artifact ids and results for 'if' condition 1
     matched_artifacts_1, matched_results_1 = phantom.condition(
         container=container,
+        logical_operator="and",
         conditions=[
-            ["artifact:*.name", "==", "Vault Artifact"]
+            ["artifact:*.name", "==", "Vault Artifact"],
+            ["artifact:*.label", "==", "Reported Mail"]
         ],
         name="select_reported_info:condition_1",
         delimiter=None)
@@ -38,7 +40,7 @@ def select_reported_info(action=None, success=None, container=None, results=None
     matched_artifacts_2, matched_results_2 = phantom.condition(
         container=container,
         conditions=[
-            [".eml", "in", "artifact:*.cef.fileName"]
+            ["artifact:*.name", "==", "Vault Artifact"]
         ],
         name="select_reported_info:condition_2",
         delimiter=None)

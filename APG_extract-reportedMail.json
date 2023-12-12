@@ -45,7 +45,7 @@
                     "targetPort": "6_in"
                 }
             ],
-            "hash": "3b32123b60c1b3e98fdcb8a0bb6054844e3e9fc7",
+            "hash": "dfb87eef131b2acab799b8031d6c6e43c52f306c",
             "nodes": {
                 "0": {
                     "data": {
@@ -61,7 +61,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 19.999999999999986,
-                    "y": -1.5987211554602254e-13
+                    "y": -2.2382096176443156e-13
                 },
                 "1": {
                     "data": {
@@ -77,7 +77,7 @@
                     "type": "end",
                     "warnings": {},
                     "x": 320,
-                    "y": -1.5987211554602254e-13
+                    "y": -2.2382096176443156e-13
                 },
                 "2": {
                     "data": {
@@ -94,6 +94,11 @@
                                         "op": "==",
                                         "param": "artifact:*.name",
                                         "value": "Vault Artifact"
+                                    },
+                                    {
+                                        "op": "==",
+                                        "param": "artifact:*.label",
+                                        "value": "Reported Mail"
                                     }
                                 ],
                                 "conditionIndex": 0,
@@ -104,9 +109,9 @@
                                 "comparisons": [
                                     {
                                         "conditionIndex": 1,
-                                        "op": "in",
-                                        "param": ".eml",
-                                        "value": "artifact:*.cef.fileName"
+                                        "op": "==",
+                                        "param": "artifact:*.name",
+                                        "value": "Vault Artifact"
                                     }
                                 ],
                                 "conditionIndex": 1,
@@ -282,7 +287,13 @@
                     "y": 264.5
                 }
             },
-            "notes": ""
+            "notes": "",
+            "origin": {
+                "playbook_id": 183,
+                "playbook_name": "APG_Phishing",
+                "playbook_repo_id": 3,
+                "playbook_repo_name": "poc1220"
+            }
         },
         "input_spec": null,
         "output_spec": null,
@@ -291,7 +302,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-07T14:15:12.249587+00:00",
+    "create_time": "2023-12-12T11:15:38.504554+00:00",
     "draft_mode": false,
     "labels": [
         "phishing_mail"
