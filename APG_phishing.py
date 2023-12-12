@@ -87,7 +87,19 @@ def playbook_apg_create_mc_incident_1(action=None, success=None, container=None,
     ################################################################################
 
     # call playbook "poc1220/APG_create-mc-incident", returns the playbook_run_id
-    playbook_run_id = phantom.playbook("poc1220/APG_create-mc-incident", container=container, name="playbook_apg_create_mc_incident_1", inputs=inputs)
+    playbook_run_id = phantom.playbook("poc1220/APG_create-mc-incident", container=container, name="playbook_apg_create_mc_incident_1", callback=playbook_apg_create_mc_incident_1_callback, inputs=inputs)
+
+    return
+
+
+@phantom.playbook_block()
+def playbook_apg_create_mc_incident_1_callback(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("playbook_apg_create_mc_incident_1_callback() called")
+
+    
+    # Downstream End block cannot be called directly, since execution will call on_finish automatically.
+    # Using placeholder callback function so child playbook is run synchronously.
+
 
     return
 
