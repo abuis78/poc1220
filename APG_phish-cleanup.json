@@ -50,7 +50,7 @@
                     "targetPort": "2_in"
                 }
             ],
-            "hash": "a4257c7c2886c6c31601eb3566412223ef32bc92",
+            "hash": "61152c817f5355212998e2edb08ef990fc3113a7",
             "nodes": {
                 "0": {
                     "data": {
@@ -477,9 +477,9 @@
                                 "input_json": null,
                                 "label": "Reported Mail",
                                 "name": "",
-                                "overwrite_tags": "transport_mail",
+                                "overwrite_tags": "",
                                 "severity": null,
-                                "tags": null
+                                "tags": "transport_mail"
                             }
                         }
                     },
@@ -643,9 +643,9 @@
                                 "input_json": null,
                                 "label": "User Comment",
                                 "name": "",
-                                "overwrite_tags": "transport_mail",
+                                "overwrite_tags": "",
                                 "severity": null,
-                                "tags": null
+                                "tags": "transport_mail"
                             }
                         }
                     },
@@ -670,7 +670,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-12T10:53:58.774636+00:00",
+    "create_time": "2023-12-12T10:56:01.841526+00:00",
     "draft_mode": false,
     "labels": [
         "*"

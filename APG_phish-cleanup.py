@@ -81,7 +81,7 @@ def artifact_update_1(action=None, success=None, container=None, results=None, h
     for filtered_artifact_0_item_categorize_artifact in filtered_artifact_0_data_categorize_artifact:
         parameters.append({
             "name": None,
-            "tags": None,
+            "tags": "transport_mail",
             "label": "Reported Mail",
             "severity": None,
             "cef_field": None,
@@ -89,7 +89,7 @@ def artifact_update_1(action=None, success=None, container=None, results=None, h
             "input_json": None,
             "artifact_id": filtered_artifact_0_item_categorize_artifact[0],
             "cef_data_type": None,
-            "overwrite_tags": "transport_mail",
+            "overwrite_tags": None,
         })
 
     ################################################################################
@@ -119,7 +119,7 @@ def artifact_update_2(action=None, success=None, container=None, results=None, h
     for filtered_artifact_0_item_categorize_artifact in filtered_artifact_0_data_categorize_artifact:
         parameters.append({
             "name": None,
-            "tags": None,
+            "tags": "transport_mail",
             "label": "User Comment",
             "severity": None,
             "cef_field": None,
@@ -127,7 +127,7 @@ def artifact_update_2(action=None, success=None, container=None, results=None, h
             "input_json": None,
             "artifact_id": filtered_artifact_0_item_categorize_artifact[0],
             "cef_data_type": None,
-            "overwrite_tags": "transport_mail",
+            "overwrite_tags": None,
         })
 
     ################################################################################
