@@ -38,9 +38,16 @@
                     "sourcePort": "2_out",
                     "targetNode": "6",
                     "targetPort": "6_in"
+                },
+                {
+                    "id": "port_6_to_port_1",
+                    "sourceNode": "6",
+                    "sourcePort": "6_out",
+                    "targetNode": "1",
+                    "targetPort": "1_in"
                 }
             ],
-            "hash": "635d7301831314cecd93c6a66467d5905da64f35",
+            "hash": "4aefecbf1c6754f54de7ea8cedb189893e8659d7",
             "nodes": {
                 "0": {
                     "data": {
@@ -55,8 +62,8 @@
                     "id": "0",
                     "type": "start",
                     "warnings": {},
-                    "x": 19.999999999999986,
-                    "y": -1.2789769243681803e-13
+                    "x": 20,
+                    "y": 0
                 },
                 "1": {
                     "data": {
@@ -71,8 +78,8 @@
                     "id": "1",
                     "type": "end",
                     "warnings": {},
-                    "x": 320,
-                    "y": -1.2789769243681803e-13
+                    "x": 20,
+                    "y": 772
                 },
                 "2": {
                     "data": {
@@ -122,7 +129,7 @@
                     "type": "missionControl",
                     "warnings": {},
                     "x": 0,
-                    "y": 440
+                    "y": 476
                 },
                 "3": {
                     "data": {
@@ -145,7 +152,7 @@
                     "type": "format",
                     "warnings": {},
                     "x": 0,
-                    "y": 320
+                    "y": 328
                 },
                 "4": {
                     "data": {
@@ -178,8 +185,8 @@
                     "id": "4",
                     "type": "filter",
                     "warnings": {},
-                    "x": 180,
-                    "y": 140
+                    "x": 60,
+                    "y": 148
                 },
                 "6": {
                     "data": {
@@ -340,17 +347,11 @@
                     "id": "6",
                     "type": "utility",
                     "warnings": {},
-                    "x": 11.638870239257812,
-                    "y": 605.0186767578125
+                    "x": 0,
+                    "y": 624
                 }
             },
-            "notes": "",
-            "origin": {
-                "playbook_id": 148,
-                "playbook_name": "create_mc_incident",
-                "playbook_repo_id": 3,
-                "playbook_repo_name": "poc1220"
-            }
+            "notes": ""
         },
         "input_spec": null,
         "output_spec": null,
