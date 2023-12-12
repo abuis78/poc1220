@@ -39,30 +39,17 @@ def select_reported_info(action=None, success=None, container=None, results=None
     # collect filtered artifact ids and results for 'if' condition 2
     matched_artifacts_2, matched_results_2 = phantom.condition(
         container=container,
+        logical_operator="and",
         conditions=[
-            ["artifact:*.name", "==", "Vault Artifact"]
+            ["artifact:*.name", "==", "Vault Artifact"],
+            ["artifact:*.label", "==", "KB4 User Comment"]
         ],
         name="select_reported_info:condition_2",
         delimiter=None)
 
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_2 or matched_results_2:
-        call_api_1(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_2, filtered_results=matched_results_2)
-
-    # collect filtered artifact ids and results for 'if' condition 3
-    matched_artifacts_3, matched_results_3 = phantom.condition(
-        container=container,
-        logical_operator="and",
-        conditions=[
-            ["artifact:*.name", "==", "Vault Artifact"],
-            [".json", "in", "artifact:*.cef.fileName"]
-        ],
-        name="select_reported_info:condition_3",
-        delimiter=None)
-
-    # call connected blocks if filtered artifacts or results
-    if matched_artifacts_3 or matched_results_3:
-        pass
+        apg_extractjsonfromfile_1(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_2, filtered_results=matched_results_2)
 
     return
 
@@ -133,8 +120,20 @@ def playbook_prepoc_url_sanitize_1(action=None, success=None, container=None, re
 
 
 @phantom.playbook_block()
-def call_api_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("call_api_1() called")
+def apg_extractjsonfromfile_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("apg_extractjsonfromfile_1() called")
+
+    id_value = container.get("id", None)
+    filtered_artifact_0_data_select_reported_info = phantom.collect2(container=container, datapath=["filtered-data:select_reported_info:condition_2:artifact:*.id","filtered-data:select_reported_info:condition_2:artifact:*.id","filtered-data:select_reported_info:condition_2:artifact:*.external_id"])
+
+    parameters = []
+
+    # build parameters list for 'apg_extractjsonfromfile_1' call
+    for filtered_artifact_0_item_select_reported_info in filtered_artifact_0_data_select_reported_info:
+        parameters.append({
+            "vaultId": filtered_artifact_0_item_select_reported_info[0],
+            "containerId": id_value,
+        })
 
     ################################################################################
     ## Custom Code Start
@@ -145,6 +144,8 @@ def call_api_1(action=None, success=None, container=None, results=None, handle=N
     ################################################################################
     ## Custom Code End
     ################################################################################
+
+    phantom.custom_function(custom_function="poc1220/APG_extractJsonFromFile", parameters=parameters, name="apg_extractjsonfromfile_1")
 
     return
 

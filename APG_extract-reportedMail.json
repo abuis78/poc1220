@@ -43,9 +43,23 @@
                     "sourcePort": "2_out",
                     "targetNode": "6",
                     "targetPort": "6_in"
+                },
+                {
+                    "id": "port_5_to_port_1",
+                    "sourceNode": "5",
+                    "sourcePort": "5_out",
+                    "targetNode": "1",
+                    "targetPort": "1_in"
+                },
+                {
+                    "id": "port_6_to_port_1",
+                    "sourceNode": "6",
+                    "sourcePort": "6_out",
+                    "targetNode": "1",
+                    "targetPort": "1_in"
                 }
             ],
-            "hash": "dfb87eef131b2acab799b8031d6c6e43c52f306c",
+            "hash": "66998a50770c879cf313c1ce46067998b20eff51",
             "nodes": {
                 "0": {
                     "data": {
@@ -60,8 +74,8 @@
                     "id": "0",
                     "type": "start",
                     "warnings": {},
-                    "x": 19.999999999999986,
-                    "y": -2.2382096176443156e-13
+                    "x": 190,
+                    "y": 0
                 },
                 "1": {
                     "data": {
@@ -76,8 +90,8 @@
                     "id": "1",
                     "type": "end",
                     "warnings": {},
-                    "x": 320,
-                    "y": -2.2382096176443156e-13
+                    "x": 190,
+                    "y": 640
                 },
                 "2": {
                     "data": {
@@ -112,28 +126,15 @@
                                         "op": "==",
                                         "param": "artifact:*.name",
                                         "value": "Vault Artifact"
+                                    },
+                                    {
+                                        "op": "==",
+                                        "param": "artifact:*.label",
+                                        "value": "KB4 User Comment"
                                     }
                                 ],
                                 "conditionIndex": 1,
                                 "customName": "Select KB4 User Comment",
-                                "logic": "and"
-                            },
-                            {
-                                "comparisons": [
-                                    {
-                                        "conditionIndex": 2,
-                                        "op": "==",
-                                        "param": "artifact:*.name",
-                                        "value": "Vault Artifact"
-                                    },
-                                    {
-                                        "conditionIndex": 2,
-                                        "op": "in",
-                                        "param": ".json",
-                                        "value": "artifact:*.cef.fileName"
-                                    }
-                                ],
-                                "conditionIndex": 2,
                                 "logic": "and"
                             }
                         ],
@@ -146,8 +147,8 @@
                     "id": "2",
                     "type": "filter",
                     "warnings": {},
-                    "x": 60,
-                    "y": 120
+                    "x": 230,
+                    "y": 148
                 },
                 "3": {
                     "data": {
@@ -226,7 +227,7 @@
                         ]
                     },
                     "x": 0,
-                    "y": 300
+                    "y": 328
                 },
                 "5": {
                     "data": {
@@ -258,15 +259,20 @@
                     "type": "playbook",
                     "warnings": {},
                     "x": 0,
-                    "y": 420
+                    "y": 484
                 },
                 "6": {
                     "data": {
                         "advanced": {
                             "join": []
                         },
+                        "customFunction": {
+                            "draftMode": false,
+                            "name": "APG_extractJsonFromFile",
+                            "repoName": "poc1220"
+                        },
                         "functionId": 1,
-                        "functionName": "call_api_1",
+                        "functionName": "APG_extractJsonFromFile_1",
                         "id": "6",
                         "loop": {
                             "enabled": false,
@@ -277,23 +283,58 @@
                             "pauseUnit": "m",
                             "pauseValue": 2
                         },
-                        "type": "utility"
+                        "selectMore": false,
+                        "type": "utility",
+                        "utilities": {
+                            "APG_extractJsonFromFile": {
+                                "description": "",
+                                "fields": [
+                                    {
+                                        "dataTypes": [],
+                                        "description": "",
+                                        "inputType": "item",
+                                        "label": "vaultId",
+                                        "name": "vaultId",
+                                        "placeholder": "",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "",
+                                        "inputType": "item",
+                                        "label": "containerId",
+                                        "name": "containerId",
+                                        "placeholder": "",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    }
+                                ],
+                                "label": "APG_extractJsonFromFile",
+                                "name": "APG_extractJsonFromFile"
+                            }
+                        },
+                        "utilityType": "custom_function",
+                        "values": {
+                            "APG_extractJsonFromFile": {
+                                "containerId": "container:id",
+                                "vaultId": "filtered-data:select_reported_info:condition_2:artifact:*.id"
+                            }
+                        }
                     },
                     "errors": {},
                     "id": "6",
                     "type": "utility",
-                    "warnings": {},
-                    "x": 460,
-                    "y": 264.5
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
+                    "x": 340,
+                    "y": 476
                 }
             },
-            "notes": "",
-            "origin": {
-                "playbook_id": 183,
-                "playbook_name": "APG_Phishing",
-                "playbook_repo_id": 3,
-                "playbook_repo_name": "poc1220"
-            }
+            "notes": ""
         },
         "input_spec": null,
         "output_spec": null,
@@ -302,7 +343,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-12T11:15:38.504554+00:00",
+    "create_time": "2023-12-12T11:20:18.410157+00:00",
     "draft_mode": false,
     "labels": [
         "phishing_mail"
