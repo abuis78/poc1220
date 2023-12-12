@@ -24,16 +24,18 @@ def create_incidents_1(action=None, success=None, container=None, results=None, 
     # phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
 
     playbook_input_subject = phantom.collect2(container=container, datapath=["playbook_input:subject"])
+    playbook_input_incident_type = phantom.collect2(container=container, datapath=["playbook_input:incident_type"])
 
     parameters = []
 
     # build parameters list for 'create_incidents_1' call
     for playbook_input_subject_item in playbook_input_subject:
-        if playbook_input_subject_item[0] is not None:
-            parameters.append({
-                "name": playbook_input_subject_item[0],
-                "incident_type": "",
-            })
+        for playbook_input_incident_type_item in playbook_input_incident_type:
+            if playbook_input_subject_item[0] is not None and playbook_input_incident_type_item[0] is not None:
+                parameters.append({
+                    "name": playbook_input_subject_item[0],
+                    "incident_type": playbook_input_incident_type_item[0],
+                })
 
     ################################################################################
     ## Custom Code Start
@@ -45,7 +47,45 @@ def create_incidents_1(action=None, success=None, container=None, results=None, 
     ## Custom Code End
     ################################################################################
 
-    phantom.act("create incidents", parameters=parameters, name="create_incidents_1", assets=["builtin_mc_connector"])
+    phantom.act("create incidents", parameters=parameters, name="create_incidents_1", assets=["builtin_mc_connector"], callback=artifact_create_1)
+
+    return
+
+
+@phantom.playbook_block()
+def artifact_create_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("artifact_create_1() called")
+
+    create_incidents_1_result_data = phantom.collect2(container=container, datapath=["create_incidents_1:action_result.data.*.id","create_incidents_1:action_result.parameter.context.artifact_id","create_incidents_1:action_result.parameter.context.artifact_external_id"], action_results=results)
+
+    parameters = []
+
+    # build parameters list for 'artifact_create_1' call
+    for create_incidents_1_result_item in create_incidents_1_result_data:
+        parameters.append({
+            "container": None,
+            "name": "mc_id",
+            "label": None,
+            "severity": "Low",
+            "cef_field": "id",
+            "cef_value": create_incidents_1_result_item[0],
+            "cef_data_type": None,
+            "tags": None,
+            "run_automation": None,
+            "input_json": None,
+        })
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.custom_function(custom_function="community/artifact_create", parameters=parameters, name="artifact_create_1")
 
     return
 
