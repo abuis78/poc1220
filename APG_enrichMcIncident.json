@@ -31,14 +31,14 @@
                             "index": 0
                         }
                     ],
-                    "id": "port_3_to_port_4",
+                    "id": "port_3_to_port_5",
                     "sourceNode": "3",
                     "sourcePort": "3_out",
-                    "targetNode": "4",
-                    "targetPort": "4_in"
+                    "targetNode": "5",
+                    "targetPort": "5_in"
                 }
             ],
-            "hash": "99581278bd9f7bb093ae4a84bef51c4ff931397d",
+            "hash": "279b478f1d57e5d2473b349fee40e8b0ddd31984",
             "nodes": {
                 "0": {
                     "data": {
@@ -200,6 +200,32 @@
                     },
                     "x": -20,
                     "y": 444.5
+                },
+                "5": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionId": 1,
+                        "functionName": "code_1",
+                        "id": "5",
+                        "inputParameters": [
+                            "filtered-data:select_reported_email:condition_1:artifact:*.cef.bodyHtml"
+                        ],
+                        "outputVariables": [],
+                        "type": "code"
+                    },
+                    "errors": {},
+                    "id": "5",
+                    "type": "code",
+                    "userCode": "\n    # Write your custom code here...\n    output_file_path = \"/tmp/output.pdf\"\n    # html_string_to_pdf returns False on error, and True on success    \n    if not phantom.html_string_to_pdf(filtered_artifact_0__cef_bodyhtml, output_file_path):\n        phantom.error(\"Failed to convert HTML string to pdf.\")\n\n    # Add the file as a container attachment using the vault API\n    vault_id = phantom.vault_add(container=container, file_location=output_file_path, file_name=\"output.pdf\")\n    phantom.debug(vault_id)\n\n\n",
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
+                    "x": -400,
+                    "y": 340
                 }
             },
             "notes": ""
@@ -211,7 +237,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-14T14:20:29.790261+00:00",
+    "create_time": "2023-12-14T14:31:53.619943+00:00",
     "draft_mode": false,
     "labels": [
         "*"

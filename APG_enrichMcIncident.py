@@ -54,7 +54,7 @@ def select_mc_incident(action=None, success=None, container=None, results=None, 
 
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_1 or matched_results_1:
-        set_summary_fields_1(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+        code_1(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
     return
 
@@ -93,6 +93,36 @@ def set_summary_fields_1(action=None, success=None, container=None, results=None
     ################################################################################
 
     phantom.act("set summary fields", parameters=parameters, name="set_summary_fields_1", assets=["builtin_mc_connector"])
+
+    return
+
+
+@phantom.playbook_block()
+def code_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("code_1() called")
+
+    filtered_artifact_0_data_select_reported_email = phantom.collect2(container=container, datapath=["filtered-data:select_reported_email:condition_1:artifact:*.cef.bodyHtml"])
+
+    filtered_artifact_0__cef_bodyhtml = [item[0] for item in filtered_artifact_0_data_select_reported_email]
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+    output_file_path = "/tmp/output.pdf"
+    # html_string_to_pdf returns False on error, and True on success    
+    if not phantom.html_string_to_pdf(filtered_artifact_0__cef_bodyhtml, output_file_path):
+        phantom.error("Failed to convert HTML string to pdf.")
+
+    # Add the file as a container attachment using the vault API
+    vault_id = phantom.vault_add(container=container, file_location=output_file_path, file_name="output.pdf")
+    phantom.debug(vault_id)
+
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
 
     return
 
