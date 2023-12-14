@@ -34,9 +34,7 @@ def playbook_apg_phish_cleanup_1(action=None, success=None, container=None, resu
     ################################################################################
 
     # call playbook "poc1220/APG_phish-cleanup", returns the playbook_run_id
-    playbook_run_id = phantom.playbook("poc1220/APG_phish-cleanup", container=container, inputs=inputs)
-
-    playbook_apg_extract_reportedmail_1(container=container)
+    playbook_run_id = phantom.playbook("poc1220/APG_phish-cleanup", container=container, name="playbook_apg_phish_cleanup_1", callback=playbook_apg_extract_reportedmail_1, inputs=inputs)
 
     return
 
@@ -56,9 +54,7 @@ def playbook_apg_extract_reportedmail_1(action=None, success=None, container=Non
     ################################################################################
 
     # call playbook "poc1220/APG_extract-reportedMail", returns the playbook_run_id
-    playbook_run_id = phantom.playbook("poc1220/APG_extract-reportedMail", container=container)
-
-    select_reported_mail(container=container)
+    playbook_run_id = phantom.playbook("poc1220/APG_extract-reportedMail", container=container, name="playbook_apg_extract_reportedmail_1", callback=select_reported_mail)
 
     return
 

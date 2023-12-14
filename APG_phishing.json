@@ -54,7 +54,7 @@
                     "targetPort": "6_in"
                 }
             ],
-            "hash": "ee6169bdcf209f007c166ef1c9e08df6b3e281f6",
+            "hash": "435a40ae7ae89d29dc7c883b7ba38205b04ef2aa",
             "nodes": {
                 "0": {
                     "data": {
@@ -69,8 +69,8 @@
                     "id": "0",
                     "type": "start",
                     "warnings": {},
-                    "x": 20,
-                    "y": 0
+                    "x": 19.999999999999986,
+                    "y": -6.394884621840902e-14
                 },
                 "1": {
                     "data": {
@@ -85,7 +85,7 @@
                     "id": "1",
                     "type": "end",
                     "warnings": {},
-                    "x": 20,
+                    "x": 19.999999999999986,
                     "y": 952
                 },
                 "2": {
@@ -110,7 +110,7 @@
                         "playbookRepo": 3,
                         "playbookRepoName": "poc1220",
                         "playbookType": "data",
-                        "synchronous": false,
+                        "synchronous": true,
                         "type": "playbook"
                     },
                     "errors": {},
@@ -142,15 +142,15 @@
                         "playbookRepo": 3,
                         "playbookRepoName": "poc1220",
                         "playbookType": "automation",
-                        "synchronous": false,
+                        "synchronous": true,
                         "type": "playbook"
                     },
                     "errors": {},
                     "id": "3",
                     "type": "playbook",
                     "warnings": {},
-                    "x": 0,
-                    "y": 296
+                    "x": -1.4210854715202004e-14,
+                    "y": 295.99999999999994
                 },
                 "5": {
                     "data": {
@@ -305,7 +305,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-12T15:15:12.950979+00:00",
+    "create_time": "2023-12-14T13:52:09.565984+00:00",
     "draft_mode": false,
     "labels": [
         "phishing_mail"
