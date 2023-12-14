@@ -113,7 +113,7 @@ def code_1(action=None, success=None, container=None, results=None, handle=None,
     phantom.debug(filtered_artifact_0__cef_bodyhtml)
     output_file_path = "/tmp/output.pdf"
     # html_string_to_pdf returns False on error, and True on success    
-    if not phantom.html_string_to_pdf(filtered_artifact_0__cef_bodyhtml, output_file_path):
+    if not phantom.html_string_to_pdf(filtered_artifact_0__cef_bodyhtml[0], output_file_path):
         phantom.error("Failed to convert HTML string to pdf.")
 
     # Add the file as a container attachment using the vault API
