@@ -38,7 +38,7 @@
                     "targetPort": "4_in"
                 }
             ],
-            "hash": "abc03b2af9dabbfc1040cb5c13c5f0351c6c95c3",
+            "hash": "340136b0920c30a390b8e7465bf924a28ad90c11",
             "nodes": {
                 "0": {
                     "data": {
@@ -54,7 +54,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": -1.4210854715202004e-14,
-                    "y": -6.394884621840902e-14
+                    "y": -1.2789769243681803e-13
                 },
                 "1": {
                     "data": {
@@ -70,7 +70,7 @@
                     "type": "end",
                     "warnings": {},
                     "x": 300,
-                    "y": -6.394884621840902e-14
+                    "y": -1.2789769243681803e-13
                 },
                 "2": {
                     "data": {
@@ -169,7 +169,10 @@
                             "pauseValue": 2
                         },
                         "parameters": {
-                            "id": "filtered-data:select_mc_incident:condition_1:artifact:*.cef.id"
+                            "data": "627221348577d15dfb46fe73dcb896c73b5ce4b1",
+                            "file_name": "qr_code.png",
+                            "id": "filtered-data:select_mc_incident:condition_1:artifact:*.cef.id",
+                            "source_type": "png"
                         },
                         "requiredParameters": [
                             {
@@ -215,7 +218,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-14T14:48:24.832758+00:00",
+    "create_time": "2023-12-14T14:50:53.195729+00:00",
     "draft_mode": false,
     "labels": [
         "*"
