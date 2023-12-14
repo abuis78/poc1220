@@ -31,14 +31,14 @@
                             "index": 0
                         }
                     ],
-                    "id": "port_3_to_port_5",
+                    "id": "port_3_to_port_4",
                     "sourceNode": "3",
                     "sourcePort": "3_out",
-                    "targetNode": "5",
-                    "targetPort": "5_in"
+                    "targetNode": "4",
+                    "targetPort": "4_in"
                 }
             ],
-            "hash": "e8aa1b804925c0c9b9ae7e7421b981e417001be8",
+            "hash": "abc03b2af9dabbfc1040cb5c13c5f0351c6c95c3",
             "nodes": {
                 "0": {
                     "data": {
@@ -140,12 +140,12 @@
                     "id": "3",
                     "type": "filter",
                     "warnings": {},
-                    "x": 50,
-                    "y": 284.5
+                    "x": 60,
+                    "y": 260
                 },
                 "4": {
                     "data": {
-                        "action": "set summary fields",
+                        "action": "add incident file",
                         "actionType": "post",
                         "advanced": {
                             "join": []
@@ -157,7 +157,7 @@
                         "connectorId": 185,
                         "connectorVersion": "v1",
                         "functionId": 1,
-                        "functionName": "set_summary_fields_1",
+                        "functionName": "add_incident_file_1",
                         "id": "4",
                         "loop": {
                             "enabled": false,
@@ -169,23 +169,27 @@
                             "pauseValue": 2
                         },
                         "parameters": {
-                            "incident_id": "filtered-data:select_mc_incident:condition_1:artifact:*.cef.id",
-                            "pairs": [
-                                {
-                                    "name": "body_html",
-                                    "value": "filtered-data:select_reported_email:condition_1:artifact:*.cef.bodyHtml"
-                                }
-                            ]
+                            "id": "filtered-data:select_mc_incident:condition_1:artifact:*.cef.id"
                         },
                         "requiredParameters": [
                             {
-                                "data_type": "array",
-                                "field": "pairs"
+                                "data_type": "string",
+                                "field": "id"
                             },
                             {
                                 "data_type": "string",
                                 "default": "",
-                                "field": "incident_id"
+                                "field": "data"
+                            },
+                            {
+                                "data_type": "string",
+                                "default": "",
+                                "field": "file_name"
+                            },
+                            {
+                                "data_type": "string",
+                                "default": "",
+                                "field": "source_type"
                             }
                         ],
                         "type": "missionControl"
@@ -196,39 +200,10 @@
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
-                        ],
-                        "context": [
-                            "Connect block to playbook flow."
                         ]
                     },
                     "x": -20,
-                    "y": 444.5
-                },
-                "5": {
-                    "data": {
-                        "advanced": {
-                            "join": []
-                        },
-                        "functionId": 1,
-                        "functionName": "code_1",
-                        "id": "5",
-                        "inputParameters": [
-                            "filtered-data:select_reported_email:condition_1:artifact:*.cef.bodyHtml"
-                        ],
-                        "outputVariables": [],
-                        "type": "code"
-                    },
-                    "errors": {},
-                    "id": "5",
-                    "type": "code",
-                    "userCode": "\n    # Write your custom code here...\n    phantom.debug(filtered_artifact_0__cef_bodyhtml)\n    output_file_path = \"/tmp/output.pdf\"\n    # html_string_to_pdf returns False on error, and True on success    \n    if not phantom.html_string_to_pdf(filtered_artifact_0__cef_bodyhtml[0], output_file_path):\n        phantom.error(\"Failed to convert HTML string to pdf.\")\n\n    # Add the file as a container attachment using the vault API\n    vault_id = phantom.vault_add(container=container, file_location=output_file_path, file_name=\"output.pdf\")\n    phantom.debug(vault_id)\n\n\n",
-                    "warnings": {
-                        "config": [
-                            "Reconfigure invalid datapath."
-                        ]
-                    },
-                    "x": -400,
-                    "y": 340
+                    "y": 440
                 }
             },
             "notes": ""
@@ -240,7 +215,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-14T14:35:54.054308+00:00",
+    "create_time": "2023-12-14T14:48:24.832758+00:00",
     "draft_mode": false,
     "labels": [
         "*"
