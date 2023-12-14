@@ -38,7 +38,7 @@
                     "targetPort": "5_in"
                 }
             ],
-            "hash": "279b478f1d57e5d2473b349fee40e8b0ddd31984",
+            "hash": "5c5ac5737a19e204a10db27f3879f5f90a5ac190",
             "nodes": {
                 "0": {
                     "data": {
@@ -53,8 +53,8 @@
                     "id": "0",
                     "type": "start",
                     "warnings": {},
-                    "x": 0,
-                    "y": 0
+                    "x": -1.4210854715202004e-14,
+                    "y": -6.394884621840902e-14
                 },
                 "1": {
                     "data": {
@@ -70,7 +70,7 @@
                     "type": "end",
                     "warnings": {},
                     "x": 300,
-                    "y": 0
+                    "y": -6.394884621840902e-14
                 },
                 "2": {
                     "data": {
@@ -218,7 +218,7 @@
                     "errors": {},
                     "id": "5",
                     "type": "code",
-                    "userCode": "\n    # Write your custom code here...\n    output_file_path = \"/tmp/output.pdf\"\n    # html_string_to_pdf returns False on error, and True on success    \n    if not phantom.html_string_to_pdf(filtered_artifact_0__cef_bodyhtml, output_file_path):\n        phantom.error(\"Failed to convert HTML string to pdf.\")\n\n    # Add the file as a container attachment using the vault API\n    vault_id = phantom.vault_add(container=container, file_location=output_file_path, file_name=\"output.pdf\")\n    phantom.debug(vault_id)\n\n\n",
+                    "userCode": "\n    # Write your custom code here...\n    phantom.debug(filtered_artifact_0__cef_bodyhtml)\n    output_file_path = \"/tmp/output.pdf\"\n    # html_string_to_pdf returns False on error, and True on success    \n    if not phantom.html_string_to_pdf(filtered_artifact_0__cef_bodyhtml, output_file_path):\n        phantom.error(\"Failed to convert HTML string to pdf.\")\n\n    # Add the file as a container attachment using the vault API\n    vault_id = phantom.vault_add(container=container, file_location=output_file_path, file_name=\"output.pdf\")\n    phantom.debug(vault_id)\n\n\n",
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
@@ -237,7 +237,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-14T14:31:53.619943+00:00",
+    "create_time": "2023-12-14T14:35:02.190272+00:00",
     "draft_mode": false,
     "labels": [
         "*"
