@@ -71,7 +71,7 @@
                     "targetPort": "11_in"
                 }
             ],
-            "hash": "d8e11aba746e4cbe3bfff24b43d8e685cc520c6d",
+            "hash": "0b0522cf4fc81dfef0526d1b2ce7367940c69570",
             "nodes": {
                 "0": {
                     "data": {
@@ -283,7 +283,7 @@
                             "refreshNotableData": true
                         },
                         "functionId": 3,
-                        "functionName": "add_tag_3",
+                        "functionName": "add_tag_set_severity_3",
                         "id": "11",
                         "loop": {
                             "enabled": false,
@@ -324,6 +324,28 @@
                                 "label": "add tag",
                                 "name": "add_tags",
                                 "refreshNotableData": true
+                            },
+                            "set_severity": {
+                                "description": "",
+                                "fields": [
+                                    {
+                                        "choices": "notableSeverity",
+                                        "description": "",
+                                        "label": "severity",
+                                        "name": "severity",
+                                        "placeholder": "Select severity",
+                                        "renderType": "dropdown",
+                                        "required": true
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "container",
+                                        "required": false
+                                    }
+                                ],
+                                "label": "set severity",
+                                "name": "set_severity",
+                                "refreshNotableData": true
                             }
                         },
                         "utilityType": "api",
@@ -334,6 +356,12 @@
                                     "trace"
                                 ],
                                 "tags": "transport_mail"
+                            },
+                            "set_severity": {
+                                "_internal": [
+                                    "container"
+                                ],
+                                "severity": "informational"
                             }
                         }
                     },
@@ -764,7 +792,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-14T15:01:39.961542+00:00",
+    "create_time": "2023-12-14T15:03:08.373233+00:00",
     "draft_mode": false,
     "labels": [
         "*"

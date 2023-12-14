@@ -102,7 +102,7 @@ def artifact_update_1(action=None, success=None, container=None, results=None, h
     ## Custom Code End
     ################################################################################
 
-    phantom.custom_function(custom_function="community/artifact_update", parameters=parameters, name="artifact_update_1", callback=join_add_tag_3)
+    phantom.custom_function(custom_function="community/artifact_update", parameters=parameters, name="artifact_update_1", callback=join_add_tag_set_severity_3)
 
     return
 
@@ -140,7 +140,7 @@ def artifact_update_2(action=None, success=None, container=None, results=None, h
     ## Custom Code End
     ################################################################################
 
-    phantom.custom_function(custom_function="community/artifact_update", parameters=parameters, name="artifact_update_2", callback=join_add_tag_3)
+    phantom.custom_function(custom_function="community/artifact_update", parameters=parameters, name="artifact_update_2", callback=join_add_tag_set_severity_3)
 
     return
 
@@ -178,31 +178,31 @@ def artifact_update_5(action=None, success=None, container=None, results=None, h
     ## Custom Code End
     ################################################################################
 
-    phantom.custom_function(custom_function="community/artifact_update", parameters=parameters, name="artifact_update_5", callback=join_add_tag_3)
+    phantom.custom_function(custom_function="community/artifact_update", parameters=parameters, name="artifact_update_5", callback=join_add_tag_set_severity_3)
 
     return
 
 
 @phantom.playbook_block()
-def join_add_tag_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("join_add_tag_3() called")
+def join_add_tag_set_severity_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("join_add_tag_set_severity_3() called")
 
     # if the joined function has already been called, do nothing
-    if phantom.get_run_data(key="join_add_tag_3_called"):
+    if phantom.get_run_data(key="join_add_tag_set_severity_3_called"):
         return
 
     # save the state that the joined function has now been called
-    phantom.save_run_data(key="join_add_tag_3_called", value="add_tag_3")
+    phantom.save_run_data(key="join_add_tag_set_severity_3_called", value="add_tag_set_severity_3")
 
-    # call connected block "add_tag_3"
-    add_tag_3(container=container, handle=handle)
+    # call connected block "add_tag_set_severity_3"
+    add_tag_set_severity_3(container=container, handle=handle)
 
     return
 
 
 @phantom.playbook_block()
-def add_tag_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("add_tag_3() called")
+def add_tag_set_severity_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("add_tag_set_severity_3() called")
 
     ################################################################################
     ## Custom Code Start
@@ -215,6 +215,7 @@ def add_tag_3(action=None, success=None, container=None, results=None, handle=No
     ################################################################################
 
     phantom.add_tags(container=container, tags="transport_mail")
+    phantom.set_severity(container=container, severity="informational")
 
     container = phantom.get_container(container.get('id', None))
 
