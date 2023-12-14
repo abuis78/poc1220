@@ -38,7 +38,7 @@
                     "targetPort": "4_in"
                 }
             ],
-            "hash": "340136b0920c30a390b8e7465bf924a28ad90c11",
+            "hash": "74ba9e05ada5341feeaa768d50ed34d312e78699",
             "nodes": {
                 "0": {
                     "data": {
@@ -172,7 +172,7 @@
                             "data": "627221348577d15dfb46fe73dcb896c73b5ce4b1",
                             "file_name": "qr_code.png",
                             "id": "filtered-data:select_mc_incident:condition_1:artifact:*.cef.id",
-                            "source_type": "png"
+                            "source_type": "Incident"
                         },
                         "requiredParameters": [
                             {
@@ -218,7 +218,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-14T14:50:53.195729+00:00",
+    "create_time": "2023-12-14T14:51:46.313322+00:00",
     "draft_mode": false,
     "labels": [
         "*"

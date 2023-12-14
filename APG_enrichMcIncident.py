@@ -76,7 +76,7 @@ def add_incident_file_1(action=None, success=None, container=None, results=None,
                 "id": filtered_artifact_0_item_select_mc_incident[0],
                 "data": "627221348577d15dfb46fe73dcb896c73b5ce4b1",
                 "file_name": "qr_code.png",
-                "source_type": "png",
+                "source_type": "Incident",
                 "context": {'artifact_id': filtered_artifact_0_item_select_mc_incident[1], 'artifact_external_id': filtered_artifact_0_item_select_mc_incident[2]},
             })
 
