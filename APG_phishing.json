@@ -40,7 +40,7 @@
                     "targetPort": "3_in"
                 }
             ],
-            "hash": "53678d205b18a48ed81a85fca10a7da69ab08600",
+            "hash": "945515d4a3494f6aeefab0aa9cf406522029a45a",
             "nodes": {
                 "0": {
                     "data": {
@@ -190,7 +190,7 @@
                             },
                             "subject": {
                                 "datapaths": [
-                                    "filtered-data:filter_1:condition_1:artifact:*.cef.emailHeaders.Subject"
+                                    "generate_mc_title:formatted_data.*"
                                 ],
                                 "deduplicate": false
                             }
@@ -214,12 +214,8 @@
                     "errors": {},
                     "id": "8",
                     "type": "playbook",
-                    "warnings": {
-                        "config": [
-                            "Reconfigure invalid datapath."
-                        ]
-                    },
-                    "x": -1.4210854715202004e-14,
+                    "warnings": {},
+                    "x": 0,
                     "y": 640
                 }
             },
@@ -232,7 +228,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-18T14:59:13.890421+00:00",
+    "create_time": "2023-12-18T15:01:53.417347+00:00",
     "draft_mode": false,
     "labels": [
         "phishing_mail"

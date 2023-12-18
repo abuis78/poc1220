@@ -63,12 +63,10 @@ def filter_1(action=None, success=None, container=None, results=None, handle=Non
 def playbook_apg_create_mc_incident_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("playbook_apg_create_mc_incident_2() called")
 
-    filtered_artifact_0_data_filter_1 = phantom.collect2(container=container, datapath=["filtered-data:filter_1:condition_1:artifact:*.cef.emailHeaders.Subject"])
-
-    filtered_artifact_0__cef_emailheaders_subject = [item[0] for item in filtered_artifact_0_data_filter_1]
+    generate_mc_title__as_list = phantom.get_format_data(name="generate_mc_title__as_list")
 
     inputs = {
-        "subject": filtered_artifact_0__cef_emailheaders_subject,
+        "subject": generate_mc_title__as_list,
         "incident_type": ["phishing"],
     }
 
