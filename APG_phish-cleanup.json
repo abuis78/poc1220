@@ -50,35 +50,14 @@
                     "targetPort": "2_in"
                 },
                 {
-                    "id": "port_7_to_port_11",
-                    "sourceNode": "7",
-                    "sourcePort": "7_out",
-                    "targetNode": "11",
-                    "targetPort": "11_in"
-                },
-                {
-                    "id": "port_8_to_port_11",
+                    "id": "port_8_to_port_1",
                     "sourceNode": "8",
                     "sourcePort": "8_out",
-                    "targetNode": "11",
-                    "targetPort": "11_in"
-                },
-                {
-                    "id": "port_10_to_port_11",
-                    "sourceNode": "10",
-                    "sourcePort": "10_out",
-                    "targetNode": "11",
-                    "targetPort": "11_in"
-                },
-                {
-                    "id": "port_11_to_port_1",
-                    "sourceNode": "11",
-                    "sourcePort": "11_out",
                     "targetNode": "1",
                     "targetPort": "1_in"
                 }
             ],
-            "hash": "0b0522cf4fc81dfef0526d1b2ce7367940c69570",
+            "hash": "99744d982df75115d090608c7ebe4defce4092d0",
             "nodes": {
                 "0": {
                     "data": {
@@ -94,7 +73,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 360,
-                    "y": 0
+                    "y": -6.394884621840902e-14
                 },
                 "1": {
                     "data": {
@@ -277,107 +256,6 @@
                     },
                     "x": 680,
                     "y": 328
-                },
-                "11": {
-                    "data": {
-                        "advanced": {
-                            "join": [],
-                            "notRequiredJoins": [
-                                "artifact_update_1",
-                                "artifact_update_2",
-                                "artifact_update_5"
-                            ],
-                            "refreshNotableData": true
-                        },
-                        "functionId": 3,
-                        "functionName": "add_tag_set_severity_3",
-                        "id": "11",
-                        "loop": {
-                            "enabled": false,
-                            "exitAfterUnit": "m",
-                            "exitAfterValue": 10,
-                            "exitConditionEnabled": false,
-                            "exitLoopAfter": 2,
-                            "pauseUnit": "m",
-                            "pauseValue": 2
-                        },
-                        "selectMore": false,
-                        "tab": "apis",
-                        "type": "utility",
-                        "utilities": {
-                            "add_tags": {
-                                "description": "",
-                                "fields": [
-                                    {
-                                        "choices": "tags",
-                                        "description": "",
-                                        "label": "tag",
-                                        "name": "tags",
-                                        "placeholder": "Enter a tag",
-                                        "renderType": "combobox",
-                                        "required": true
-                                    },
-                                    {
-                                        "hidden": true,
-                                        "name": "container",
-                                        "required": false
-                                    },
-                                    {
-                                        "hidden": true,
-                                        "name": "trace",
-                                        "required": false
-                                    }
-                                ],
-                                "label": "add tag",
-                                "name": "add_tags",
-                                "refreshNotableData": true
-                            },
-                            "set_severity": {
-                                "description": "",
-                                "fields": [
-                                    {
-                                        "choices": "notableSeverity",
-                                        "description": "",
-                                        "label": "severity",
-                                        "name": "severity",
-                                        "placeholder": "Select severity",
-                                        "renderType": "dropdown",
-                                        "required": true
-                                    },
-                                    {
-                                        "hidden": true,
-                                        "name": "container",
-                                        "required": false
-                                    }
-                                ],
-                                "label": "set severity",
-                                "name": "set_severity",
-                                "refreshNotableData": true
-                            }
-                        },
-                        "utilityType": "api",
-                        "values": {
-                            "add_tags": {
-                                "_internal": [
-                                    "container",
-                                    "trace"
-                                ],
-                                "tags": "transport_mail"
-                            },
-                            "set_severity": {
-                                "_internal": [
-                                    "container"
-                                ],
-                                "severity": "informational"
-                            }
-                        }
-                    },
-                    "errors": {},
-                    "id": "11",
-                    "type": "utility",
-                    "warnings": {},
-                    "x": 340,
-                    "y": 476
                 },
                 "2": {
                     "data": {
@@ -799,7 +677,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-18T12:36:16.060446+00:00",
+    "create_time": "2023-12-18T12:40:13.060105+00:00",
     "draft_mode": false,
     "labels": [
         "*"
