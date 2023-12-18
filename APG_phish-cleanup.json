@@ -69,9 +69,16 @@
                     "sourcePort": "10_out",
                     "targetNode": "11",
                     "targetPort": "11_in"
+                },
+                {
+                    "id": "port_11_to_port_1",
+                    "sourceNode": "11",
+                    "sourcePort": "11_out",
+                    "targetNode": "1",
+                    "targetPort": "1_in"
                 }
             ],
-            "hash": "0b0522cf4fc81dfef0526d1b2ce7367940c69570",
+            "hash": "2732f98335ffb9fcee740110dce6674a69187a2f",
             "nodes": {
                 "0": {
                     "data": {
@@ -87,7 +94,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 360,
-                    "y": -1.2789769243681803e-13
+                    "y": 0
                 },
                 "1": {
                     "data": {
@@ -103,7 +110,7 @@
                     "type": "end",
                     "warnings": {},
                     "x": 360,
-                    "y": 475.9999999999998
+                    "y": 624
                 },
                 "10": {
                     "data": {
@@ -255,7 +262,7 @@
                                 "label": "Transport Mail",
                                 "name": "",
                                 "overwrite_tags": "",
-                                "severity": null,
+                                "severity": "Informational",
                                 "tags": "transport_mail"
                             }
                         }
@@ -369,8 +376,8 @@
                     "id": "11",
                     "type": "utility",
                     "warnings": {},
-                    "x": -45,
-                    "y": 510.699951171875
+                    "x": 340,
+                    "y": 476
                 },
                 "2": {
                     "data": {
@@ -600,7 +607,7 @@
                                 "label": "Reported Mail",
                                 "name": "",
                                 "overwrite_tags": "",
-                                "severity": null,
+                                "severity": "Informational",
                                 "tags": "transport_mail"
                             }
                         }
@@ -766,7 +773,7 @@
                                 "label": "KB4 User Comment",
                                 "name": "",
                                 "overwrite_tags": "",
-                                "severity": null,
+                                "severity": "Informational",
                                 "tags": "transport_mail"
                             }
                         }
@@ -792,7 +799,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-14T15:03:08.373233+00:00",
+    "create_time": "2023-12-18T12:36:16.060446+00:00",
     "draft_mode": false,
     "labels": [
         "*"
