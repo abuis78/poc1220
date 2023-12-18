@@ -40,7 +40,7 @@
                     "targetPort": "3_in"
                 }
             ],
-            "hash": "435a40ae7ae89d29dc7c883b7ba38205b04ef2aa",
+            "hash": "53678d205b18a48ed81a85fca10a7da69ab08600",
             "nodes": {
                 "0": {
                     "data": {
@@ -55,8 +55,8 @@
                     "id": "0",
                     "type": "start",
                     "warnings": {},
-                    "x": 20,
-                    "y": 0
+                    "x": 19.999999999999986,
+                    "y": -6.394884621840902e-14
                 },
                 "1": {
                     "data": {
@@ -72,7 +72,7 @@
                     "type": "end",
                     "warnings": {},
                     "x": 320,
-                    "y": 0
+                    "y": -6.394884621840902e-14
                 },
                 "11": {
                     "data": {
@@ -130,8 +130,8 @@
                     "id": "3",
                     "type": "playbook",
                     "warnings": {},
-                    "x": 0,
-                    "y": 148
+                    "x": -1.4210854715202004e-14,
+                    "y": 147.99999999999997
                 },
                 "5": {
                     "data": {
@@ -158,19 +158,6 @@
                                 ],
                                 "conditionIndex": 0,
                                 "customName": "select reported mail",
-                                "logic": "and"
-                            },
-                            {
-                                "comparisons": [
-                                    {
-                                        "conditionIndex": 1,
-                                        "op": "==",
-                                        "param": "name",
-                                        "value": ""
-                                    }
-                                ],
-                                "conditionIndex": 1,
-                                "customName": "mc incident already exists",
                                 "logic": "and"
                             }
                         ],
@@ -232,7 +219,7 @@
                             "Reconfigure invalid datapath."
                         ]
                     },
-                    "x": 0,
+                    "x": -1.4210854715202004e-14,
                     "y": 640
                 }
             },
@@ -245,7 +232,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-18T12:37:15.080158+00:00",
+    "create_time": "2023-12-18T14:59:13.890421+00:00",
     "draft_mode": false,
     "labels": [
         "phishing_mail"
