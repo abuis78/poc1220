@@ -54,14 +54,14 @@ def playbook_apg_extract_reportedmail_1(action=None, success=None, container=Non
     ################################################################################
 
     # call playbook "poc1220/APG_extract-reportedMail", returns the playbook_run_id
-    playbook_run_id = phantom.playbook("poc1220/APG_extract-reportedMail", container=container, name="playbook_apg_extract_reportedmail_1", callback=select_reported_mail)
+    playbook_run_id = phantom.playbook("poc1220/APG_extract-reportedMail", container=container, name="playbook_apg_extract_reportedmail_1", callback=filter_1)
 
     return
 
 
 @phantom.playbook_block()
-def select_reported_mail(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("select_reported_mail() called")
+def filter_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("filter_1() called")
 
     # collect filtered artifact ids and results for 'if' condition 1
     matched_artifacts_1, matched_results_1 = phantom.condition(
@@ -71,50 +71,25 @@ def select_reported_mail(action=None, success=None, container=None, results=None
             ["reported_mail", "in", "artifact:*.tags"],
             ["artifact:*.name", "==", "Email Artifact"]
         ],
-        name="select_reported_mail:condition_1",
+        name="filter_1:condition_1",
         delimiter=None)
 
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_1 or matched_results_1:
-        playbook_apg_create_mc_incident_2(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+        generate_mc_title(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
-    return
+    # collect filtered artifact ids and results for 'if' condition 2
+    matched_artifacts_2, matched_results_2 = phantom.condition(
+        container=container,
+        conditions=[
+            ["name", "==", ""]
+        ],
+        name="filter_1:condition_2",
+        delimiter=None)
 
-
-@phantom.playbook_block()
-def create_events_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("create_events_1() called")
-
-    # phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
-
-    filtered_artifact_0_data_select_reported_mail = phantom.collect2(container=container, datapath=["filtered-data:select_reported_mail:condition_1:artifact:*.cef.emailHeaders","filtered-data:select_reported_mail:condition_1:artifact:*.id","filtered-data:select_reported_mail:condition_1:artifact:*.external_id"])
-    playbook_apg_create_mc_incident_2_output_mc_id = phantom.collect2(container=container, datapath=["playbook_apg_create_mc_incident_2:playbook_output:mc_id"])
-
-    parameters = []
-
-    # build parameters list for 'create_events_1' call
-    for filtered_artifact_0_item_select_reported_mail in filtered_artifact_0_data_select_reported_mail:
-        for playbook_apg_create_mc_incident_2_output_mc_id_item in playbook_apg_create_mc_incident_2_output_mc_id:
-            if playbook_apg_create_mc_incident_2_output_mc_id_item[0] is not None:
-                parameters.append({
-                    "pairs": [
-                        { "name": "headers", "value": filtered_artifact_0_item_select_reported_mail[0] },
-                    ],
-                    "incident_id": playbook_apg_create_mc_incident_2_output_mc_id_item[0],
-                    "context": {'artifact_id': filtered_artifact_0_item_select_reported_mail[1], 'artifact_external_id': filtered_artifact_0_item_select_reported_mail[2]},
-                })
-
-    ################################################################################
-    ## Custom Code Start
-    ################################################################################
-
-    # Write your custom code here...
-
-    ################################################################################
-    ## Custom Code End
-    ################################################################################
-
-    phantom.act("create events", parameters=parameters, name="create_events_1", assets=["builtin_mc_connector"])
+    # call connected blocks if filtered artifacts or results
+    if matched_artifacts_2 or matched_results_2:
+        pass
 
     return
 
@@ -123,9 +98,9 @@ def create_events_1(action=None, success=None, container=None, results=None, han
 def playbook_apg_create_mc_incident_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("playbook_apg_create_mc_incident_2() called")
 
-    filtered_artifact_0_data_select_reported_mail = phantom.collect2(container=container, datapath=["filtered-data:select_reported_mail:condition_1:artifact:*.cef.emailHeaders.Subject"])
+    filtered_artifact_0_data_filter_1 = phantom.collect2(container=container, datapath=["filtered-data:filter_1:condition_1:artifact:*.cef.emailHeaders.Subject"])
 
-    filtered_artifact_0__cef_emailheaders_subject = [item[0] for item in filtered_artifact_0_data_select_reported_mail]
+    filtered_artifact_0__cef_emailheaders_subject = [item[0] for item in filtered_artifact_0_data_filter_1]
 
     inputs = {
         "subject": filtered_artifact_0__cef_emailheaders_subject,
@@ -143,7 +118,35 @@ def playbook_apg_create_mc_incident_2(action=None, success=None, container=None,
     ################################################################################
 
     # call playbook "poc1220/APG_create-mc-incident", returns the playbook_run_id
-    playbook_run_id = phantom.playbook("poc1220/APG_create-mc-incident", container=container, name="playbook_apg_create_mc_incident_2", callback=create_events_1, inputs=inputs)
+    playbook_run_id = phantom.playbook("poc1220/APG_create-mc-incident", container=container, name="playbook_apg_create_mc_incident_2", inputs=inputs)
+
+    return
+
+
+@phantom.playbook_block()
+def generate_mc_title(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("generate_mc_title() called")
+
+    template = """Phishing - {0}\n"""
+
+    # parameter list for template variable replacement
+    parameters = [
+        "filtered-data:filter_1:condition_1:artifact:*.cef.emailHeaders.Subject"
+    ]
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.format(container=container, template=template, parameters=parameters, name="generate_mc_title")
+
+    playbook_apg_create_mc_incident_2(container=container)
 
     return
 

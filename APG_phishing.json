@@ -28,33 +28,26 @@
                     "targetPort": "5_in"
                 },
                 {
-                    "id": "port_6_to_port_1",
-                    "sourceNode": "6",
-                    "sourcePort": "6_out",
-                    "targetNode": "1",
-                    "targetPort": "1_in"
-                },
-                {
                     "conditions": [
                         {
                             "index": 0
                         }
                     ],
-                    "id": "port_5_to_port_8",
+                    "id": "port_5_to_port_11",
                     "sourceNode": "5",
                     "sourcePort": "5_out",
-                    "targetNode": "8",
-                    "targetPort": "8_in"
+                    "targetNode": "11",
+                    "targetPort": "11_in"
                 },
                 {
-                    "id": "port_8_to_port_6",
-                    "sourceNode": "8",
-                    "sourcePort": "8_out",
-                    "targetNode": "6",
-                    "targetPort": "6_in"
+                    "id": "port_11_to_port_8",
+                    "sourceNode": "11",
+                    "sourcePort": "11_out",
+                    "targetNode": "8",
+                    "targetPort": "8_in"
                 }
             ],
-            "hash": "435a40ae7ae89d29dc7c883b7ba38205b04ef2aa",
+            "hash": "37b1c1c6f1a6ff68cd93505d5baf3364371d5b21",
             "nodes": {
                 "0": {
                     "data": {
@@ -69,8 +62,8 @@
                     "id": "0",
                     "type": "start",
                     "warnings": {},
-                    "x": 19.999999999999986,
-                    "y": -6.394884621840902e-14
+                    "x": 20,
+                    "y": 0
                 },
                 "1": {
                     "data": {
@@ -85,8 +78,35 @@
                     "id": "1",
                     "type": "end",
                     "warnings": {},
-                    "x": 19.999999999999986,
-                    "y": 952
+                    "x": 320,
+                    "y": 0
+                },
+                "11": {
+                    "data": {
+                        "advanced": {
+                            "customName": "generate mc title",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "functionId": 1,
+                        "functionName": "generate_mc_title",
+                        "id": "11",
+                        "parameters": [
+                            "filtered-data:filter_1:condition_1:artifact:*.cef.emailHeaders.Subject"
+                        ],
+                        "template": "Phishing - {0}\n",
+                        "type": "format"
+                    },
+                    "errors": {},
+                    "id": "11",
+                    "type": "format",
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
+                    "x": 0,
+                    "y": 640
                 },
                 "2": {
                     "data": {
@@ -149,14 +169,14 @@
                     "id": "3",
                     "type": "playbook",
                     "warnings": {},
-                    "x": -1.4210854715202004e-14,
-                    "y": 295.99999999999994
+                    "x": 0,
+                    "y": 296
                 },
                 "5": {
                     "data": {
                         "advanced": {
-                            "customName": "select reported mail",
-                            "customNameId": 0,
+                            "customName": "",
+                            "customNameId": -1,
                             "join": []
                         },
                         "conditions": [
@@ -178,10 +198,22 @@
                                 "conditionIndex": 0,
                                 "customName": "select reported mail",
                                 "logic": "and"
+                            },
+                            {
+                                "comparisons": [
+                                    {
+                                        "op": "==",
+                                        "param": "name",
+                                        "value": ""
+                                    }
+                                ],
+                                "conditionIndex": 1,
+                                "customName": "mc incident already exists",
+                                "logic": "and"
                             }
                         ],
                         "functionId": 1,
-                        "functionName": "select_reported_mail",
+                        "functionName": "filter_1",
                         "id": "5",
                         "type": "filter"
                     },
@@ -191,60 +223,6 @@
                     "warnings": {},
                     "x": 60,
                     "y": 460
-                },
-                "6": {
-                    "data": {
-                        "action": "create events",
-                        "actionType": "post",
-                        "advanced": {
-                            "join": []
-                        },
-                        "connector": "Mission Control",
-                        "connectorConfigs": [
-                            "builtin_mc_connector"
-                        ],
-                        "connectorId": 185,
-                        "connectorVersion": "v1",
-                        "functionId": 1,
-                        "functionName": "create_events_1",
-                        "id": "6",
-                        "loop": {
-                            "enabled": false,
-                            "exitAfterUnit": "m",
-                            "exitAfterValue": 10,
-                            "exitConditionEnabled": false,
-                            "exitLoopAfter": 2,
-                            "pauseUnit": "m",
-                            "pauseValue": 2
-                        },
-                        "parameters": {
-                            "incident_id": "playbook_apg_create_mc_incident_2:playbook_output:mc_id",
-                            "pairs": [
-                                {
-                                    "name": "headers",
-                                    "value": "filtered-data:select_reported_mail:condition_1:artifact:*.cef.emailHeaders"
-                                }
-                            ]
-                        },
-                        "requiredParameters": [
-                            {
-                                "data_type": "array",
-                                "field": "pairs"
-                            },
-                            {
-                                "data_type": "string",
-                                "default": "",
-                                "field": "incident_id"
-                            }
-                        ],
-                        "type": "missionControl"
-                    },
-                    "errors": {},
-                    "id": "6",
-                    "type": "missionControl",
-                    "warnings": {},
-                    "x": 0,
-                    "y": 860
                 },
                 "8": {
                     "data": {
@@ -263,7 +241,7 @@
                             },
                             "subject": {
                                 "datapaths": [
-                                    "filtered-data:select_reported_mail:condition_1:artifact:*.cef.emailHeaders.Subject"
+                                    "filtered-data:filter_1:condition_1:artifact:*.cef.emailHeaders.Subject"
                                 ],
                                 "deduplicate": false
                             }
@@ -292,8 +270,8 @@
                             "Reconfigure invalid datapath."
                         ]
                     },
-                    "x": 3.583312988281236,
-                    "y": 703.75
+                    "x": 0,
+                    "y": 788
                 }
             },
             "notes": ""
@@ -305,7 +283,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-14T13:52:09.565984+00:00",
+    "create_time": "2023-12-18T12:21:32.968229+00:00",
     "draft_mode": false,
     "labels": [
         "phishing_mail"
