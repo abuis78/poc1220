@@ -63,10 +63,10 @@ def filter_1(action=None, success=None, container=None, results=None, handle=Non
 def playbook_apg_create_mc_incident_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("playbook_apg_create_mc_incident_2() called")
 
-    generate_mc_title__as_list = phantom.get_format_data(name="generate_mc_title__as_list")
+    generate_mc_title = phantom.get_format_data(name="generate_mc_title")
 
     inputs = {
-        "subject": generate_mc_title__as_list,
+        "subject": generate_mc_title,
         "incident_type": ["phishing"],
     }
 

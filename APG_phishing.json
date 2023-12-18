@@ -40,7 +40,7 @@
                     "targetPort": "3_in"
                 }
             ],
-            "hash": "945515d4a3494f6aeefab0aa9cf406522029a45a",
+            "hash": "e0d865d91c1aeee6c294ff83f7a85c4e15d630ef",
             "nodes": {
                 "0": {
                     "data": {
@@ -56,7 +56,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 19.999999999999986,
-                    "y": -6.394884621840902e-14
+                    "y": -1.2789769243681803e-13
                 },
                 "1": {
                     "data": {
@@ -72,7 +72,7 @@
                     "type": "end",
                     "warnings": {},
                     "x": 320,
-                    "y": -6.394884621840902e-14
+                    "y": -1.2789769243681803e-13
                 },
                 "11": {
                     "data": {
@@ -131,7 +131,7 @@
                     "type": "playbook",
                     "warnings": {},
                     "x": -1.4210854715202004e-14,
-                    "y": 147.99999999999997
+                    "y": 147.99999999999994
                 },
                 "5": {
                     "data": {
@@ -190,7 +190,7 @@
                             },
                             "subject": {
                                 "datapaths": [
-                                    "generate_mc_title:formatted_data.*"
+                                    "generate_mc_title:formatted_data"
                                 ],
                                 "deduplicate": false
                             }
@@ -228,7 +228,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-18T15:01:53.417347+00:00",
+    "create_time": "2023-12-18T15:05:19.408459+00:00",
     "draft_mode": false,
     "labels": [
         "phishing_mail"
