@@ -12,8 +12,8 @@ from datetime import datetime, timedelta
 def on_start(container):
     phantom.debug('on_start() called')
 
-    # call 'format_icident_name' block
-    format_icident_name(container=container)
+    # call 'filter_email_artifact' block
+    filter_email_artifact(container=container)
 
     return
 
@@ -91,7 +91,7 @@ def filter_email_artifact(action=None, success=None, container=None, results=Non
 
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_1 or matched_results_1:
-        pass
+        format_icident_name(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
     return
 

@@ -28,14 +28,26 @@
                     "targetPort": "1_in"
                 },
                 {
-                    "id": "port_0_to_port_3",
+                    "id": "port_0_to_port_4",
                     "sourceNode": "0",
                     "sourcePort": "0_out",
+                    "targetNode": "4",
+                    "targetPort": "4_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_4_to_port_3",
+                    "sourceNode": "4",
+                    "sourcePort": "4_out",
                     "targetNode": "3",
                     "targetPort": "3_in"
                 }
             ],
-            "hash": "9c5d133bfca32230fac5a7558c9844131ad018fe",
+            "hash": "635d7301831314cecd93c6a66467d5905da64f35",
             "nodes": {
                 "0": {
                     "data": {
@@ -50,8 +62,8 @@
                     "id": "0",
                     "type": "start",
                     "warnings": {},
-                    "x": 40,
-                    "y": 20
+                    "x": 20,
+                    "y": 0
                 },
                 "1": {
                     "data": {
@@ -66,7 +78,7 @@
                     "id": "1",
                     "type": "end",
                     "warnings": {},
-                    "x": 19.999999999999986,
+                    "x": 20,
                     "y": 772
                 },
                 "2": {
@@ -172,13 +184,9 @@
                     "errors": {},
                     "id": "4",
                     "type": "filter",
-                    "warnings": {
-                        "context": [
-                            "Connect block to playbook flow."
-                        ]
-                    },
-                    "x": -140,
-                    "y": 140
+                    "warnings": {},
+                    "x": 60,
+                    "y": 148
                 },
                 "6": {
                     "data": {
@@ -358,7 +366,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-19T09:41:49.768405+00:00",
+    "create_time": "2023-12-19T13:00:03.146880+00:00",
     "draft_mode": false,
     "labels": [
         "phishing_mail"
