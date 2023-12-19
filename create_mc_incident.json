@@ -14,25 +14,6 @@
                     "targetPort": "2_in"
                 },
                 {
-                    "id": "port_0_to_port_4",
-                    "sourceNode": "0",
-                    "sourcePort": "0_out",
-                    "targetNode": "4",
-                    "targetPort": "4_in"
-                },
-                {
-                    "conditions": [
-                        {
-                            "index": 0
-                        }
-                    ],
-                    "id": "port_4_to_port_3",
-                    "sourceNode": "4",
-                    "sourcePort": "4_out",
-                    "targetNode": "3",
-                    "targetPort": "3_in"
-                },
-                {
                     "id": "port_2_to_port_6",
                     "sourceNode": "2",
                     "sourcePort": "2_out",
@@ -45,9 +26,16 @@
                     "sourcePort": "6_out",
                     "targetNode": "1",
                     "targetPort": "1_in"
+                },
+                {
+                    "id": "port_0_to_port_3",
+                    "sourceNode": "0",
+                    "sourcePort": "0_out",
+                    "targetNode": "3",
+                    "targetPort": "3_in"
                 }
             ],
-            "hash": "4aefecbf1c6754f54de7ea8cedb189893e8659d7",
+            "hash": "9c5d133bfca32230fac5a7558c9844131ad018fe",
             "nodes": {
                 "0": {
                     "data": {
@@ -62,8 +50,8 @@
                     "id": "0",
                     "type": "start",
                     "warnings": {},
-                    "x": 19.999999999999986,
-                    "y": -6.394884621840902e-14
+                    "x": 40,
+                    "y": 20
                 },
                 "1": {
                     "data": {
@@ -127,11 +115,7 @@
                     "errors": {},
                     "id": "2",
                     "type": "missionControl",
-                    "warnings": {
-                        "config": [
-                            "Reconfigure invalid datapath."
-                        ]
-                    },
+                    "warnings": {},
                     "x": 0,
                     "y": 476
                 },
@@ -188,9 +172,13 @@
                     "errors": {},
                     "id": "4",
                     "type": "filter",
-                    "warnings": {},
-                    "x": 60,
-                    "y": 148
+                    "warnings": {
+                        "context": [
+                            "Connect block to playbook flow."
+                        ]
+                    },
+                    "x": -140,
+                    "y": 140
                 },
                 "6": {
                     "data": {
@@ -350,11 +338,7 @@
                     "errors": {},
                     "id": "6",
                     "type": "utility",
-                    "warnings": {
-                        "config": [
-                            "Reconfigure invalid datapath."
-                        ]
-                    },
+                    "warnings": {},
                     "x": 0,
                     "y": 624
                 }
@@ -374,7 +358,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-12T14:23:54.458560+00:00",
+    "create_time": "2023-12-19T09:41:49.768405+00:00",
     "draft_mode": false,
     "labels": [
         "phishing_mail"
