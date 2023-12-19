@@ -12,8 +12,8 @@ from datetime import datetime, timedelta
 def on_start(container):
     phantom.debug('on_start() called')
 
-    # call 'create_incidents_1' block
-    create_incidents_1(container=container)
+    # call 'decision_1' block
+    decision_1(container=container)
 
     return
 
@@ -87,6 +87,26 @@ def artifact_create_1(action=None, success=None, container=None, results=None, h
     ################################################################################
 
     phantom.custom_function(custom_function="community/artifact_create", parameters=parameters, name="artifact_create_1")
+
+    return
+
+
+@phantom.playbook_block()
+def decision_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("decision_1() called")
+
+    # check for 'if' condition 1
+    found_match_1 = phantom.decision(
+        container=container,
+        conditions=[
+            ["mc_id", "not in", "artifact.*.name"]
+        ],
+        delimiter=None)
+
+    # call connected blocks if condition 1 matched
+    if found_match_1:
+        create_incidents_1(action=action, success=success, container=container, results=results, handle=handle)
+        return
 
     return
 

@@ -7,13 +7,6 @@
             "description": "",
             "edges": [
                 {
-                    "id": "port_0_to_port_2",
-                    "sourceNode": "0",
-                    "sourcePort": "0_out",
-                    "targetNode": "2",
-                    "targetPort": "2_in"
-                },
-                {
                     "id": "port_2_to_port_3",
                     "sourceNode": "2",
                     "sourcePort": "2_out",
@@ -26,9 +19,28 @@
                     "sourcePort": "3_out",
                     "targetNode": "1",
                     "targetPort": "1_in"
+                },
+                {
+                    "id": "port_0_to_port_5",
+                    "sourceNode": "0",
+                    "sourcePort": "0_out",
+                    "targetNode": "5",
+                    "targetPort": "5_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_5_to_port_2",
+                    "sourceNode": "5",
+                    "sourcePort": "5_out",
+                    "targetNode": "2",
+                    "targetPort": "2_in"
                 }
             ],
-            "hash": "723e2b98057820c823ef2688fee5e45c8f099f77",
+            "hash": "28045aeb94836d6bfc845331c9d59d9270d5fb9c",
             "nodes": {
                 "0": {
                     "data": {
@@ -44,7 +56,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 19.999999999999986,
-                    "y": -6.394884621840902e-14
+                    "y": -1.2789769243681803e-13
                 },
                 "1": {
                     "data": {
@@ -60,7 +72,7 @@
                     "type": "end",
                     "warnings": {},
                     "x": 19.999999999999986,
-                    "y": 443.9999999999999
+                    "y": 443.9999999999998
                 },
                 "2": {
                     "data": {
@@ -110,7 +122,7 @@
                     "type": "missionControl",
                     "warnings": {},
                     "x": 0,
-                    "y": 148
+                    "y": 180
                 },
                 "3": {
                     "data": {
@@ -273,6 +285,39 @@
                     "warnings": {},
                     "x": 0,
                     "y": 300
+                },
+                "5": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "conditions": [
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 0,
+                                        "op": "not in",
+                                        "param": "mc_id",
+                                        "value": "artifact.*.name"
+                                    }
+                                ],
+                                "conditionIndex": 0,
+                                "display": "If",
+                                "logic": "and",
+                                "type": "if"
+                            }
+                        ],
+                        "functionId": 1,
+                        "functionName": "decision_1",
+                        "id": "5",
+                        "type": "decision"
+                    },
+                    "errors": {},
+                    "id": "5",
+                    "type": "decision",
+                    "warnings": {},
+                    "x": -220,
+                    "y": 40
                 }
             },
             "notes": ""
@@ -306,7 +351,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-12T15:06:01.411878+00:00",
+    "create_time": "2023-12-19T09:38:53.019332+00:00",
     "draft_mode": false,
     "labels": [
         "*"
