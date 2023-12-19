@@ -28,11 +28,11 @@
                     "targetPort": "1_in"
                 },
                 {
-                    "id": "port_0_to_port_4",
+                    "id": "port_0_to_port_7",
                     "sourceNode": "0",
                     "sourcePort": "0_out",
-                    "targetNode": "4",
-                    "targetPort": "4_in"
+                    "targetNode": "7",
+                    "targetPort": "7_in"
                 },
                 {
                     "conditions": [
@@ -40,14 +40,26 @@
                             "index": 0
                         }
                     ],
-                    "id": "port_4_to_port_3",
-                    "sourceNode": "4",
-                    "sourcePort": "4_out",
+                    "id": "port_7_to_port_3",
+                    "sourceNode": "7",
+                    "sourcePort": "7_out",
                     "targetNode": "3",
                     "targetPort": "3_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_7_to_port_8",
+                    "sourceNode": "7",
+                    "sourcePort": "7_out",
+                    "targetNode": "8",
+                    "targetPort": "8_in"
                 }
             ],
-            "hash": "635d7301831314cecd93c6a66467d5905da64f35",
+            "hash": "58db535d0d5001b43eaaeda1ed0553ae63946e27",
             "nodes": {
                 "0": {
                     "data": {
@@ -62,8 +74,8 @@
                     "id": "0",
                     "type": "start",
                     "warnings": {},
-                    "x": 20,
-                    "y": 0
+                    "x": 0,
+                    "y": 40
                 },
                 "1": {
                     "data": {
@@ -153,40 +165,6 @@
                     "warnings": {},
                     "x": 0,
                     "y": 328
-                },
-                "4": {
-                    "data": {
-                        "advanced": {
-                            "customName": "Filter Email Artifact",
-                            "customNameId": 0,
-                            "join": []
-                        },
-                        "conditions": [
-                            {
-                                "comparisons": [
-                                    {
-                                        "conditionIndex": 0,
-                                        "op": "==",
-                                        "param": "artifact:*.name",
-                                        "value": "Email Artifact"
-                                    }
-                                ],
-                                "conditionIndex": 0,
-                                "customName": "Email Artifact",
-                                "logic": "and"
-                            }
-                        ],
-                        "functionId": 1,
-                        "functionName": "filter_email_artifact",
-                        "id": "4",
-                        "type": "filter"
-                    },
-                    "errors": {},
-                    "id": "4",
-                    "type": "filter",
-                    "warnings": {},
-                    "x": 60,
-                    "y": 148
                 },
                 "6": {
                     "data": {
@@ -349,6 +327,82 @@
                     "warnings": {},
                     "x": 0,
                     "y": 624
+                },
+                "7": {
+                    "data": {
+                        "advanced": {
+                            "customName": "does mc incident already exist",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "conditions": [
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 0,
+                                        "op": "in",
+                                        "param": "mc_id",
+                                        "value": "artifact.*.name"
+                                    }
+                                ],
+                                "conditionIndex": 0,
+                                "customName": "MC incident already exists",
+                                "display": "If",
+                                "logic": "and",
+                                "type": "if"
+                            },
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 1,
+                                        "op": "==",
+                                        "param": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "conditionIndex": 1,
+                                "display": "Else",
+                                "logic": "and",
+                                "type": "else"
+                            }
+                        ],
+                        "functionId": 1,
+                        "functionName": "does_mc_incident_already_exist",
+                        "id": "7",
+                        "type": "decision"
+                    },
+                    "errors": {},
+                    "id": "7",
+                    "type": "decision",
+                    "warnings": {},
+                    "x": 220,
+                    "y": 120
+                },
+                "8": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionId": 1,
+                        "functionName": "action_1",
+                        "id": "8",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "type": "action"
+                    },
+                    "errors": {},
+                    "id": "8",
+                    "type": "action",
+                    "warnings": {},
+                    "x": 380,
+                    "y": 224.5
                 }
             },
             "notes": "",
@@ -366,7 +420,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-19T13:00:03.146880+00:00",
+    "create_time": "2023-12-19T13:04:38.603546+00:00",
     "draft_mode": false,
     "labels": [
         "phishing_mail"
