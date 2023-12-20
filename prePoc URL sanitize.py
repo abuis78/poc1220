@@ -18,7 +18,7 @@ def on_start(container):
     return
 
 @phantom.playbook_block()
-def filter_safelinks_url_artifacts(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+def filter_safelinks_url_artifacts(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("filter_safelinks_url_artifacts() called")
 
     # collect filtered artifact ids and results for 'if' condition 1
@@ -26,7 +26,7 @@ def filter_safelinks_url_artifacts(action=None, success=None, container=None, re
         container=container,
         logical_operator="and",
         conditions=[
-            ["artifact:*.name", "==", "URL Artifact"],
+            ["artifact:*.label", "==", "URL Artifact"],
             ["safelinks.protection.outlook.com", "in", "artifact:*.cef.requestURL"]
         ],
         name="filter_safelinks_url_artifacts:condition_1",
@@ -40,51 +40,10 @@ def filter_safelinks_url_artifacts(action=None, success=None, container=None, re
 
 
 @phantom.playbook_block()
-def debug_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug("debug_1() called")
-
-    filtered_artifact_0_data_filter_1 = phantom.collect2(container=container, datapath=["filtered-data:filter_1:condition_1:artifact:*.id","filtered-data:filter_1:condition_1:artifact:*.id"])
-    url_safelink_extract_2__result = phantom.collect2(container=container, datapath=["url_safelink_extract_2:custom_function_result.data.actual_url"])
-    format_json_artifact_update__as_list = phantom.get_format_data(name="format_json_artifact_update__as_list")
-
-    filtered_artifact_0__id = [item[0] for item in filtered_artifact_0_data_filter_1]
-    url_safelink_extract_2_data_actual_url = [item[0] for item in url_safelink_extract_2__result]
-
-    parameters = []
-
-    parameters.append({
-        "input_1": filtered_artifact_0__id,
-        "input_2": url_safelink_extract_2_data_actual_url,
-        "input_3": format_json_artifact_update__as_list,
-        "input_4": None,
-        "input_5": None,
-        "input_6": None,
-        "input_7": None,
-        "input_8": None,
-        "input_9": None,
-        "input_10": None,
-    })
-
-    ################################################################################
-    ## Custom Code Start
-    ################################################################################
-
-    # Write your custom code here...
-
-    ################################################################################
-    ## Custom Code End
-    ################################################################################
-
-    phantom.custom_function(custom_function="community/debug", parameters=parameters, name="debug_1")
-
-    return
-
-
-@phantom.playbook_block()
-def url_safelink_extract_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+def url_safelink_extract_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("url_safelink_extract_2() called")
 
-    filtered_artifact_0_data_filter_safelinks_url_artifacts = phantom.collect2(container=container, datapath=["filtered-data:filter_safelinks_url_artifacts:condition_1:artifact:*.cef.requestURL","filtered-data:filter_safelinks_url_artifacts:condition_1:artifact:*.id"])
+    filtered_artifact_0_data_filter_safelinks_url_artifacts = phantom.collect2(container=container, datapath=["filtered-data:filter_safelinks_url_artifacts:condition_1:artifact:*.cef.requestURL","filtered-data:filter_safelinks_url_artifacts:condition_1:artifact:*.id","filtered-data:filter_safelinks_url_artifacts:condition_1:artifact:*.external_id"])
 
     parameters = []
 
@@ -110,7 +69,7 @@ def url_safelink_extract_2(action=None, success=None, container=None, results=No
 
 
 @phantom.playbook_block()
-def format_json_artifact_update(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+def format_json_artifact_update(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("format_json_artifact_update() called")
 
     template = """%%\n{{\"cef\": {{ \"requestURL\": \"{0}\", \"requestURL_old\": \"{1}\" }}\n}}\n%%"""
@@ -139,28 +98,28 @@ def format_json_artifact_update(action=None, success=None, container=None, resul
 
 
 @phantom.playbook_block()
-def artifact_update_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+def artifact_update_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("artifact_update_3() called")
 
-    filtered_artifact_0_data_filter_safelinks_url_artifacts = phantom.collect2(container=container, datapath=["filtered-data:filter_safelinks_url_artifacts:condition_1:artifact:*.id","filtered-data:filter_safelinks_url_artifacts:condition_1:artifact:*.id"])
+    filtered_artifact_0_data_filter_safelinks_url_artifacts = phantom.collect2(container=container, datapath=["filtered-data:filter_safelinks_url_artifacts:condition_1:artifact:*.id","filtered-data:filter_safelinks_url_artifacts:condition_1:artifact:*.id","filtered-data:filter_safelinks_url_artifacts:condition_1:artifact:*.external_id"])
     format_json_artifact_update__as_list = phantom.get_format_data(name="format_json_artifact_update__as_list")
 
     parameters = []
 
     # build parameters list for 'artifact_update_3' call
-    for filtered_artifact_0_item_filter_safelinks_url_artifacts in filtered_artifact_0_data_filter_safelinks_url_artifacts:
-        for format_json_artifact_update__item in format_json_artifact_update__as_list:
+    for format_json_artifact_update__item in format_json_artifact_update__as_list:
+        for filtered_artifact_0_item_filter_safelinks_url_artifacts in filtered_artifact_0_data_filter_safelinks_url_artifacts:
             parameters.append({
-                "artifact_id": filtered_artifact_0_item_filter_safelinks_url_artifacts[0],
                 "name": None,
+                "tags": None,
                 "label": None,
                 "severity": None,
                 "cef_field": None,
                 "cef_value": None,
-                "cef_data_type": None,
-                "tags": None,
-                "overwrite_tags": None,
                 "input_json": format_json_artifact_update__item,
+                "artifact_id": filtered_artifact_0_item_filter_safelinks_url_artifacts[0],
+                "cef_data_type": None,
+                "overwrite_tags": None,
             })
 
     ################################################################################

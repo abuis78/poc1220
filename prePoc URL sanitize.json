@@ -38,8 +38,16 @@
                     "sourcePort": "5_out",
                     "targetNode": "6",
                     "targetPort": "6_in"
+                },
+                {
+                    "id": "port_6_to_port_1",
+                    "sourceNode": "6",
+                    "sourcePort": "6_out",
+                    "targetNode": "1",
+                    "targetPort": "1_in"
                 }
             ],
+            "hash": "8ebd3df29f0cba0b4bb9b6064dfa880f89e61a4e",
             "nodes": {
                 "0": {
                     "data": {
@@ -54,8 +62,8 @@
                     "id": "0",
                     "type": "start",
                     "warnings": {},
-                    "x": 1000,
-                    "y": 420
+                    "x": 20,
+                    "y": 0
                 },
                 "1": {
                     "data": {
@@ -70,8 +78,8 @@
                     "id": "1",
                     "type": "end",
                     "warnings": {},
-                    "x": 1340,
-                    "y": 1160
+                    "x": 20,
+                    "y": 788
                 },
                 "2": {
                     "data": {
@@ -86,7 +94,7 @@
                                     {
                                         "conditionIndex": 0,
                                         "op": "==",
-                                        "param": "artifact:*.name",
+                                        "param": "artifact:*.label",
                                         "value": "URL Artifact"
                                     },
                                     {
@@ -97,6 +105,7 @@
                                     }
                                 ],
                                 "conditionIndex": 0,
+                                "customName": "safelink url",
                                 "logic": "and"
                             }
                         ],
@@ -109,185 +118,8 @@
                     "id": "2",
                     "type": "filter",
                     "warnings": {},
-                    "x": 1050,
-                    "y": 604.5
-                },
-                "3": {
-                    "data": {
-                        "advanced": {
-                            "join": []
-                        },
-                        "customFunction": {
-                            "draftMode": false,
-                            "name": "debug",
-                            "repoName": "community"
-                        },
-                        "functionId": 1,
-                        "functionName": "debug_1",
-                        "id": "3",
-                        "selectMore": false,
-                        "type": "utility",
-                        "utilities": {
-                            "debug": {
-                                "description": "Print debug messages with the type and value of 0-10 different inputs. This is useful for checking the values of input data or the outputs of other playbook blocks.",
-                                "fields": [
-                                    {
-                                        "dataTypes": [
-                                            "*"
-                                        ],
-                                        "description": "",
-                                        "inputType": "list",
-                                        "label": "input_1",
-                                        "name": "input_1",
-                                        "placeholder": "",
-                                        "renderType": "datapath",
-                                        "required": false
-                                    },
-                                    {
-                                        "dataTypes": [
-                                            "*"
-                                        ],
-                                        "description": "",
-                                        "inputType": "list",
-                                        "label": "input_2",
-                                        "name": "input_2",
-                                        "placeholder": "",
-                                        "renderType": "datapath",
-                                        "required": false
-                                    },
-                                    {
-                                        "dataTypes": [
-                                            "*"
-                                        ],
-                                        "description": "",
-                                        "inputType": "list",
-                                        "label": "input_3",
-                                        "name": "input_3",
-                                        "placeholder": "",
-                                        "renderType": "datapath",
-                                        "required": false
-                                    },
-                                    {
-                                        "dataTypes": [
-                                            "*"
-                                        ],
-                                        "description": "",
-                                        "inputType": "list",
-                                        "label": "input_4",
-                                        "name": "input_4",
-                                        "placeholder": "",
-                                        "renderType": "datapath",
-                                        "required": false
-                                    },
-                                    {
-                                        "dataTypes": [
-                                            "*"
-                                        ],
-                                        "description": "",
-                                        "inputType": "list",
-                                        "label": "input_5",
-                                        "name": "input_5",
-                                        "placeholder": "",
-                                        "renderType": "datapath",
-                                        "required": false
-                                    },
-                                    {
-                                        "dataTypes": [
-                                            "*"
-                                        ],
-                                        "description": "",
-                                        "inputType": "list",
-                                        "label": "input_6",
-                                        "name": "input_6",
-                                        "placeholder": "",
-                                        "renderType": "datapath",
-                                        "required": false
-                                    },
-                                    {
-                                        "dataTypes": [
-                                            "*"
-                                        ],
-                                        "description": "",
-                                        "inputType": "list",
-                                        "label": "input_7",
-                                        "name": "input_7",
-                                        "placeholder": "",
-                                        "renderType": "datapath",
-                                        "required": false
-                                    },
-                                    {
-                                        "dataTypes": [
-                                            "*"
-                                        ],
-                                        "description": "",
-                                        "inputType": "list",
-                                        "label": "input_8",
-                                        "name": "input_8",
-                                        "placeholder": "",
-                                        "renderType": "datapath",
-                                        "required": false
-                                    },
-                                    {
-                                        "dataTypes": [
-                                            "*"
-                                        ],
-                                        "description": "",
-                                        "inputType": "list",
-                                        "label": "input_9",
-                                        "name": "input_9",
-                                        "placeholder": "",
-                                        "renderType": "datapath",
-                                        "required": false
-                                    },
-                                    {
-                                        "dataTypes": [
-                                            "*"
-                                        ],
-                                        "description": "",
-                                        "inputType": "list",
-                                        "label": "input_10",
-                                        "name": "input_10",
-                                        "placeholder": "",
-                                        "renderType": "datapath",
-                                        "required": false
-                                    }
-                                ],
-                                "label": "debug",
-                                "name": "debug"
-                            }
-                        },
-                        "utilityType": "custom_function",
-                        "values": {
-                            "debug": {
-                                "input_1": [
-                                    "filtered-data:filter_1:condition_1:artifact:*.id"
-                                ],
-                                "input_10": null,
-                                "input_2": [
-                                    "url_safelink_extract_2:custom_function_result.data.actual_url"
-                                ],
-                                "input_3": [
-                                    "format_json_artifact_update:formatted_data.*"
-                                ],
-                                "input_4": null,
-                                "input_5": null,
-                                "input_6": null,
-                                "input_7": null,
-                                "input_8": null,
-                                "input_9": null
-                            }
-                        }
-                    },
-                    "errors": {},
-                    "id": "3",
-                    "type": "utility",
-                    "warnings": {
-                        "config": [
-                            "Reconfigure invalid datapath."
-                        ]
-                    },
-                    "x": 1340,
-                    "y": 1040
+                    "x": 60,
+                    "y": 148
                 },
                 "4": {
                     "data": {
@@ -302,6 +134,15 @@
                         "functionId": 2,
                         "functionName": "url_safelink_extract_2",
                         "id": "4",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
                         "selectMore": false,
                         "type": "utility",
                         "utilities": {
@@ -333,9 +174,13 @@
                     "errors": {},
                     "id": "4",
                     "type": "utility",
-                    "warnings": {},
-                    "x": 1000,
-                    "y": 800
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
+                    "x": 0,
+                    "y": 328
                 },
                 "5": {
                     "data": {
@@ -357,9 +202,13 @@
                     "errors": {},
                     "id": "5",
                     "type": "format",
-                    "warnings": {},
-                    "x": 1000,
-                    "y": 980
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
+                    "x": 0,
+                    "y": 476
                 },
                 "6": {
                     "data": {
@@ -374,6 +223,15 @@
                         "functionId": 3,
                         "functionName": "artifact_update_3",
                         "id": "6",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
                         "selectMore": false,
                         "type": "utility",
                         "utilities": {
@@ -510,9 +368,13 @@
                     "errors": {},
                     "id": "6",
                     "type": "utility",
-                    "warnings": {},
-                    "x": 1000,
-                    "y": 1120
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
+                    "x": 0,
+                    "y": 640
                 }
             },
             "notes": ""
@@ -521,10 +383,10 @@
         "output_spec": null,
         "playbook_type": "data",
         "python_version": "3",
-        "schema": "5.0.10",
-        "version": "6.1.1.211"
+        "schema": "5.0.11",
+        "version": "6.2.0.355"
     },
-    "create_time": "2023-11-24T12:40:17.293274+00:00",
+    "create_time": "2023-12-20T12:23:27.571818+00:00",
     "draft_mode": false,
     "labels": [
         "*"
