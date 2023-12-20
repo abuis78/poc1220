@@ -26,8 +26,8 @@ def select_reported_info(action=None, success=None, container=None, results=None
         container=container,
         logical_operator="and",
         conditions=[
-            ["artifact:*.name", "==", "Vault Artifact"],
-            ["artifact:*.label", "==", "Reported Mail"]
+            ["artifact:*.name", "==", "Reported Mail"],
+            ["artifact:*.label", "==", "Vault Artifact"]
         ],
         name="select_reported_info:condition_1",
         delimiter=None)
@@ -41,8 +41,8 @@ def select_reported_info(action=None, success=None, container=None, results=None
         container=container,
         logical_operator="and",
         conditions=[
-            ["artifact:*.name", "==", "Vault Artifact"],
-            ["artifact:*.label", "==", "KB4 User Comment"]
+            ["artifact:*.name", "==", "KB4 User Comment"],
+            ["artifact:*.label", "==", "Vault Artifact"]
         ],
         name="select_reported_info:condition_2",
         delimiter=None)
@@ -92,7 +92,7 @@ def extract_ioc_1(action=None, success=None, container=None, results=None, handl
     ## Custom Code End
     ################################################################################
 
-    phantom.act("extract ioc", parameters=parameters, name="extract_ioc_1", assets=["parser"], callback=playbook_prepoc_url_sanitize_1)
+    phantom.act("extract ioc", parameters=parameters, name="extract_ioc_1", assets=["parser"], callback=select_reported_mail_artifacts_0)
 
     return
 
@@ -166,6 +166,66 @@ def filter_transport_mail_artifacts_0(action=None, success=None, container=None,
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_1 or matched_results_1:
         select_reported_info(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+
+    return
+
+
+@phantom.playbook_block()
+def select_reported_mail_artifacts_0(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("select_reported_mail_artifacts_0() called")
+
+    # collect filtered artifact ids and results for 'if' condition 1
+    matched_artifacts_1, matched_results_1 = phantom.condition(
+        container=container,
+        conditions=[
+            ["reported_mail", "in", "artifact:*.tags"]
+        ],
+        name="select_reported_mail_artifacts_0:condition_1",
+        delimiter=None)
+
+    # call connected blocks if filtered artifacts or results
+    if matched_artifacts_1 or matched_results_1:
+        artifact_update_2(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+
+    return
+
+
+@phantom.playbook_block()
+def artifact_update_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("artifact_update_2() called")
+
+    filtered_artifact_0_data_filter_transport_mail_artifacts_0 = phantom.collect2(container=container, datapath=["filtered-data:filter_transport_mail_artifacts_0:condition_1:artifact:*.id","filtered-data:filter_transport_mail_artifacts_0:condition_1:artifact:*.id","filtered-data:filter_transport_mail_artifacts_0:condition_1:artifact:*.external_id"])
+    container_artifact_data = phantom.collect2(container=container, datapath=["artifact:*.name","artifact:*.id","artifact:*.external_id"])
+
+    parameters = []
+
+    # build parameters list for 'artifact_update_2' call
+    for filtered_artifact_0_item_filter_transport_mail_artifacts_0 in filtered_artifact_0_data_filter_transport_mail_artifacts_0:
+        for container_artifact_item in container_artifact_data:
+            parameters.append({
+                "artifact_id": filtered_artifact_0_item_filter_transport_mail_artifacts_0[0],
+                "name": None,
+                "label": container_artifact_item[0],
+                "severity": None,
+                "cef_field": None,
+                "cef_value": None,
+                "cef_data_type": None,
+                "tags": None,
+                "overwrite_tags": None,
+                "input_json": None,
+            })
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.custom_function(custom_function="community/artifact_update", parameters=parameters, name="artifact_update_2", callback=playbook_prepoc_url_sanitize_1)
 
     return
 
