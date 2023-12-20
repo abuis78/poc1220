@@ -78,14 +78,26 @@
                     "targetPort": "8_in"
                 },
                 {
-                    "id": "port_0_to_port_2",
+                    "id": "port_0_to_port_7",
                     "sourceNode": "0",
                     "sourcePort": "0_out",
+                    "targetNode": "7",
+                    "targetPort": "7_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_7_to_port_2",
+                    "sourceNode": "7",
+                    "sourcePort": "7_out",
                     "targetNode": "2",
                     "targetPort": "2_in"
                 }
             ],
-            "hash": "61ca2e04d011f3894e00ef4c71ba1b3370c8a107",
+            "hash": "2a414b89606676d0bc05f8b757fee1c9faf0342b",
             "nodes": {
                 "0": {
                     "data": {
@@ -570,8 +582,8 @@
                     "id": "7",
                     "type": "filter",
                     "warnings": {},
-                    "x": 380,
-                    "y": 100
+                    "x": 230,
+                    "y": 148
                 },
                 "8": {
                     "data": {
@@ -783,7 +795,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-20T12:34:03.824515+00:00",
+    "create_time": "2023-12-20T12:35:31.394945+00:00",
     "draft_mode": false,
     "labels": [
         "phishing_mail"
