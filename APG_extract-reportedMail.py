@@ -215,7 +215,7 @@ def artifact_update_2(action=None, success=None, container=None, results=None, h
         parameters.append({
             "artifact_id": filtered_artifact_0_item_select_reported_mail_artifacts_0[0],
             "name": None,
-            "label": filtered_artifact_0_item_select_reported_mail_artifacts_0[0],
+            "label": "name",
             "severity": None,
             "cef_field": None,
             "cef_value": None,
