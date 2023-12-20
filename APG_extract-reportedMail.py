@@ -207,25 +207,23 @@ def artifact_update_2(action=None, success=None, container=None, results=None, h
     phantom.debug("artifact_update_2() called")
 
     filtered_artifact_0_data_select_reported_mail_artifacts_0 = phantom.collect2(container=container, datapath=["filtered-data:select_reported_mail_artifacts_0:condition_1:artifact:*.id","filtered-data:select_reported_mail_artifacts_0:condition_1:artifact:*.id","filtered-data:select_reported_mail_artifacts_0:condition_1:artifact:*.external_id"])
-    container_artifact_data = phantom.collect2(container=container, datapath=["artifact:*.name","artifact:*.id","artifact:*.external_id"])
 
     parameters = []
 
     # build parameters list for 'artifact_update_2' call
     for filtered_artifact_0_item_select_reported_mail_artifacts_0 in filtered_artifact_0_data_select_reported_mail_artifacts_0:
-        for container_artifact_item in container_artifact_data:
-            parameters.append({
-                "artifact_id": filtered_artifact_0_item_select_reported_mail_artifacts_0[0],
-                "name": None,
-                "label": container_artifact_item[0],
-                "severity": None,
-                "cef_field": None,
-                "cef_value": None,
-                "cef_data_type": None,
-                "tags": None,
-                "overwrite_tags": None,
-                "input_json": None,
-            })
+        parameters.append({
+            "artifact_id": filtered_artifact_0_item_select_reported_mail_artifacts_0[0],
+            "name": None,
+            "label": filtered_artifact_0_item_select_reported_mail_artifacts_0[0],
+            "severity": None,
+            "cef_field": None,
+            "cef_value": None,
+            "cef_data_type": None,
+            "tags": None,
+            "overwrite_tags": None,
+            "input_json": None,
+        })
 
     ################################################################################
     ## Custom Code Start
