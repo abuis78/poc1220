@@ -81,8 +81,8 @@ def artifact_update_1(action=None, success=None, container=None, results=None, h
     for filtered_artifact_0_item_categorize_artifact in filtered_artifact_0_data_categorize_artifact:
         parameters.append({
             "name": "Reported Mail",
-            "tags": "transport_mail",
-            "label": "Vault Artifact",
+            "tags": None,
+            "label": None,
             "severity": None,
             "cef_field": None,
             "cef_value": None,
@@ -119,9 +119,9 @@ def artifact_update_2(action=None, success=None, container=None, results=None, h
     for filtered_artifact_0_item_categorize_artifact in filtered_artifact_0_data_categorize_artifact:
         parameters.append({
             "name": "KB4 User Comment",
-            "tags": "transport_mail",
-            "label": "Vault Artifact",
-            "severity": "Informational",
+            "tags": None,
+            "label": None,
+            "severity": None,
             "cef_field": None,
             "cef_value": None,
             "input_json": None,
@@ -156,10 +156,10 @@ def artifact_update_5(action=None, success=None, container=None, results=None, h
     # build parameters list for 'artifact_update_5' call
     for filtered_artifact_0_item_categorize_artifact in filtered_artifact_0_data_categorize_artifact:
         parameters.append({
-            "name": None,
-            "tags": "transport_mail",
-            "label": "Transport Mail",
-            "severity": "Informational",
+            "name": "Transport Mail",
+            "tags": None,
+            "label": None,
+            "severity": None,
             "cef_field": None,
             "cef_value": None,
             "input_json": None,
@@ -238,7 +238,7 @@ def artifact_update_3(action=None, success=None, container=None, results=None, h
     ## Custom Code End
     ################################################################################
 
-    phantom.custom_function(custom_function="community/artifact_update", parameters=parameters, name="artifact_update_3")
+    phantom.custom_function(custom_function="community/artifact_update", parameters=parameters, name="artifact_update_3", callback=categorize_artifact)
 
     return
 

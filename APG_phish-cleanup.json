@@ -93,9 +93,16 @@
                     "sourcePort": "11_out",
                     "targetNode": "12",
                     "targetPort": "12_in"
+                },
+                {
+                    "id": "port_12_to_port_2",
+                    "sourceNode": "12",
+                    "sourcePort": "12_out",
+                    "targetNode": "2",
+                    "targetPort": "2_in"
                 }
             ],
-            "hash": "546e8c2a2f8b6b86a983613df047647f326bfb64",
+            "hash": "22ff1760679224356a20818bbf4dcfe8f3623e56",
             "nodes": {
                 "0": {
                     "data": {
@@ -126,8 +133,8 @@
                     "id": "1",
                     "type": "end",
                     "warnings": {},
-                    "x": 620,
-                    "y": 656
+                    "x": 530,
+                    "y": 804
                 },
                 "10": {
                     "data": {
@@ -276,11 +283,11 @@
                                 "cef_field": null,
                                 "cef_value": null,
                                 "input_json": null,
-                                "label": "Transport Mail",
-                                "name": "",
+                                "label": "",
+                                "name": "Transport Mail",
                                 "overwrite_tags": "",
-                                "severity": "Informational",
-                                "tags": "transport_mail"
+                                "severity": "",
+                                "tags": ""
                             }
                         }
                     },
@@ -293,7 +300,7 @@
                         ]
                     },
                     "x": 680,
-                    "y": 508
+                    "y": 656
                 },
                 "11": {
                     "data": {
@@ -505,8 +512,8 @@
                     "id": "12",
                     "type": "utility",
                     "warnings": {},
-                    "x": 240,
-                    "y": 120
+                    "x": 340,
+                    "y": 328
                 },
                 "2": {
                     "data": {
@@ -584,7 +591,7 @@
                     "type": "filter",
                     "warnings": {},
                     "x": 400,
-                    "y": 328
+                    "y": 476
                 },
                 "7": {
                     "data": {
@@ -733,11 +740,11 @@
                                 "cef_field": null,
                                 "cef_value": null,
                                 "input_json": null,
-                                "label": "Vault Artifact",
+                                "label": "",
                                 "name": "Reported Mail",
                                 "overwrite_tags": "",
                                 "severity": "",
-                                "tags": "transport_mail"
+                                "tags": ""
                             }
                         }
                     },
@@ -749,8 +756,8 @@
                             "Reconfigure invalid datapath."
                         ]
                     },
-                    "x": 0,
-                    "y": 508
+                    "x": 340,
+                    "y": 656
                 },
                 "8": {
                     "data": {
@@ -899,11 +906,11 @@
                                 "cef_field": null,
                                 "cef_value": null,
                                 "input_json": null,
-                                "label": "Vault Artifact",
+                                "label": "",
                                 "name": "KB4 User Comment",
                                 "overwrite_tags": "",
-                                "severity": "Informational",
-                                "tags": "transport_mail"
+                                "severity": "",
+                                "tags": ""
                             }
                         }
                     },
@@ -915,8 +922,8 @@
                             "Reconfigure invalid datapath."
                         ]
                     },
-                    "x": 340,
-                    "y": 508
+                    "x": 0,
+                    "y": 656
                 }
             },
             "notes": ""
@@ -928,7 +935,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-20T12:09:00.456449+00:00",
+    "create_time": "2023-12-20T12:12:29.807395+00:00",
     "draft_mode": false,
     "labels": [
         "*"
