@@ -209,20 +209,24 @@ def are_tags_already_set(action=None, success=None, container=None, results=None
 def artifact_update_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("artifact_update_3() called")
 
+    container_artifact_data = phantom.collect2(container=container, datapath=["artifact:*.id","artifact:*.id","artifact:*.external_id"])
+
     parameters = []
 
-    parameters.append({
-        "artifact_id": "artifact:id",
-        "name": None,
-        "label": "artifact:name",
-        "severity": "Informational",
-        "cef_field": None,
-        "cef_value": None,
-        "cef_data_type": None,
-        "tags": "transport_mail",
-        "overwrite_tags": None,
-        "input_json": None,
-    })
+    # build parameters list for 'artifact_update_3' call
+    for container_artifact_item in container_artifact_data:
+        parameters.append({
+            "artifact_id": container_artifact_item[0],
+            "name": None,
+            "label": "artifact:name",
+            "severity": "Informational",
+            "cef_field": None,
+            "cef_value": None,
+            "cef_data_type": None,
+            "tags": "transport_mail",
+            "overwrite_tags": None,
+            "input_json": None,
+        })
 
     ################################################################################
     ## Custom Code Start
