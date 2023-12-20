@@ -45,9 +45,16 @@
                     "sourcePort": "12_out",
                     "targetNode": "3",
                     "targetPort": "3_in"
+                },
+                {
+                    "id": "port_8_to_port_1",
+                    "sourceNode": "8",
+                    "sourcePort": "8_out",
+                    "targetNode": "1",
+                    "targetPort": "1_in"
                 }
             ],
-            "hash": "2613665b44fc885fe8c285dc9412c38cfa32cc62",
+            "hash": "61a5d1cef19b8dcdbb5e333342b78f080a4730bd",
             "nodes": {
                 "0": {
                     "data": {
@@ -62,8 +69,8 @@
                     "id": "0",
                     "type": "start",
                     "warnings": {},
-                    "x": 20,
-                    "y": 0
+                    "x": 19.999999999999986,
+                    "y": -3.197442310920451e-14
                 },
                 "1": {
                     "data": {
@@ -78,8 +85,8 @@
                     "id": "1",
                     "type": "end",
                     "warnings": {},
-                    "x": 320,
-                    "y": 0
+                    "x": 19.999999999999986,
+                    "y": 936
                 },
                 "11": {
                     "data": {
@@ -130,7 +137,7 @@
                         "playbookRepo": 3,
                         "playbookRepoName": "poc1220",
                         "playbookType": "data",
-                        "synchronous": false,
+                        "synchronous": true,
                         "type": "playbook"
                     },
                     "errors": {},
@@ -169,8 +176,8 @@
                     "id": "3",
                     "type": "playbook",
                     "warnings": {},
-                    "x": 0,
-                    "y": 296
+                    "x": -1.4210854715202004e-14,
+                    "y": 295.99999999999994
                 },
                 "5": {
                     "data": {
@@ -255,7 +262,7 @@
                     "type": "playbook",
                     "warnings": {},
                     "x": 0,
-                    "y": 788
+                    "y": 780
                 }
             },
             "notes": ""
@@ -267,7 +274,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-20T11:47:24.113419+00:00",
+    "create_time": "2023-12-20T12:31:49.246834+00:00",
     "draft_mode": false,
     "labels": [
         "phishing_mail"
