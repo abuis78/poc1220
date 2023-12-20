@@ -209,7 +209,7 @@ def are_tags_already_set(action=None, success=None, container=None, results=None
 def artifact_update_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("artifact_update_3() called")
 
-    container_artifact_data = phantom.collect2(container=container, datapath=["artifact:*.id","artifact:*.id","artifact:*.external_id"])
+    container_artifact_data = phantom.collect2(container=container, datapath=["artifact:*.id","artifact:*.name","artifact:*.id","artifact:*.external_id"])
 
     parameters = []
 
@@ -218,7 +218,7 @@ def artifact_update_3(action=None, success=None, container=None, results=None, h
         parameters.append({
             "artifact_id": container_artifact_item[0],
             "name": None,
-            "label": "artifact:name",
+            "label": container_artifact_item[1],
             "severity": "Informational",
             "cef_field": None,
             "cef_value": None,
