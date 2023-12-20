@@ -212,7 +212,7 @@ def artifact_update_3(action=None, success=None, container=None, results=None, h
     parameters = []
 
     parameters.append({
-        "artifact_id": None,
+        "artifact_id": "artifact:id",
         "name": None,
         "label": "artifact:name",
         "severity": "Informational",

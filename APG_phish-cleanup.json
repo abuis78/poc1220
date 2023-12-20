@@ -95,7 +95,7 @@
                     "targetPort": "12_in"
                 }
             ],
-            "hash": "6cbff1f9efc95dc6c3dd0822be0044615da574c3",
+            "hash": "b5bd490bdb9d7847334b499a1adacfe654f19d55",
             "nodes": {
                 "0": {
                     "data": {
@@ -488,7 +488,7 @@
                         "utilityType": "custom_function",
                         "values": {
                             "artifact_update": {
-                                "artifact_id": null,
+                                "artifact_id": "artifact:id",
                                 "cef_data_type": null,
                                 "cef_field": null,
                                 "cef_value": null,
@@ -582,11 +582,7 @@
                     "errors": {},
                     "id": "2",
                     "type": "filter",
-                    "warnings": {
-                        "context": [
-                            "Connect block to playbook flow."
-                        ]
-                    },
+                    "warnings": {},
                     "x": 400,
                     "y": 328
                 },
@@ -932,7 +928,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-20T12:06:49.489631+00:00",
+    "create_time": "2023-12-20T12:08:06.240412+00:00",
     "draft_mode": false,
     "labels": [
         "*"
