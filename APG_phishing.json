@@ -33,14 +33,21 @@
                     "targetPort": "8_in"
                 },
                 {
-                    "id": "port_0_to_port_3",
+                    "id": "port_0_to_port_12",
                     "sourceNode": "0",
                     "sourcePort": "0_out",
+                    "targetNode": "12",
+                    "targetPort": "12_in"
+                },
+                {
+                    "id": "port_12_to_port_3",
+                    "sourceNode": "12",
+                    "sourcePort": "12_out",
                     "targetNode": "3",
                     "targetPort": "3_in"
                 }
             ],
-            "hash": "945515d4a3494f6aeefab0aa9cf406522029a45a",
+            "hash": "2613665b44fc885fe8c285dc9412c38cfa32cc62",
             "nodes": {
                 "0": {
                     "data": {
@@ -55,8 +62,8 @@
                     "id": "0",
                     "type": "start",
                     "warnings": {},
-                    "x": 19.999999999999986,
-                    "y": -1.2789769243681803e-13
+                    "x": 20,
+                    "y": 0
                 },
                 "1": {
                     "data": {
@@ -72,7 +79,7 @@
                     "type": "end",
                     "warnings": {},
                     "x": 320,
-                    "y": -1.2789769243681803e-13
+                    "y": 0
                 },
                 "11": {
                     "data": {
@@ -99,7 +106,39 @@
                         ]
                     },
                     "x": 0,
-                    "y": 492
+                    "y": 640
+                },
+                "12": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionId": 1,
+                        "functionName": "playbook_APG_phish_cleanup_1",
+                        "id": "12",
+                        "inputs": {},
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "playbookName": "APG_phish-cleanup",
+                        "playbookRepo": 3,
+                        "playbookRepoName": "poc1220",
+                        "playbookType": "data",
+                        "synchronous": false,
+                        "type": "playbook"
+                    },
+                    "errors": {},
+                    "id": "12",
+                    "type": "playbook",
+                    "warnings": {},
+                    "x": 0,
+                    "y": 148
                 },
                 "3": {
                     "data": {
@@ -130,8 +169,8 @@
                     "id": "3",
                     "type": "playbook",
                     "warnings": {},
-                    "x": -1.4210854715202004e-14,
-                    "y": 147.99999999999994
+                    "x": 0,
+                    "y": 296
                 },
                 "5": {
                     "data": {
@@ -171,7 +210,7 @@
                     "type": "filter",
                     "warnings": {},
                     "x": 60,
-                    "y": 312
+                    "y": 460
                 },
                 "8": {
                     "data": {
@@ -216,7 +255,7 @@
                     "type": "playbook",
                     "warnings": {},
                     "x": 0,
-                    "y": 640
+                    "y": 788
                 }
             },
             "notes": ""
@@ -228,7 +267,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-18T15:05:19.408459+00:00",
+    "create_time": "2023-12-20T11:47:24.113419+00:00",
     "draft_mode": false,
     "labels": [
         "phishing_mail"
