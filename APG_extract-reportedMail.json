@@ -90,7 +90,7 @@
                     "targetPort": "8_in"
                 }
             ],
-            "hash": "8ca56081e8ee361da980ea8777059039c6aa931b",
+            "hash": "abf7b159ea7507e79a96d1eb9a3f7fbe83115037",
             "nodes": {
                 "0": {
                     "data": {
@@ -581,7 +581,7 @@
                                 "cef_field": null,
                                 "cef_value": null,
                                 "input_json": null,
-                                "label": "name",
+                                "label": "filtered-data:select_reported_mail_artifacts_0:condition_1:artifact:*.name",
                                 "name": null,
                                 "overwrite_tags": null,
                                 "severity": null,
@@ -610,7 +610,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-20T12:54:48.806806+00:00",
+    "create_time": "2023-12-20T12:57:04.656227+00:00",
     "draft_mode": false,
     "labels": [
         "phishing_mail"
