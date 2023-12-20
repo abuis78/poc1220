@@ -36,6 +36,13 @@
                     "sourcePort": "3_out",
                     "targetNode": "4",
                     "targetPort": "4_in"
+                },
+                {
+                    "id": "port_4_to_port_1",
+                    "sourceNode": "4",
+                    "sourcePort": "4_out",
+                    "targetNode": "1",
+                    "targetPort": "1_in"
                 }
             ],
             "hash": "74ba9e05ada5341feeaa768d50ed34d312e78699",
@@ -53,8 +60,8 @@
                     "id": "0",
                     "type": "start",
                     "warnings": {},
-                    "x": -1.4210854715202004e-14,
-                    "y": -1.9184653865522705e-13
+                    "x": 20,
+                    "y": 0
                 },
                 "1": {
                     "data": {
@@ -69,8 +76,8 @@
                     "id": "1",
                     "type": "end",
                     "warnings": {},
-                    "x": 300,
-                    "y": -1.9184653865522705e-13
+                    "x": 20,
+                    "y": 656
                 },
                 "2": {
                     "data": {
@@ -107,8 +114,8 @@
                     "id": "2",
                     "type": "filter",
                     "warnings": {},
-                    "x": 40,
-                    "y": 104.5
+                    "x": 60,
+                    "y": 148
                 },
                 "3": {
                     "data": {
@@ -141,7 +148,7 @@
                     "type": "filter",
                     "warnings": {},
                     "x": 60,
-                    "y": 260
+                    "y": 328
                 },
                 "4": {
                     "data": {
@@ -205,17 +212,11 @@
                             "Reconfigure invalid datapath."
                         ]
                     },
-                    "x": -20,
-                    "y": 440
+                    "x": 0,
+                    "y": 508
                 }
             },
-            "notes": "",
-            "origin": {
-                "playbook_id": 241,
-                "playbook_name": "APG_enrichMcIncident",
-                "playbook_repo_id": 3,
-                "playbook_repo_name": "poc1220"
-            }
+            "notes": ""
         },
         "input_spec": null,
         "output_spec": null,
