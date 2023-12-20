@@ -92,7 +92,7 @@ def extract_ioc_1(action=None, success=None, container=None, results=None, handl
     ## Custom Code End
     ################################################################################
 
-    phantom.act("extract ioc", parameters=parameters, name="extract_ioc_1", assets=["parser"], callback=select_reported_mail_artifacts_0)
+    phantom.act("extract ioc", parameters=parameters, name="extract_ioc_1", assets=["parser"], callback=debug_3)
 
     return
 
@@ -238,6 +238,44 @@ def artifact_update_2(action=None, success=None, container=None, results=None, h
     ################################################################################
 
     phantom.custom_function(custom_function="community/artifact_update", parameters=parameters, name="artifact_update_2", callback=playbook_prepoc_url_sanitize_1)
+
+    return
+
+
+@phantom.playbook_block()
+def debug_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("debug_3() called")
+
+    container_artifact_data = phantom.collect2(container=container, datapath=["artifact:*.tags","artifact:*.id","artifact:*.external_id"])
+
+    container_artifact_header_item_0 = [item[0] for item in container_artifact_data]
+
+    parameters = []
+
+    parameters.append({
+        "input_1": container_artifact_header_item_0,
+        "input_2": None,
+        "input_3": None,
+        "input_4": None,
+        "input_5": None,
+        "input_6": None,
+        "input_7": None,
+        "input_8": None,
+        "input_9": None,
+        "input_10": None,
+    })
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.custom_function(custom_function="community/debug", parameters=parameters, name="debug_3", callback=select_reported_mail_artifacts_0)
 
     return
 
