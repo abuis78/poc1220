@@ -104,7 +104,7 @@
                     "targetPort": "9_in"
                 }
             ],
-            "hash": "4ca22866d28d1db2595532617cc727d2721ecce3",
+            "hash": "4b509088fdedeacc5e5af6deaafb01f2d93d2a76",
             "nodes": {
                 "0": {
                     "data": {
@@ -473,7 +473,7 @@
                         "values": {
                             "debug": {
                                 "input_1": [
-                                    "filtered-data:filter_transport_mail_artifacts_0:condition_1:artifact:*.id"
+                                    "filtered-data:select_reported_mail_artifacts_0:condition_1:artifact:*.id"
                                 ],
                                 "input_10": null,
                                 "input_2": null,
@@ -950,7 +950,7 @@
                         "utilityType": "custom_function",
                         "values": {
                             "artifact_update": {
-                                "artifact_id": "filtered-data:filter_transport_mail_artifacts_0:condition_1:artifact:*.id",
+                                "artifact_id": "filtered-data:select_reported_mail_artifacts_0:condition_1:artifact:*.id",
                                 "cef_data_type": null,
                                 "cef_field": null,
                                 "cef_value": null,
@@ -984,7 +984,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-20T12:46:24.635172+00:00",
+    "create_time": "2023-12-20T12:51:32.058782+00:00",
     "draft_mode": false,
     "labels": [
         "phishing_mail"

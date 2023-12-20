@@ -206,16 +206,16 @@ def select_reported_mail_artifacts_0(action=None, success=None, container=None, 
 def artifact_update_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("artifact_update_2() called")
 
-    filtered_artifact_0_data_filter_transport_mail_artifacts_0 = phantom.collect2(container=container, datapath=["filtered-data:filter_transport_mail_artifacts_0:condition_1:artifact:*.id","filtered-data:filter_transport_mail_artifacts_0:condition_1:artifact:*.id","filtered-data:filter_transport_mail_artifacts_0:condition_1:artifact:*.external_id"])
+    filtered_artifact_0_data_select_reported_mail_artifacts_0 = phantom.collect2(container=container, datapath=["filtered-data:select_reported_mail_artifacts_0:condition_1:artifact:*.id","filtered-data:select_reported_mail_artifacts_0:condition_1:artifact:*.id","filtered-data:select_reported_mail_artifacts_0:condition_1:artifact:*.external_id"])
     container_artifact_data = phantom.collect2(container=container, datapath=["artifact:*.name","artifact:*.id","artifact:*.external_id"])
 
     parameters = []
 
     # build parameters list for 'artifact_update_2' call
-    for filtered_artifact_0_item_filter_transport_mail_artifacts_0 in filtered_artifact_0_data_filter_transport_mail_artifacts_0:
+    for filtered_artifact_0_item_select_reported_mail_artifacts_0 in filtered_artifact_0_data_select_reported_mail_artifacts_0:
         for container_artifact_item in container_artifact_data:
             parameters.append({
-                "artifact_id": filtered_artifact_0_item_filter_transport_mail_artifacts_0[0],
+                "artifact_id": filtered_artifact_0_item_select_reported_mail_artifacts_0[0],
                 "name": None,
                 "label": container_artifact_item[0],
                 "severity": None,
@@ -284,9 +284,9 @@ def debug_3(action=None, success=None, container=None, results=None, handle=None
 def debug_5(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("debug_5() called")
 
-    filtered_artifact_0_data_filter_transport_mail_artifacts_0 = phantom.collect2(container=container, datapath=["filtered-data:filter_transport_mail_artifacts_0:condition_1:artifact:*.id","filtered-data:filter_transport_mail_artifacts_0:condition_1:artifact:*.id","filtered-data:filter_transport_mail_artifacts_0:condition_1:artifact:*.external_id"])
+    filtered_artifact_0_data_select_reported_mail_artifacts_0 = phantom.collect2(container=container, datapath=["filtered-data:select_reported_mail_artifacts_0:condition_1:artifact:*.id","filtered-data:select_reported_mail_artifacts_0:condition_1:artifact:*.id","filtered-data:select_reported_mail_artifacts_0:condition_1:artifact:*.external_id"])
 
-    filtered_artifact_0__id = [item[0] for item in filtered_artifact_0_data_filter_transport_mail_artifacts_0]
+    filtered_artifact_0__id = [item[0] for item in filtered_artifact_0_data_select_reported_mail_artifacts_0]
 
     parameters = []
 
