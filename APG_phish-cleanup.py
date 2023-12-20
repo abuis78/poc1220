@@ -80,10 +80,10 @@ def artifact_update_1(action=None, success=None, container=None, results=None, h
     # build parameters list for 'artifact_update_1' call
     for filtered_artifact_0_item_categorize_artifact in filtered_artifact_0_data_categorize_artifact:
         parameters.append({
-            "name": None,
+            "name": "Reported Mail",
             "tags": "transport_mail",
-            "label": "Reported Mail",
-            "severity": "Informational",
+            "label": "Vault Artifact",
+            "severity": None,
             "cef_field": None,
             "cef_value": None,
             "input_json": None,
@@ -187,8 +187,54 @@ def artifact_update_5(action=None, success=None, container=None, results=None, h
 def are_tags_already_set(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("are_tags_already_set() called")
 
+    # check for 'if' condition 1
+    found_match_1 = phantom.decision(
+        container=container,
+        conditions=[
+            ["transport_mail", "in", "artifact:*.tags"]
+        ],
+        delimiter=None)
+
+    # call connected blocks if condition 1 matched
+    if found_match_1:
+        return
+
     # check for 'else' condition 2
-    categorize_artifact(action=action, success=success, container=container, results=results, handle=handle)
+    artifact_update_3(action=action, success=success, container=container, results=results, handle=handle)
+
+    return
+
+
+@phantom.playbook_block()
+def artifact_update_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("artifact_update_3() called")
+
+    parameters = []
+
+    parameters.append({
+        "artifact_id": None,
+        "name": None,
+        "label": "artifact:name",
+        "severity": "Informational",
+        "cef_field": None,
+        "cef_value": None,
+        "cef_data_type": None,
+        "tags": "transport_mail",
+        "overwrite_tags": None,
+        "input_json": None,
+    })
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.custom_function(custom_function="community/artifact_update", parameters=parameters, name="artifact_update_3")
 
     return
 
