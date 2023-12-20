@@ -47,7 +47,6 @@
                     "targetPort": "1_in"
                 }
             ],
-            "hash": "8ebd3df29f0cba0b4bb9b6064dfa880f89e61a4e",
             "nodes": {
                 "0": {
                     "data": {
