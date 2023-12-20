@@ -114,7 +114,19 @@ def playbook_prepoc_url_sanitize_1(action=None, success=None, container=None, re
     ################################################################################
 
     # call playbook "poc1220/prePoc URL sanitize", returns the playbook_run_id
-    playbook_run_id = phantom.playbook("poc1220/prePoc URL sanitize", container=container, inputs=inputs)
+    playbook_run_id = phantom.playbook("poc1220/prePoc URL sanitize", container=container, name="playbook_prepoc_url_sanitize_1", callback=playbook_prepoc_url_sanitize_1_callback, inputs=inputs)
+
+    return
+
+
+@phantom.playbook_block()
+def playbook_prepoc_url_sanitize_1_callback(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("playbook_prepoc_url_sanitize_1_callback() called")
+
+    
+    # Downstream End block cannot be called directly, since execution will call on_finish automatically.
+    # Using placeholder callback function so child playbook is run synchronously.
+
 
     return
 

@@ -90,7 +90,7 @@
                     "targetPort": "5_in"
                 }
             ],
-            "hash": "faae984a5bd550210cbe3095911b5b5a11816cf3",
+            "hash": "6f2022a89396b0da8f2c9b14f8aa28d0b5f5d701",
             "nodes": {
                 "0": {
                     "data": {
@@ -106,7 +106,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 190,
-                    "y": 0
+                    "y": -3.517186542012496e-13
                 },
                 "1": {
                     "data": {
@@ -284,7 +284,7 @@
                         "playbookRepo": 3,
                         "playbookRepoName": "poc1220",
                         "playbookType": "data",
-                        "synchronous": false,
+                        "synchronous": true,
                         "type": "playbook"
                     },
                     "errors": {},
@@ -610,7 +610,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-20T12:25:54.683914+00:00",
+    "create_time": "2023-12-20T12:28:57.006025+00:00",
     "draft_mode": false,
     "labels": [
         "phishing_mail"
