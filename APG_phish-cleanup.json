@@ -67,9 +67,21 @@
                     "sourcePort": "11_out",
                     "targetNode": "1",
                     "targetPort": "1_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 1
+                        }
+                    ],
+                    "id": "port_11_to_port_2",
+                    "sourceNode": "11",
+                    "sourcePort": "11_out",
+                    "targetNode": "2",
+                    "targetPort": "2_in"
                 }
             ],
-            "hash": "77b800d482742adccfd9338d0c60d21da9c2f79a",
+            "hash": "055b7dada59492e8e20492cc9e23bf89f3a246aa",
             "nodes": {
                 "0": {
                     "data": {
@@ -84,8 +96,8 @@
                     "id": "0",
                     "type": "start",
                     "warnings": {},
-                    "x": 360,
-                    "y": -6.394884621840902e-14
+                    "x": 620,
+                    "y": 0
                 },
                 "1": {
                     "data": {
@@ -100,8 +112,8 @@
                     "id": "1",
                     "type": "end",
                     "warnings": {},
-                    "x": 360,
-                    "y": 475.9999999999999
+                    "x": 620,
+                    "y": 656
                 },
                 "10": {
                     "data": {
@@ -267,7 +279,7 @@
                         ]
                     },
                     "x": 680,
-                    "y": 328
+                    "y": 508
                 },
                 "11": {
                     "data": {
@@ -317,8 +329,8 @@
                     "id": "11",
                     "type": "decision",
                     "warnings": {},
-                    "x": -60,
-                    "y": 80
+                    "x": 680,
+                    "y": 148
                 },
                 "2": {
                     "data": {
@@ -396,7 +408,7 @@
                     "type": "filter",
                     "warnings": {},
                     "x": 400,
-                    "y": 148
+                    "y": 328
                 },
                 "7": {
                     "data": {
@@ -562,7 +574,7 @@
                         ]
                     },
                     "x": 0,
-                    "y": 328
+                    "y": 508
                 },
                 "8": {
                     "data": {
@@ -728,7 +740,7 @@
                         ]
                     },
                     "x": 340,
-                    "y": 328
+                    "y": 508
                 }
             },
             "notes": ""
@@ -740,7 +752,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-20T11:59:34.144206+00:00",
+    "create_time": "2023-12-20T12:00:09.335942+00:00",
     "draft_mode": false,
     "labels": [
         "*"

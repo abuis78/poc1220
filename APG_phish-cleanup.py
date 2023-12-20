@@ -187,7 +187,8 @@ def artifact_update_5(action=None, success=None, container=None, results=None, h
 def are_tags_already_set(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("are_tags_already_set() called")
 
-
+    # check for 'else' condition 2
+    categorize_artifact(action=action, success=success, container=container, results=results, handle=handle)
 
     return
 
