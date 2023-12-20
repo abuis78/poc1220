@@ -12,8 +12,8 @@ from datetime import datetime, timedelta
 def on_start(container):
     phantom.debug('on_start() called')
 
-    # call 'categorize_artifact' block
-    categorize_artifact(container=container)
+    # call 'are_tags_already_set' block
+    are_tags_already_set(container=container)
 
     return
 
@@ -118,9 +118,9 @@ def artifact_update_2(action=None, success=None, container=None, results=None, h
     # build parameters list for 'artifact_update_2' call
     for filtered_artifact_0_item_categorize_artifact in filtered_artifact_0_data_categorize_artifact:
         parameters.append({
-            "name": None,
+            "name": "KB4 User Comment",
             "tags": "transport_mail",
-            "label": "KB4 User Comment",
+            "label": "Vault Artifact",
             "severity": "Informational",
             "cef_field": None,
             "cef_value": None,
@@ -179,6 +179,15 @@ def artifact_update_5(action=None, success=None, container=None, results=None, h
     ################################################################################
 
     phantom.custom_function(custom_function="community/artifact_update", parameters=parameters, name="artifact_update_5")
+
+    return
+
+
+@phantom.playbook_block()
+def are_tags_already_set(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("are_tags_already_set() called")
+
+
 
     return
 

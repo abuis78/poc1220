@@ -43,21 +43,33 @@
                     "targetPort": "10_in"
                 },
                 {
-                    "id": "port_0_to_port_2",
-                    "sourceNode": "0",
-                    "sourcePort": "0_out",
-                    "targetNode": "2",
-                    "targetPort": "2_in"
-                },
-                {
                     "id": "port_8_to_port_1",
                     "sourceNode": "8",
                     "sourcePort": "8_out",
                     "targetNode": "1",
                     "targetPort": "1_in"
+                },
+                {
+                    "id": "port_0_to_port_11",
+                    "sourceNode": "0",
+                    "sourcePort": "0_out",
+                    "targetNode": "11",
+                    "targetPort": "11_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_11_to_port_1",
+                    "sourceNode": "11",
+                    "sourcePort": "11_out",
+                    "targetNode": "1",
+                    "targetPort": "1_in"
                 }
             ],
-            "hash": "0b0522cf4fc81dfef0526d1b2ce7367940c69570",
+            "hash": "77b800d482742adccfd9338d0c60d21da9c2f79a",
             "nodes": {
                 "0": {
                     "data": {
@@ -73,7 +85,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 360,
-                    "y": 0
+                    "y": -6.394884621840902e-14
                 },
                 "1": {
                     "data": {
@@ -89,7 +101,7 @@
                     "type": "end",
                     "warnings": {},
                     "x": 360,
-                    "y": 476
+                    "y": 475.9999999999999
                 },
                 "10": {
                     "data": {
@@ -256,6 +268,57 @@
                     },
                     "x": 680,
                     "y": 328
+                },
+                "11": {
+                    "data": {
+                        "advanced": {
+                            "customName": "are tags already set",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "conditions": [
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 0,
+                                        "op": "==",
+                                        "param": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "conditionIndex": 0,
+                                "customName": "tags set",
+                                "display": "If",
+                                "logic": "and",
+                                "type": "if"
+                            },
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 1,
+                                        "op": "==",
+                                        "param": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "conditionIndex": 1,
+                                "customName": "tags not set",
+                                "display": "Else",
+                                "logic": "and",
+                                "type": "else"
+                            }
+                        ],
+                        "functionId": 1,
+                        "functionName": "are_tags_already_set",
+                        "id": "11",
+                        "type": "decision"
+                    },
+                    "errors": {},
+                    "id": "11",
+                    "type": "decision",
+                    "warnings": {},
+                    "x": -60,
+                    "y": 80
                 },
                 "2": {
                     "data": {
@@ -648,8 +711,8 @@
                                 "cef_field": null,
                                 "cef_value": null,
                                 "input_json": null,
-                                "label": "KB4 User Comment",
-                                "name": "",
+                                "label": "Vault Artifact",
+                                "name": "KB4 User Comment",
                                 "overwrite_tags": "",
                                 "severity": "Informational",
                                 "tags": "transport_mail"
@@ -677,7 +740,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-18T12:40:13.060105+00:00",
+    "create_time": "2023-12-20T11:59:34.144206+00:00",
     "draft_mode": false,
     "labels": [
         "*"
