@@ -114,7 +114,7 @@
                     "targetPort": "14_in"
                 }
             ],
-            "hash": "b68c50e967525ed8f17129fa2e290012d7e0333c",
+            "hash": "83b32cef56d9f2d9ae6437a8e3a809793c58af89",
             "nodes": {
                 "0": {
                     "data": {
@@ -530,7 +530,7 @@
                 "13": {
                     "data": {
                         "advanced": {
-                            "customName": "select all extracted artifact",
+                            "customName": "select all extracted artifacts",
                             "customNameId": 0,
                             "join": []
                         },
@@ -545,12 +545,12 @@
                                     }
                                 ],
                                 "conditionIndex": 0,
-                                "customName": "select all extracted artifact",
+                                "customName": "select all extracted artifacts",
                                 "logic": "and"
                             }
                         ],
                         "functionId": 2,
-                        "functionName": "select_all_extracted_artifact",
+                        "functionName": "select_all_extracted_artifacts_0",
                         "id": "13",
                         "type": "filter"
                     },
@@ -703,23 +703,27 @@
                         "utilityType": "custom_function",
                         "values": {
                             "artifact_update": {
-                                "artifact_id": "",
+                                "artifact_id": "filtered-data:select_all_extracted_artifacts_0:condition_1:artifact:*.id",
                                 "cef_data_type": null,
                                 "cef_field": null,
                                 "cef_value": null,
                                 "input_json": null,
                                 "label": null,
                                 "name": null,
-                                "overwrite_tags": null,
+                                "overwrite_tags": "true",
                                 "severity": null,
-                                "tags": null
+                                "tags": "to_delete"
                             }
                         }
                     },
                     "errors": {},
                     "id": "14",
                     "type": "utility",
-                    "warnings": {},
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
                     "x": 840,
                     "y": 484.5
                 },
@@ -1143,7 +1147,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-21T09:40:57.041861+00:00",
+    "create_time": "2023-12-21T09:42:52.495237+00:00",
     "draft_mode": false,
     "labels": [
         "*"
