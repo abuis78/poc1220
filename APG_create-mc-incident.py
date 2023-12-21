@@ -138,7 +138,7 @@ def select_mc_id(action=None, success=None, container=None, results=None, handle
 def format_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("format_1() called")
 
-    template = """{0}\n"""
+    template = """{0}{1}"""
 
     # parameter list for template variable replacement
     parameters = [

@@ -64,7 +64,7 @@
                     "targetPort": "8_in"
                 }
             ],
-            "hash": "b264bad6e7da4c4afe396a3f50639673108fb050",
+            "hash": "c201e4ad1f2897203b876e68a0ecd218c9054b66",
             "nodes": {
                 "0": {
                     "data": {
@@ -407,7 +407,7 @@
                             "filtered-data:select_mc_id:condition_1:artifact:*.cef.id",
                             "create_incidents_1:action_result.data.*.id"
                         ],
-                        "template": "{0}\n",
+                        "template": "{0}{1}",
                         "type": "format"
                     },
                     "errors": {},
@@ -620,9 +620,6 @@
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
-                        ],
-                        "context": [
-                            "Connect block to playbook flow."
                         ]
                     },
                     "x": 542.5,
@@ -660,7 +657,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-21T11:53:52.383168+00:00",
+    "create_time": "2023-12-21T11:54:39.099504+00:00",
     "draft_mode": false,
     "labels": [
         "*"
