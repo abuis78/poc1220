@@ -12,8 +12,8 @@ from datetime import datetime, timedelta
 def on_start(container):
     phantom.debug('on_start() called')
 
-    # call 'mc_incident_alread_exists' block
-    mc_incident_alread_exists(container=container)
+    # call 'debug_2' block
+    debug_2(container=container)
 
     return
 
@@ -107,6 +107,40 @@ def mc_incident_alread_exists(action=None, success=None, container=None, results
     if found_match_1:
         create_incidents_1(action=action, success=success, container=container, results=results, handle=handle)
         return
+
+    return
+
+
+@phantom.playbook_block()
+def debug_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("debug_2() called")
+
+    parameters = []
+
+    parameters.append({
+        "input_1": ["artifact.*.name"],
+        "input_2": None,
+        "input_3": None,
+        "input_4": None,
+        "input_5": None,
+        "input_6": None,
+        "input_7": None,
+        "input_8": None,
+        "input_9": None,
+        "input_10": None,
+    })
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.custom_function(custom_function="community/debug", parameters=parameters, name="debug_2", callback=mc_incident_alread_exists)
 
     return
 
