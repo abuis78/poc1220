@@ -31,25 +31,11 @@
                     "targetPort": "6_in"
                 },
                 {
-                    "id": "port_5_to_port_1",
-                    "sourceNode": "5",
-                    "sourcePort": "5_out",
-                    "targetNode": "1",
-                    "targetPort": "1_in"
-                },
-                {
                     "id": "port_6_to_port_1",
                     "sourceNode": "6",
                     "sourcePort": "6_out",
                     "targetNode": "1",
                     "targetPort": "1_in"
-                },
-                {
-                    "id": "port_9_to_port_5",
-                    "sourceNode": "9",
-                    "sourcePort": "9_out",
-                    "targetNode": "5",
-                    "targetPort": "5_in"
                 },
                 {
                     "id": "port_0_to_port_7",
@@ -71,26 +57,40 @@
                     "targetPort": "2_in"
                 },
                 {
-                    "conditions": [
-                        {
-                            "index": 0
-                        }
-                    ],
-                    "id": "port_8_to_port_9",
-                    "sourceNode": "8",
-                    "sourcePort": "8_out",
-                    "targetNode": "9",
-                    "targetPort": "9_in"
-                },
-                {
                     "id": "port_3_to_port_8",
                     "sourceNode": "3",
                     "sourcePort": "3_out",
                     "targetNode": "8",
                     "targetPort": "8_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_8_to_port_5",
+                    "sourceNode": "8",
+                    "sourcePort": "8_out",
+                    "targetNode": "5",
+                    "targetPort": "5_in"
+                },
+                {
+                    "id": "port_5_to_port_9",
+                    "sourceNode": "5",
+                    "sourcePort": "5_out",
+                    "targetNode": "9",
+                    "targetPort": "9_in"
+                },
+                {
+                    "id": "port_9_to_port_13",
+                    "sourceNode": "9",
+                    "sourcePort": "9_out",
+                    "targetNode": "13",
+                    "targetPort": "13_in"
                 }
             ],
-            "hash": "3b32123b60c1b3e98fdcb8a0bb6054844e3e9fc7",
+            "hash": "c52ce6d3822ec16aafb436acebe4c92207f8f6f6",
             "nodes": {
                 "0": {
                     "data": {
@@ -106,7 +106,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 190,
-                    "y": 0
+                    "y": -1.2789769243681803e-13
                 },
                 "1": {
                     "data": {
@@ -121,8 +121,45 @@
                     "id": "1",
                     "type": "end",
                     "warnings": {},
-                    "x": 190,
-                    "y": 1148
+                    "x": 19.999999999999986,
+                    "y": 688
+                },
+                "13": {
+                    "data": {
+                        "advanced": {
+                            "customName": "filter email artifact types",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "conditions": [
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 0,
+                                        "op": "==",
+                                        "param": "filtered-data:select_reported_mail_artifacts_0:condition_1:artifact:*.label",
+                                        "value": "Vault Artifact"
+                                    }
+                                ],
+                                "conditionIndex": 0,
+                                "logic": "and"
+                            }
+                        ],
+                        "functionId": 4,
+                        "functionName": "filter_email_artifact_types",
+                        "id": "13",
+                        "type": "filter"
+                    },
+                    "errors": {},
+                    "id": "13",
+                    "type": "filter",
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
+                    "x": 400,
+                    "y": 1100
                 },
                 "2": {
                     "data": {
@@ -259,8 +296,8 @@
                             "Reconfigure invalid datapath."
                         ]
                     },
-                    "x": 0,
-                    "y": 508
+                    "x": 340,
+                    "y": 516
                 },
                 "5": {
                     "data": {
@@ -291,8 +328,8 @@
                     "id": "5",
                     "type": "playbook",
                     "warnings": {},
-                    "x": 0,
-                    "y": 992
+                    "x": 340,
+                    "y": 852
                 },
                 "6": {
                     "data": {
@@ -363,8 +400,8 @@
                             "Reconfigure invalid datapath."
                         ]
                     },
-                    "x": 340,
-                    "y": 984
+                    "x": -1.4210854715202004e-14,
+                    "y": 508
                 },
                 "7": {
                     "data": {
@@ -431,8 +468,8 @@
                     "id": "8",
                     "type": "filter",
                     "warnings": {},
-                    "x": 60,
-                    "y": 656
+                    "x": 400,
+                    "y": 672
                 },
                 "9": {
                     "data": {
@@ -597,8 +634,8 @@
                             "Reconfigure invalid datapath."
                         ]
                     },
-                    "x": 0,
-                    "y": 836
+                    "x": 340,
+                    "y": 1000
                 }
             },
             "notes": ""
@@ -610,7 +647,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-20T12:57:04.656227+00:00",
+    "create_time": "2023-12-21T10:04:17.055167+00:00",
     "draft_mode": false,
     "labels": [
         "phishing_mail"

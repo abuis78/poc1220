@@ -114,19 +114,7 @@ def playbook_prepoc_url_sanitize_1(action=None, success=None, container=None, re
     ################################################################################
 
     # call playbook "poc1220/prePoc URL sanitize", returns the playbook_run_id
-    playbook_run_id = phantom.playbook("poc1220/prePoc URL sanitize", container=container, name="playbook_prepoc_url_sanitize_1", callback=playbook_prepoc_url_sanitize_1_callback, inputs=inputs)
-
-    return
-
-
-@phantom.playbook_block()
-def playbook_prepoc_url_sanitize_1_callback(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("playbook_prepoc_url_sanitize_1_callback() called")
-
-    
-    # Downstream End block cannot be called directly, since execution will call on_finish automatically.
-    # Using placeholder callback function so child playbook is run synchronously.
-
+    playbook_run_id = phantom.playbook("poc1220/prePoc URL sanitize", container=container, name="playbook_prepoc_url_sanitize_1", callback=artifact_update_2, inputs=inputs)
 
     return
 
@@ -197,7 +185,7 @@ def select_reported_mail_artifacts_0(action=None, success=None, container=None, 
 
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_1 or matched_results_1:
-        artifact_update_2(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+        playbook_prepoc_url_sanitize_1(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
     return
 
@@ -235,7 +223,27 @@ def artifact_update_2(action=None, success=None, container=None, results=None, h
     ## Custom Code End
     ################################################################################
 
-    phantom.custom_function(custom_function="community/artifact_update", parameters=parameters, name="artifact_update_2", callback=playbook_prepoc_url_sanitize_1)
+    phantom.custom_function(custom_function="community/artifact_update", parameters=parameters, name="artifact_update_2", callback=filter_email_artifact_types)
+
+    return
+
+
+@phantom.playbook_block()
+def filter_email_artifact_types(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("filter_email_artifact_types() called")
+
+    # collect filtered artifact ids and results for 'if' condition 1
+    matched_artifacts_1, matched_results_1 = phantom.condition(
+        container=container,
+        conditions=[
+            ["filtered-data:select_reported_mail_artifacts_0:condition_1:artifact:*.label", "==", "Vault Artifact"]
+        ],
+        name="filter_email_artifact_types:condition_1",
+        delimiter=None)
+
+    # call connected blocks if filtered artifacts or results
+    if matched_artifacts_1 or matched_results_1:
+        pass
 
     return
 
