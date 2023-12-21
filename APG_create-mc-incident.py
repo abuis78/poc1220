@@ -86,7 +86,7 @@ def artifact_create_1(action=None, success=None, container=None, results=None, h
     ## Custom Code End
     ################################################################################
 
-    phantom.custom_function(custom_function="community/artifact_create", parameters=parameters, name="artifact_create_1")
+    phantom.custom_function(custom_function="community/artifact_create", parameters=parameters, name="artifact_create_1", callback=join_format_1)
 
     return
 
@@ -129,7 +129,18 @@ def select_mc_id(action=None, success=None, container=None, results=None, handle
 
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_1 or matched_results_1:
-        format_1(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+        join_format_1(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+
+    return
+
+
+@phantom.playbook_block()
+def join_format_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("join_format_1() called")
+
+    if phantom.completed(custom_function_names=["artifact_create_1"]):
+        # call connected block "format_1"
+        format_1(container=container, handle=handle)
 
     return
 
