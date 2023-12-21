@@ -243,33 +243,33 @@ def filter_email_artifact_types(action=None, success=None, container=None, resul
 
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_1 or matched_results_1:
-        debug_6(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+        artifact_update_7(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
     return
 
 
 @phantom.playbook_block()
-def debug_6(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("debug_6() called")
+def artifact_update_7(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("artifact_update_7() called")
 
-    filtered_artifact_0_data_filter_email_artifact_types = phantom.collect2(container=container, datapath=["filtered-data:filter_email_artifact_types:condition_1:artifact:*.id","filtered-data:filter_email_artifact_types:condition_1:artifact:*.id","filtered-data:filter_email_artifact_types:condition_1:artifact:*.external_id"])
-
-    filtered_artifact_0__id = [item[0] for item in filtered_artifact_0_data_filter_email_artifact_types]
+    filtered_artifact_0_data_filter_email_artifact_types = phantom.collect2(container=container, datapath=["filtered-data:filter_email_artifact_types:condition_1:artifact:*.id","filtered-data:filter_email_artifact_types:condition_1:artifact:*.cef.fileName","filtered-data:filter_email_artifact_types:condition_1:artifact:*.id","filtered-data:filter_email_artifact_types:condition_1:artifact:*.external_id"])
 
     parameters = []
 
-    parameters.append({
-        "input_1": filtered_artifact_0__id,
-        "input_2": None,
-        "input_3": None,
-        "input_4": None,
-        "input_5": None,
-        "input_6": None,
-        "input_7": None,
-        "input_8": None,
-        "input_9": None,
-        "input_10": None,
-    })
+    # build parameters list for 'artifact_update_7' call
+    for filtered_artifact_0_item_filter_email_artifact_types in filtered_artifact_0_data_filter_email_artifact_types:
+        parameters.append({
+            "artifact_id": filtered_artifact_0_item_filter_email_artifact_types[0],
+            "name": filtered_artifact_0_item_filter_email_artifact_types[1],
+            "label": None,
+            "severity": None,
+            "cef_field": None,
+            "cef_value": None,
+            "cef_data_type": None,
+            "tags": None,
+            "overwrite_tags": None,
+            "input_json": None,
+        })
 
     ################################################################################
     ## Custom Code Start
@@ -281,7 +281,7 @@ def debug_6(action=None, success=None, container=None, results=None, handle=None
     ## Custom Code End
     ################################################################################
 
-    phantom.custom_function(custom_function="community/debug", parameters=parameters, name="debug_6")
+    phantom.custom_function(custom_function="community/artifact_update", parameters=parameters, name="artifact_update_7")
 
     return
 
