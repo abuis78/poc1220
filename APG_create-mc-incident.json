@@ -59,7 +59,7 @@
                     "targetPort": "5_in"
                 }
             ],
-            "hash": "fb984651d3957ea1446d53cbd19e2cc9577e025b",
+            "hash": "46417dd5483e45f4e02dd13dde1da949aafa5995",
             "nodes": {
                 "0": {
                     "data": {
@@ -513,7 +513,7 @@
                         "values": {
                             "debug": {
                                 "input_1": [
-                                    "artifact.*.name"
+                                    "artifact:*.name"
                                 ],
                                 "input_10": null,
                                 "input_2": null,
@@ -566,7 +566,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-21T10:09:56.170677+00:00",
+    "create_time": "2023-12-21T10:10:17.370386+00:00",
     "draft_mode": false,
     "labels": [
         "*"
