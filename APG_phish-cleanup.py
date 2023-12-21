@@ -197,6 +197,7 @@ def are_tags_already_set(action=None, success=None, container=None, results=None
 
     # call connected blocks if condition 1 matched
     if found_match_1:
+        select_all_extracted_artifact(action=action, success=success, container=container, results=results, handle=handle)
         return
 
     # check for 'else' condition 2
@@ -239,6 +240,60 @@ def artifact_update_3(action=None, success=None, container=None, results=None, h
     ################################################################################
 
     phantom.custom_function(custom_function="community/artifact_update", parameters=parameters, name="artifact_update_3", callback=categorize_artifact)
+
+    return
+
+
+@phantom.playbook_block()
+def select_all_extracted_artifact(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("select_all_extracted_artifact() called")
+
+    # collect filtered artifact ids and results for 'if' condition 1
+    matched_artifacts_1, matched_results_1 = phantom.condition(
+        container=container,
+        conditions=[
+            ["transport_mail", "not in", "artifact:*.tags"]
+        ],
+        name="select_all_extracted_artifact:condition_1",
+        delimiter=None)
+
+    # call connected blocks if filtered artifacts or results
+    if matched_artifacts_1 or matched_results_1:
+        artifact_update_4(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+
+    return
+
+
+@phantom.playbook_block()
+def artifact_update_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("artifact_update_4() called")
+
+    parameters = []
+
+    parameters.append({
+        "artifact_id": None,
+        "name": None,
+        "label": None,
+        "severity": None,
+        "cef_field": None,
+        "cef_value": None,
+        "cef_data_type": None,
+        "tags": None,
+        "overwrite_tags": None,
+        "input_json": None,
+    })
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.custom_function(custom_function="community/artifact_update", parameters=parameters, name="artifact_update_4")
 
     return
 
