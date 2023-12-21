@@ -266,7 +266,7 @@ def artifact_update_7(action=None, success=None, container=None, results=None, h
             "cef_field": None,
             "cef_value": None,
             "cef_data_type": None,
-            "tags": None,
+            "tags": "attachment",
             "overwrite_tags": None,
             "input_json": None,
         })

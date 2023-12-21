@@ -102,7 +102,7 @@
                     "targetPort": "15_in"
                 }
             ],
-            "hash": "1b3e8873ddf9fd950a89e0775b52cb7935a3afa0",
+            "hash": "306380e34e913caf1fad022204c2b09703f45d38",
             "nodes": {
                 "0": {
                     "data": {
@@ -325,7 +325,7 @@
                                 "name": "filtered-data:filter_email_artifact_types:condition_1:artifact:*.cef.fileName",
                                 "overwrite_tags": null,
                                 "severity": null,
-                                "tags": null
+                                "tags": "attachment"
                             }
                         }
                     },
@@ -826,7 +826,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-21T10:30:44.856991+00:00",
+    "create_time": "2023-12-21T10:32:40.911903+00:00",
     "draft_mode": false,
     "labels": [
         "phishing_mail"
