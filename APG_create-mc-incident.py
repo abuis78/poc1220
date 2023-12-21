@@ -211,6 +211,33 @@ def debug_2(action=None, success=None, container=None, results=None, handle=None
 
 
 @phantom.playbook_block()
+def format_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("format_2() called")
+
+    template = """{0}\n{1}\n"""
+
+    # parameter list for template variable replacement
+    parameters = [
+        "filtered-data:select_mc_id:condition_1:artifact:*.cef.id",
+        "create_incidents_1:action_result.data.*.id"
+    ]
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.format(container=container, template=template, parameters=parameters, name="format_2")
+
+    return
+
+
+@phantom.playbook_block()
 def on_finish(container, summary):
     phantom.debug("on_finish() called")
 

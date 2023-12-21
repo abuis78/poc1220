@@ -71,7 +71,7 @@
                     "targetPort": "8_in"
                 }
             ],
-            "hash": "28045aeb94836d6bfc845331c9d59d9270d5fb9c",
+            "hash": "f8d4411ebc98497986c89eef016b67cb5260f95b",
             "nodes": {
                 "0": {
                     "data": {
@@ -87,7 +87,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 110,
-                    "y": -6.394884621840902e-14
+                    "y": -1.2789769243681803e-13
                 },
                 "1": {
                     "data": {
@@ -313,7 +313,11 @@
                     "errors": {},
                     "id": "3",
                     "type": "utility",
-                    "warnings": {},
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
                     "x": 20,
                     "y": 480
                 },
@@ -605,6 +609,35 @@
                     "warnings": {},
                     "x": 140,
                     "y": 744.5
+                },
+                "9": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionId": 2,
+                        "functionName": "format_2",
+                        "id": "9",
+                        "parameters": [
+                            "filtered-data:select_mc_id:condition_1:artifact:*.cef.id",
+                            "create_incidents_1:action_result.data.*.id"
+                        ],
+                        "template": "{0}\n{1}\n",
+                        "type": "format"
+                    },
+                    "errors": {},
+                    "id": "9",
+                    "type": "format",
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ],
+                        "context": [
+                            "Connect block to playbook flow."
+                        ]
+                    },
+                    "x": 542.5,
+                    "y": 631
                 }
             },
             "notes": ""
@@ -638,7 +671,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-21T11:48:47.888875+00:00",
+    "create_time": "2023-12-21T11:52:09.389304+00:00",
     "draft_mode": false,
     "labels": [
         "*"
