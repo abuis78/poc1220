@@ -59,7 +59,7 @@
                     "targetPort": "5_in"
                 }
             ],
-            "hash": "46417dd5483e45f4e02dd13dde1da949aafa5995",
+            "hash": "b9e6425932e4187d6145696370044157a271b20e",
             "nodes": {
                 "0": {
                     "data": {
@@ -319,7 +319,7 @@
                                         "conditionIndex": 0,
                                         "op": "not in",
                                         "param": "mc_id",
-                                        "value": "artifact.*.name"
+                                        "value": "artifact:*.name"
                                     }
                                 ],
                                 "conditionIndex": 0,
@@ -566,7 +566,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-21T10:10:17.370386+00:00",
+    "create_time": "2023-12-21T10:10:27.997800+00:00",
     "draft_mode": false,
     "labels": [
         "*"

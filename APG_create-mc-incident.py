@@ -99,7 +99,7 @@ def mc_incident_alread_exists(action=None, success=None, container=None, results
     found_match_1 = phantom.decision(
         container=container,
         conditions=[
-            ["mc_id", "not in", "artifact.*.name"]
+            ["mc_id", "not in", "artifact:*.name"]
         ],
         delimiter=None)
 
