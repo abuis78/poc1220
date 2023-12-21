@@ -301,7 +301,7 @@ def ignore_to_delete_artifacts_0(action=None, success=None, container=None, resu
 
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_1 or matched_results_1:
-        pass
+        filter_transport_mail_artifacts_0(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
     return
 
