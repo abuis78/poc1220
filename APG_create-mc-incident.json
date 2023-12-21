@@ -45,13 +45,6 @@
                     "targetPort": "6_in"
                 },
                 {
-                    "id": "port_3_to_port_7",
-                    "sourceNode": "3",
-                    "sourcePort": "3_out",
-                    "targetNode": "7",
-                    "targetPort": "7_in"
-                },
-                {
                     "conditions": [
                         {
                             "index": 0
@@ -71,7 +64,7 @@
                     "targetPort": "8_in"
                 }
             ],
-            "hash": "f8d4411ebc98497986c89eef016b67cb5260f95b",
+            "hash": "2d115638395db1738f749c5b423d2a46c1ee846f",
             "nodes": {
                 "0": {
                     "data": {
@@ -313,11 +306,7 @@
                     "errors": {},
                     "id": "3",
                     "type": "utility",
-                    "warnings": {
-                        "config": [
-                            "Reconfigure invalid datapath."
-                        ]
-                    },
+                    "warnings": {},
                     "x": 20,
                     "y": 480
                 },
@@ -415,10 +404,9 @@
                         "functionName": "format_1",
                         "id": "7",
                         "parameters": [
-                            "create_incidents_1:action_result.data.*.id",
                             "filtered-data:select_mc_id:condition_1:artifact:*.cef.id"
                         ],
-                        "template": "{0}{1}{1}\n",
+                        "template": "{0}",
                         "type": "format"
                     },
                     "errors": {},
@@ -671,7 +659,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-21T11:52:09.389304+00:00",
+    "create_time": "2023-12-21T11:52:50.255884+00:00",
     "draft_mode": false,
     "labels": [
         "*"
