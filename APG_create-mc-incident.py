@@ -86,7 +86,7 @@ def artifact_create_1(action=None, success=None, container=None, results=None, h
     ## Custom Code End
     ################################################################################
 
-    phantom.custom_function(custom_function="community/artifact_create", parameters=parameters, name="artifact_create_1")
+    phantom.custom_function(custom_function="community/artifact_create", parameters=parameters, name="artifact_create_1", callback=join_format_1)
 
     return
 
@@ -107,6 +107,105 @@ def mc_incident_alread_exists(action=None, success=None, container=None, results
     if found_match_1:
         create_incidents_1(action=action, success=success, container=container, results=results, handle=handle)
         return
+
+    # check for 'else' condition 2
+    select_mc_id(action=action, success=success, container=container, results=results, handle=handle)
+
+    return
+
+
+@phantom.playbook_block()
+def select_mc_id(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("select_mc_id() called")
+
+    # collect filtered artifact ids and results for 'if' condition 1
+    matched_artifacts_1, matched_results_1 = phantom.condition(
+        container=container,
+        conditions=[
+            ["artifact:*.name", "==", "mc_id"]
+        ],
+        name="select_mc_id:condition_1",
+        delimiter=None)
+
+    # call connected blocks if filtered artifacts or results
+    if matched_artifacts_1 or matched_results_1:
+        join_format_1(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+
+    return
+
+
+@phantom.playbook_block()
+def join_format_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("join_format_1() called")
+
+    if phantom.completed(custom_function_names=["artifact_create_1"]):
+        # call connected block "format_1"
+        format_1(container=container, handle=handle)
+
+    return
+
+
+@phantom.playbook_block()
+def format_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("format_1() called")
+
+    template = """{0}{1}{1}\n"""
+
+    # parameter list for template variable replacement
+    parameters = [
+        "create_incidents_1:action_result.data.*.id",
+        "filtered-data:select_mc_id:condition_1:artifact:*.cef.id"
+    ]
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.format(container=container, template=template, parameters=parameters, name="format_1")
+
+    debug_2(container=container)
+
+    return
+
+
+@phantom.playbook_block()
+def debug_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("debug_2() called")
+
+    format_1 = phantom.get_format_data(name="format_1")
+
+    parameters = []
+
+    parameters.append({
+        "input_1": format_1,
+        "input_2": None,
+        "input_3": None,
+        "input_4": None,
+        "input_5": None,
+        "input_6": None,
+        "input_7": None,
+        "input_8": None,
+        "input_9": None,
+        "input_10": None,
+    })
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.custom_function(custom_function="community/debug", parameters=parameters, name="debug_2")
 
     return
 
