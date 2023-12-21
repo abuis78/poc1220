@@ -12,8 +12,8 @@ from datetime import datetime, timedelta
 def on_start(container):
     phantom.debug('on_start() called')
 
-    # call 'mc_incident_alread_exists' block
-    mc_incident_alread_exists(container=container)
+    # call 'create_incidents_1' block
+    create_incidents_1(container=container)
 
     return
 
@@ -86,7 +86,7 @@ def artifact_create_1(action=None, success=None, container=None, results=None, h
     ## Custom Code End
     ################################################################################
 
-    phantom.custom_function(custom_function="community/artifact_create", parameters=parameters, name="artifact_create_1", callback=join_debug_2)
+    phantom.custom_function(custom_function="community/artifact_create", parameters=parameters, name="artifact_create_1")
 
     return
 
@@ -105,22 +105,7 @@ def mc_incident_alread_exists(action=None, success=None, container=None, results
 
     # call connected blocks if condition 1 matched
     if found_match_1:
-        create_incidents_1(action=action, success=success, container=container, results=results, handle=handle)
         return
-
-    # check for 'else' condition 2
-    join_debug_2(action=action, success=success, container=container, results=results, handle=handle)
-
-    return
-
-
-@phantom.playbook_block()
-def join_debug_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("join_debug_2() called")
-
-    if phantom.completed(custom_function_names=["artifact_create_1"]):
-        # call connected block "debug_2"
-        debug_2(container=container, handle=handle)
 
     return
 

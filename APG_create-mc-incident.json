@@ -14,45 +14,21 @@
                     "targetPort": "3_in"
                 },
                 {
-                    "conditions": [
-                        {
-                            "index": 0
-                        }
-                    ],
-                    "id": "port_5_to_port_2",
-                    "sourceNode": "5",
-                    "sourcePort": "5_out",
+                    "id": "port_0_to_port_2",
+                    "sourceNode": "0",
+                    "sourcePort": "0_out",
                     "targetNode": "2",
                     "targetPort": "2_in"
                 },
                 {
-                    "id": "port_0_to_port_5",
-                    "sourceNode": "0",
-                    "sourcePort": "0_out",
-                    "targetNode": "5",
-                    "targetPort": "5_in"
-                },
-                {
-                    "id": "port_3_to_port_8",
+                    "id": "port_3_to_port_1",
                     "sourceNode": "3",
                     "sourcePort": "3_out",
-                    "targetNode": "8",
-                    "targetPort": "8_in"
-                },
-                {
-                    "conditions": [
-                        {
-                            "index": 1
-                        }
-                    ],
-                    "id": "port_5_to_port_8",
-                    "sourceNode": "5",
-                    "sourcePort": "5_out",
-                    "targetNode": "8",
-                    "targetPort": "8_in"
+                    "targetNode": "1",
+                    "targetPort": "1_in"
                 }
             ],
-            "hash": "c9eb1329813b2334834009e7a226fcf43f26031e",
+            "hash": "d7b47ed7155dcc247ebe94dd0db899c18d2509fb",
             "nodes": {
                 "0": {
                     "data": {
@@ -83,8 +59,8 @@
                     "id": "1",
                     "type": "end",
                     "warnings": {},
-                    "x": 320,
-                    "y": 0
+                    "x": -120,
+                    "y": 600
                 },
                 "2": {
                     "data": {
@@ -133,8 +109,8 @@
                     "id": "2",
                     "type": "missionControl",
                     "warnings": {},
-                    "x": 90,
-                    "y": 328
+                    "x": -200,
+                    "y": 360
                 },
                 "3": {
                     "data": {
@@ -295,8 +271,8 @@
                     "id": "3",
                     "type": "utility",
                     "warnings": {},
-                    "x": 90,
-                    "y": 476
+                    "x": -200,
+                    "y": 480
                 },
                 "5": {
                     "data": {
@@ -523,7 +499,11 @@
                     "errors": {},
                     "id": "8",
                     "type": "utility",
-                    "warnings": {},
+                    "warnings": {
+                        "context": [
+                            "Connect block to playbook flow."
+                        ]
+                    },
                     "x": 280,
                     "y": 580
                 }
@@ -559,7 +539,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-21T11:59:33.437584+00:00",
+    "create_time": "2023-12-21T12:27:29.778669+00:00",
     "draft_mode": false,
     "labels": [
         "*"
