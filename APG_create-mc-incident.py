@@ -86,7 +86,7 @@ def artifact_create_1(action=None, success=None, container=None, results=None, h
     ## Custom Code End
     ################################################################################
 
-    phantom.custom_function(custom_function="community/artifact_create", parameters=parameters, name="artifact_create_1")
+    phantom.custom_function(custom_function="community/artifact_create", parameters=parameters, name="artifact_create_1", callback=join_select_mc_id)
 
     return
 
@@ -109,7 +109,18 @@ def mc_incident_alread_exists(action=None, success=None, container=None, results
         return
 
     # check for 'else' condition 2
-    select_mc_id(action=action, success=success, container=container, results=results, handle=handle)
+    join_select_mc_id(action=action, success=success, container=container, results=results, handle=handle)
+
+    return
+
+
+@phantom.playbook_block()
+def join_select_mc_id(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("join_select_mc_id() called")
+
+    if phantom.completed(custom_function_names=["artifact_create_1"]):
+        # call connected block "select_mc_id"
+        select_mc_id(container=container, handle=handle)
 
     return
 

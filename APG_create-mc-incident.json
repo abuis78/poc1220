@@ -62,9 +62,16 @@
                     "sourcePort": "7_out",
                     "targetNode": "8",
                     "targetPort": "8_in"
+                },
+                {
+                    "id": "port_3_to_port_6",
+                    "sourceNode": "3",
+                    "sourcePort": "3_out",
+                    "targetNode": "6",
+                    "targetPort": "6_in"
                 }
             ],
-            "hash": "62186637c2f7bb48c7ce2bdcb1793afb57126b0e",
+            "hash": "dcbd36be6379cf7a5c970dd32db7d5812c33509a",
             "nodes": {
                 "0": {
                     "data": {
@@ -79,8 +86,8 @@
                     "id": "0",
                     "type": "start",
                     "warnings": {},
-                    "x": 110,
-                    "y": -1.2789769243681803e-13
+                    "x": 20,
+                    "y": 0
                 },
                 "1": {
                     "data": {
@@ -95,8 +102,8 @@
                     "id": "1",
                     "type": "end",
                     "warnings": {},
-                    "x": -140,
-                    "y": 740
+                    "x": 320,
+                    "y": 0
                 },
                 "2": {
                     "data": {
@@ -145,7 +152,7 @@
                     "id": "2",
                     "type": "missionControl",
                     "warnings": {},
-                    "x": 0,
+                    "x": 90,
                     "y": 328
                 },
                 "3": {
@@ -307,8 +314,8 @@
                     "id": "3",
                     "type": "utility",
                     "warnings": {},
-                    "x": 20,
-                    "y": 480
+                    "x": 90,
+                    "y": 476
                 },
                 "5": {
                     "data": {
@@ -358,8 +365,8 @@
                     "id": "5",
                     "type": "decision",
                     "warnings": {},
-                    "x": 320,
-                    "y": 200
+                    "x": 80,
+                    "y": 148
                 },
                 "6": {
                     "data": {
@@ -392,8 +399,8 @@
                     "id": "6",
                     "type": "filter",
                     "warnings": {},
-                    "x": 360,
-                    "y": 420
+                    "x": 60,
+                    "y": 624
                 },
                 "7": {
                     "data": {
@@ -418,8 +425,8 @@
                             "Reconfigure invalid datapath."
                         ]
                     },
-                    "x": 140,
-                    "y": 620
+                    "x": 0,
+                    "y": 804
                 },
                 "8": {
                     "data": {
@@ -596,8 +603,8 @@
                     "id": "8",
                     "type": "utility",
                     "warnings": {},
-                    "x": 140,
-                    "y": 744.5
+                    "x": 0,
+                    "y": 952
                 }
             },
             "notes": ""
@@ -631,7 +638,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-21T11:56:57.815844+00:00",
+    "create_time": "2023-12-21T11:58:10.326260+00:00",
     "draft_mode": false,
     "labels": [
         "*"
