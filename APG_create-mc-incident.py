@@ -86,7 +86,7 @@ def artifact_create_1(action=None, success=None, container=None, results=None, h
     ## Custom Code End
     ################################################################################
 
-    phantom.custom_function(custom_function="community/artifact_create", parameters=parameters, name="artifact_create_1", callback=join_select_mc_id)
+    phantom.custom_function(custom_function="community/artifact_create", parameters=parameters, name="artifact_create_1", callback=join_debug_2)
 
     return
 
@@ -109,67 +109,18 @@ def mc_incident_alread_exists(action=None, success=None, container=None, results
         return
 
     # check for 'else' condition 2
-    join_select_mc_id(action=action, success=success, container=container, results=results, handle=handle)
+    join_debug_2(action=action, success=success, container=container, results=results, handle=handle)
 
     return
 
 
 @phantom.playbook_block()
-def join_select_mc_id(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("join_select_mc_id() called")
+def join_debug_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("join_debug_2() called")
 
     if phantom.completed(custom_function_names=["artifact_create_1"]):
-        # call connected block "select_mc_id"
-        select_mc_id(container=container, handle=handle)
-
-    return
-
-
-@phantom.playbook_block()
-def select_mc_id(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("select_mc_id() called")
-
-    # collect filtered artifact ids and results for 'if' condition 1
-    matched_artifacts_1, matched_results_1 = phantom.condition(
-        container=container,
-        conditions=[
-            ["artifact:*.name", "==", "mc_id"]
-        ],
-        name="select_mc_id:condition_1",
-        delimiter=None)
-
-    # call connected blocks if filtered artifacts or results
-    if matched_artifacts_1 or matched_results_1:
-        format_1(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
-
-    return
-
-
-@phantom.playbook_block()
-def format_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("format_1() called")
-
-    template = """{0}{1}"""
-
-    # parameter list for template variable replacement
-    parameters = [
-        "filtered-data:select_mc_id:condition_1:artifact:*.cef.id",
-        "create_incidents_1:action_result.data.*.id"
-    ]
-
-    ################################################################################
-    ## Custom Code Start
-    ################################################################################
-
-    # Write your custom code here...
-
-    ################################################################################
-    ## Custom Code End
-    ################################################################################
-
-    phantom.format(container=container, template=template, parameters=parameters, name="format_1")
-
-    debug_2(container=container)
+        # call connected block "debug_2"
+        debug_2(container=container, handle=handle)
 
     return
 

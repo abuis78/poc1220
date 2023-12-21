@@ -33,45 +33,26 @@
                     "targetPort": "5_in"
                 },
                 {
+                    "id": "port_3_to_port_8",
+                    "sourceNode": "3",
+                    "sourcePort": "3_out",
+                    "targetNode": "8",
+                    "targetPort": "8_in"
+                },
+                {
                     "conditions": [
                         {
                             "index": 1
                         }
                     ],
-                    "id": "port_5_to_port_6",
+                    "id": "port_5_to_port_8",
                     "sourceNode": "5",
                     "sourcePort": "5_out",
-                    "targetNode": "6",
-                    "targetPort": "6_in"
-                },
-                {
-                    "conditions": [
-                        {
-                            "index": 0
-                        }
-                    ],
-                    "id": "port_6_to_port_7",
-                    "sourceNode": "6",
-                    "sourcePort": "6_out",
-                    "targetNode": "7",
-                    "targetPort": "7_in"
-                },
-                {
-                    "id": "port_7_to_port_8",
-                    "sourceNode": "7",
-                    "sourcePort": "7_out",
                     "targetNode": "8",
                     "targetPort": "8_in"
-                },
-                {
-                    "id": "port_3_to_port_6",
-                    "sourceNode": "3",
-                    "sourcePort": "3_out",
-                    "targetNode": "6",
-                    "targetPort": "6_in"
                 }
             ],
-            "hash": "dcbd36be6379cf7a5c970dd32db7d5812c33509a",
+            "hash": "fc294dd6157e59e586c43a4ec5827834c1ec1f21",
             "nodes": {
                 "0": {
                     "data": {
@@ -368,66 +349,6 @@
                     "x": 80,
                     "y": 148
                 },
-                "6": {
-                    "data": {
-                        "advanced": {
-                            "customName": "select mc id",
-                            "customNameId": 0,
-                            "join": []
-                        },
-                        "conditions": [
-                            {
-                                "comparisons": [
-                                    {
-                                        "conditionIndex": 0,
-                                        "op": "==",
-                                        "param": "artifact:*.name",
-                                        "value": "mc_id"
-                                    }
-                                ],
-                                "conditionIndex": 0,
-                                "customName": "select mc id",
-                                "logic": "and"
-                            }
-                        ],
-                        "functionId": 1,
-                        "functionName": "select_mc_id",
-                        "id": "6",
-                        "type": "filter"
-                    },
-                    "errors": {},
-                    "id": "6",
-                    "type": "filter",
-                    "warnings": {},
-                    "x": 60,
-                    "y": 624
-                },
-                "7": {
-                    "data": {
-                        "advanced": {
-                            "join": []
-                        },
-                        "functionId": 1,
-                        "functionName": "format_1",
-                        "id": "7",
-                        "parameters": [
-                            "filtered-data:select_mc_id:condition_1:artifact:*.cef.id",
-                            "create_incidents_1:action_result.data.*.id"
-                        ],
-                        "template": "{0}{1}",
-                        "type": "format"
-                    },
-                    "errors": {},
-                    "id": "7",
-                    "type": "format",
-                    "warnings": {
-                        "config": [
-                            "Reconfigure invalid datapath."
-                        ]
-                    },
-                    "x": 0,
-                    "y": 804
-                },
                 "8": {
                     "data": {
                         "advanced": {
@@ -602,9 +523,13 @@
                     "errors": {},
                     "id": "8",
                     "type": "utility",
-                    "warnings": {},
-                    "x": 0,
-                    "y": 952
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
+                    "x": 280,
+                    "y": 580
                 }
             },
             "notes": ""
@@ -638,7 +563,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-21T11:58:10.326260+00:00",
+    "create_time": "2023-12-21T11:59:18.415597+00:00",
     "draft_mode": false,
     "labels": [
         "*"
