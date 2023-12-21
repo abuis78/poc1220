@@ -12,8 +12,8 @@ from datetime import datetime, timedelta
 def on_start(container):
     phantom.debug('on_start() called')
 
-    # call 'filter_transport_mail_artifacts_0' block
-    filter_transport_mail_artifacts_0(container=container)
+    # call 'ignore_to_delete_artifacts_0' block
+    ignore_to_delete_artifacts_0(container=container)
 
     return
 
@@ -282,6 +282,26 @@ def artifact_update_7(action=None, success=None, container=None, results=None, h
     ################################################################################
 
     phantom.custom_function(custom_function="community/artifact_update", parameters=parameters, name="artifact_update_7")
+
+    return
+
+
+@phantom.playbook_block()
+def ignore_to_delete_artifacts_0(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("ignore_to_delete_artifacts_0() called")
+
+    # collect filtered artifact ids and results for 'if' condition 1
+    matched_artifacts_1, matched_results_1 = phantom.condition(
+        container=container,
+        conditions=[
+            ["to_delete", "not in", "artifact:*.tags"]
+        ],
+        name="ignore_to_delete_artifacts_0:condition_1",
+        delimiter=None)
+
+    # call connected blocks if filtered artifacts or results
+    if matched_artifacts_1 or matched_results_1:
+        pass
 
     return
 
