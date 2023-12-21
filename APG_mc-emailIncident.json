@@ -5,7 +5,47 @@
     "coa": {
         "data": {
             "description": "",
-            "edges": [],
+            "edges": [
+                {
+                    "id": "port_0_to_port_2",
+                    "sourceNode": "0",
+                    "sourcePort": "0_out",
+                    "targetNode": "2",
+                    "targetPort": "2_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_2_to_port_3",
+                    "sourceNode": "2",
+                    "sourcePort": "2_out",
+                    "targetNode": "3",
+                    "targetPort": "3_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_3_to_port_4",
+                    "sourceNode": "3",
+                    "sourcePort": "3_out",
+                    "targetNode": "4",
+                    "targetPort": "4_in"
+                },
+                {
+                    "id": "port_4_to_port_1",
+                    "sourceNode": "4",
+                    "sourcePort": "4_out",
+                    "targetNode": "1",
+                    "targetPort": "1_in"
+                }
+            ],
+            "hash": "4173fbbc110f69579d8fdc90a8a3654bc2c609ff",
             "nodes": {
                 "0": {
                     "data": {
@@ -38,6 +78,132 @@
                     "warnings": {},
                     "x": 1000,
                     "y": 1000
+                },
+                "2": {
+                    "data": {
+                        "advanced": {
+                            "customName": "select email artifacts",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "conditions": [
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 0,
+                                        "op": "in",
+                                        "param": "playbook_input:mail_tag",
+                                        "value": "artifact:*.tags"
+                                    }
+                                ],
+                                "conditionIndex": 0,
+                                "customName": "mail artifact",
+                                "logic": "and"
+                            }
+                        ],
+                        "functionId": 1,
+                        "functionName": "select_email_artifacts_0",
+                        "id": "2",
+                        "type": "filter"
+                    },
+                    "errors": {},
+                    "id": "2",
+                    "type": "filter",
+                    "warnings": {},
+                    "x": 1040,
+                    "y": 540
+                },
+                "3": {
+                    "data": {
+                        "advanced": {
+                            "customName": "artifact type",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "conditions": [
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 0,
+                                        "op": "==",
+                                        "param": "filtered-data:select_email_artifacts_0:condition_1:artifact:*.label",
+                                        "value": "Email Artifact"
+                                    }
+                                ],
+                                "conditionIndex": 0,
+                                "customName": "email artifact",
+                                "logic": "and"
+                            }
+                        ],
+                        "functionId": 2,
+                        "functionName": "artifact_type",
+                        "id": "3",
+                        "type": "filter"
+                    },
+                    "errors": {},
+                    "id": "3",
+                    "type": "filter",
+                    "warnings": {},
+                    "x": 1040,
+                    "y": 704.5
+                },
+                "4": {
+                    "data": {
+                        "action": "set summary fields",
+                        "actionType": "post",
+                        "advanced": {
+                            "join": []
+                        },
+                        "connector": "Mission Control",
+                        "connectorConfigs": [
+                            "builtin_mc_connector"
+                        ],
+                        "connectorId": 185,
+                        "connectorVersion": "v1",
+                        "functionId": 1,
+                        "functionName": "set_summary_fields_1",
+                        "id": "4",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "parameters": {
+                            "incident_id": "playbook_input:mc_id",
+                            "pairs": [
+                                {
+                                    "name": "To",
+                                    "value": "filtered-data:artifact_type:condition_1:artifact:*.cef.emailHeaders.To"
+                                },
+                                {
+                                    "name": "From",
+                                    "value": "filtered-data:artifact_type:condition_1:artifact:*.cef.emailHeaders.To"
+                                }
+                            ]
+                        },
+                        "requiredParameters": [
+                            {
+                                "data_type": "array",
+                                "field": "pairs"
+                            },
+                            {
+                                "data_type": "string",
+                                "default": "",
+                                "field": "incident_id"
+                            }
+                        ],
+                        "type": "missionControl"
+                    },
+                    "errors": {},
+                    "id": "4",
+                    "type": "missionControl",
+                    "warnings": {},
+                    "x": 940,
+                    "y": 860
                 }
             },
             "notes": ""
@@ -47,6 +213,11 @@
                 "contains": [],
                 "description": "",
                 "name": "mc_id"
+            },
+            {
+                "contains": [],
+                "description": "",
+                "name": "mail_tag"
             }
         ],
         "output_spec": null,
@@ -55,7 +226,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-21T13:34:49.973987+00:00",
+    "create_time": "2023-12-21T13:43:49.284446+00:00",
     "draft_mode": false,
     "labels": [
         "*"
