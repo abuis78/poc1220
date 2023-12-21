@@ -12,8 +12,8 @@ from datetime import datetime, timedelta
 def on_start(container):
     phantom.debug('on_start() called')
 
-    # call 'decision_1' block
-    decision_1(container=container)
+    # call 'mc_incident_alread_exists' block
+    mc_incident_alread_exists(container=container)
 
     return
 
@@ -92,8 +92,8 @@ def artifact_create_1(action=None, success=None, container=None, results=None, h
 
 
 @phantom.playbook_block()
-def decision_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("decision_1() called")
+def mc_incident_alread_exists(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("mc_incident_alread_exists() called")
 
     # check for 'if' condition 1
     found_match_1 = phantom.decision(

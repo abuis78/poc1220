@@ -38,9 +38,21 @@
                     "sourcePort": "5_out",
                     "targetNode": "2",
                     "targetPort": "2_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 1
+                        }
+                    ],
+                    "id": "port_5_to_port_1",
+                    "sourceNode": "5",
+                    "sourcePort": "5_out",
+                    "targetNode": "1",
+                    "targetPort": "1_in"
                 }
             ],
-            "hash": "28045aeb94836d6bfc845331c9d59d9270d5fb9c",
+            "hash": "f7aa8bc86d7ed8ad6538348854531fa35ce7bff2",
             "nodes": {
                 "0": {
                     "data": {
@@ -55,8 +67,8 @@
                     "id": "0",
                     "type": "start",
                     "warnings": {},
-                    "x": 20,
-                    "y": 0
+                    "x": 19.999999999999986,
+                    "y": -6.394884621840902e-14
                 },
                 "1": {
                     "data": {
@@ -71,7 +83,7 @@
                     "id": "1",
                     "type": "end",
                     "warnings": {},
-                    "x": 20,
+                    "x": 19.999999999999986,
                     "y": 624
                 },
                 "2": {
@@ -289,6 +301,8 @@
                 "5": {
                     "data": {
                         "advanced": {
+                            "customName": "mc incident alread exists",
+                            "customNameId": 0,
                             "join": []
                         },
                         "conditions": [
@@ -302,14 +316,29 @@
                                     }
                                 ],
                                 "conditionIndex": 0,
-                                "customName": "mc incident already exists",
+                                "customName": "mc incident does not exist",
                                 "display": "If",
                                 "logic": "and",
                                 "type": "if"
+                            },
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 1,
+                                        "op": "==",
+                                        "param": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "conditionIndex": 1,
+                                "customName": "mc incident alreade exists",
+                                "display": "Else",
+                                "logic": "and",
+                                "type": "else"
                             }
                         ],
                         "functionId": 1,
-                        "functionName": "decision_1",
+                        "functionName": "mc_incident_alread_exists",
                         "id": "5",
                         "type": "decision"
                     },
@@ -352,7 +381,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-19T09:38:53.019332+00:00",
+    "create_time": "2023-12-21T10:08:14.536902+00:00",
     "draft_mode": false,
     "labels": [
         "*"
