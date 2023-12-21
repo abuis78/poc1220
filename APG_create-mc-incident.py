@@ -105,7 +105,7 @@ def mc_incident_alread_exists(action=None, success=None, container=None, results
 
     # call connected blocks if condition 1 matched
     if found_match_1:
-        filter_2(action=action, success=success, container=container, results=results, handle=handle)
+        select_mc_artifact(action=action, success=success, container=container, results=results, handle=handle)
         return
 
     # check for 'else' condition 2
@@ -118,14 +118,14 @@ def mc_incident_alread_exists(action=None, success=None, container=None, results
 def debug_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("debug_2() called")
 
-    container_artifact_data = phantom.collect2(container=container, datapath=["artifact:*.cef.id","artifact:*.id","artifact:*.external_id"])
+    filtered_artifact_0_data_select_mc_artifact = phantom.collect2(container=container, datapath=["filtered-data:select_mc_artifact:condition_1:artifact:*.cef.id","filtered-data:select_mc_artifact:condition_1:artifact:*.id","filtered-data:select_mc_artifact:condition_1:artifact:*.external_id"])
 
-    container_artifact_fields_item_0 = [item[0] for item in container_artifact_data]
+    filtered_artifact_0__cef_id = [item[0] for item in filtered_artifact_0_data_select_mc_artifact]
 
     parameters = []
 
     parameters.append({
-        "input_1": container_artifact_fields_item_0,
+        "input_1": filtered_artifact_0__cef_id,
         "input_2": None,
         "input_3": None,
         "input_4": None,
@@ -153,8 +153,8 @@ def debug_2(action=None, success=None, container=None, results=None, handle=None
 
 
 @phantom.playbook_block()
-def filter_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("filter_2() called")
+def select_mc_artifact(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("select_mc_artifact() called")
 
     # collect filtered artifact ids and results for 'if' condition 1
     matched_artifacts_1, matched_results_1 = phantom.condition(
@@ -162,7 +162,7 @@ def filter_2(action=None, success=None, container=None, results=None, handle=Non
         conditions=[
             ["artifact:*.name", "==", "mc_id"]
         ],
-        name="filter_2:condition_1",
+        name="select_mc_artifact:condition_1",
         delimiter=None)
 
     # call connected blocks if filtered artifacts or results

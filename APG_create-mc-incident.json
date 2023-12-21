@@ -64,7 +64,7 @@
                     "targetPort": "8_in"
                 }
             ],
-            "hash": "f5034be482fdff56da12449309f74b987e2a5606",
+            "hash": "3e23e96f0b0c946d78cb4b5e565325a9d9b7d676",
             "nodes": {
                 "0": {
                     "data": {
@@ -101,6 +101,8 @@
                 "11": {
                     "data": {
                         "advanced": {
+                            "customName": "select mc artifact",
+                            "customNameId": 0,
                             "join": []
                         },
                         "conditions": [
@@ -118,7 +120,7 @@
                             }
                         ],
                         "functionId": 2,
-                        "functionName": "filter_2",
+                        "functionName": "select_mc_artifact",
                         "id": "11",
                         "type": "filter"
                     },
@@ -549,7 +551,7 @@
                         "values": {
                             "debug": {
                                 "input_1": [
-                                    "artifact:*.cef.id"
+                                    "filtered-data:select_mc_artifact:condition_1:artifact:*.cef.id"
                                 ],
                                 "input_10": null,
                                 "input_2": null,
@@ -566,7 +568,11 @@
                     "errors": {},
                     "id": "8",
                     "type": "utility",
-                    "warnings": {},
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
                     "x": 280,
                     "y": 580
                 }
@@ -602,7 +608,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-21T14:22:36.086711+00:00",
+    "create_time": "2023-12-21T14:23:42.163424+00:00",
     "draft_mode": false,
     "labels": [
         "*"
