@@ -47,7 +47,7 @@ def filter_1(action=None, success=None, container=None, results=None, handle=Non
         logical_operator="and",
         conditions=[
             ["reported_mail", "in", "artifact:*.tags"],
-            ["artifact:*.name", "==", "Email Artifact"]
+            ["artifact:*.label", "==", "Email Artifact"]
         ],
         name="filter_1:condition_1",
         delimiter=None)
