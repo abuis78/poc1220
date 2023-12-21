@@ -71,7 +71,7 @@
                     "targetPort": "7_in"
                 }
             ],
-            "hash": "6a74c36ea9e445ce8f1584139b3ff61046122994",
+            "hash": "e0aec2e1663e750d70f74a1dc2e39a755fe01349",
             "nodes": {
                 "0": {
                     "data": {
@@ -585,7 +585,7 @@
                         "values": {
                             "debug": {
                                 "input_1": [
-                                    "format_1:formatted_data"
+                                    "format_1:formatted_data.*"
                                 ],
                                 "input_10": null,
                                 "input_2": null,
@@ -605,32 +605,6 @@
                     "warnings": {},
                     "x": 140,
                     "y": 744.5
-                },
-                "9": {
-                    "data": {
-                        "advanced": {
-                            "join": []
-                        },
-                        "functionId": 2,
-                        "functionName": "format_2",
-                        "id": "9",
-                        "parameters": [
-                            "filtered-data:select_mc_id:condition_1:artifact:*.cef.id",
-                            "create_incidents_1:action_result.data.*.id"
-                        ],
-                        "template": "{0}\n{1}\n",
-                        "type": "format"
-                    },
-                    "errors": {},
-                    "id": "9",
-                    "type": "format",
-                    "warnings": {
-                        "config": [
-                            "Reconfigure invalid datapath."
-                        ]
-                    },
-                    "x": 542.5,
-                    "y": 631
                 }
             },
             "notes": ""
@@ -664,7 +638,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-21T11:55:08.459065+00:00",
+    "create_time": "2023-12-21T11:56:12.895508+00:00",
     "draft_mode": false,
     "labels": [
         "*"

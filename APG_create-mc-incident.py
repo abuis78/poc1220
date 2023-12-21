@@ -178,12 +178,12 @@ def format_1(action=None, success=None, container=None, results=None, handle=Non
 def debug_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("debug_2() called")
 
-    format_1 = phantom.get_format_data(name="format_1")
+    format_1__as_list = phantom.get_format_data(name="format_1__as_list")
 
     parameters = []
 
     parameters.append({
-        "input_1": format_1,
+        "input_1": format_1__as_list,
         "input_2": None,
         "input_3": None,
         "input_4": None,
@@ -206,33 +206,6 @@ def debug_2(action=None, success=None, container=None, results=None, handle=None
     ################################################################################
 
     phantom.custom_function(custom_function="community/debug", parameters=parameters, name="debug_2")
-
-    return
-
-
-@phantom.playbook_block()
-def format_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("format_2() called")
-
-    template = """{0}\n{1}\n"""
-
-    # parameter list for template variable replacement
-    parameters = [
-        "filtered-data:select_mc_id:condition_1:artifact:*.cef.id",
-        "create_incidents_1:action_result.data.*.id"
-    ]
-
-    ################################################################################
-    ## Custom Code Start
-    ################################################################################
-
-    # Write your custom code here...
-
-    ################################################################################
-    ## Custom Code End
-    ################################################################################
-
-    phantom.format(container=container, template=template, parameters=parameters, name="format_2")
 
     return
 
