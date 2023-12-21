@@ -14,21 +14,57 @@
                     "targetPort": "3_in"
                 },
                 {
-                    "id": "port_0_to_port_2",
-                    "sourceNode": "0",
-                    "sourcePort": "0_out",
-                    "targetNode": "2",
-                    "targetPort": "2_in"
-                },
-                {
                     "id": "port_3_to_port_1",
                     "sourceNode": "3",
                     "sourcePort": "3_out",
                     "targetNode": "1",
                     "targetPort": "1_in"
+                },
+                {
+                    "id": "port_0_to_port_5",
+                    "sourceNode": "0",
+                    "sourcePort": "0_out",
+                    "targetNode": "5",
+                    "targetPort": "5_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 1
+                        }
+                    ],
+                    "id": "port_5_to_port_2",
+                    "sourceNode": "5",
+                    "sourcePort": "5_out",
+                    "targetNode": "2",
+                    "targetPort": "2_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_5_to_port_11",
+                    "sourceNode": "5",
+                    "sourcePort": "5_out",
+                    "targetNode": "11",
+                    "targetPort": "11_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_11_to_port_8",
+                    "sourceNode": "11",
+                    "sourcePort": "11_out",
+                    "targetNode": "8",
+                    "targetPort": "8_in"
                 }
             ],
-            "hash": "28045aeb94836d6bfc845331c9d59d9270d5fb9c",
+            "hash": "f5034be482fdff56da12449309f74b987e2a5606",
             "nodes": {
                 "0": {
                     "data": {
@@ -60,7 +96,38 @@
                     "type": "end",
                     "warnings": {},
                     "x": -120,
-                    "y": 600
+                    "y": 660
+                },
+                "11": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "conditions": [
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 0,
+                                        "op": "==",
+                                        "param": "artifact:*.name",
+                                        "value": "mc_id"
+                                    }
+                                ],
+                                "conditionIndex": 0,
+                                "logic": "and"
+                            }
+                        ],
+                        "functionId": 2,
+                        "functionName": "filter_2",
+                        "id": "11",
+                        "type": "filter"
+                    },
+                    "errors": {},
+                    "id": "11",
+                    "type": "filter",
+                    "warnings": {},
+                    "x": 160,
+                    "y": 424.5
                 },
                 "2": {
                     "data": {
@@ -286,13 +353,13 @@
                                 "comparisons": [
                                     {
                                         "conditionIndex": 0,
-                                        "op": "not in",
-                                        "param": "mc_id",
-                                        "value": "artifact:*.name"
+                                        "op": "==",
+                                        "param": "artifact:*.name",
+                                        "value": "mc_id"
                                     }
                                 ],
                                 "conditionIndex": 0,
-                                "customName": "mc incident does not exist",
+                                "customName": "mc incident already exists",
                                 "display": "If",
                                 "logic": "and",
                                 "type": "if"
@@ -307,7 +374,7 @@
                                     }
                                 ],
                                 "conditionIndex": 1,
-                                "customName": "mc incident alreade exists",
+                                "customName": "mc incident does not exist",
                                 "display": "Else",
                                 "logic": "and",
                                 "type": "else"
@@ -321,13 +388,9 @@
                     "errors": {},
                     "id": "5",
                     "type": "decision",
-                    "warnings": {
-                        "context": [
-                            "Connect block to playbook flow."
-                        ]
-                    },
+                    "warnings": {},
                     "x": 80,
-                    "y": 148
+                    "y": 140
                 },
                 "8": {
                     "data": {
@@ -486,7 +549,7 @@
                         "values": {
                             "debug": {
                                 "input_1": [
-                                    "artifact:*.id"
+                                    "artifact:*.cef.id"
                                 ],
                                 "input_10": null,
                                 "input_2": null,
@@ -539,7 +602,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-21T12:27:29.778669+00:00",
+    "create_time": "2023-12-21T14:22:36.086711+00:00",
     "draft_mode": false,
     "labels": [
         "*"

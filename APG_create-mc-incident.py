@@ -12,8 +12,8 @@ from datetime import datetime, timedelta
 def on_start(container):
     phantom.debug('on_start() called')
 
-    # call 'create_incidents_1' block
-    create_incidents_1(container=container)
+    # call 'mc_incident_alread_exists' block
+    mc_incident_alread_exists(container=container)
 
     return
 
@@ -99,13 +99,17 @@ def mc_incident_alread_exists(action=None, success=None, container=None, results
     found_match_1 = phantom.decision(
         container=container,
         conditions=[
-            ["mc_id", "not in", "artifact:*.name"]
+            ["artifact:*.name", "==", "mc_id"]
         ],
         delimiter=None)
 
     # call connected blocks if condition 1 matched
     if found_match_1:
+        filter_2(action=action, success=success, container=container, results=results, handle=handle)
         return
+
+    # check for 'else' condition 2
+    create_incidents_1(action=action, success=success, container=container, results=results, handle=handle)
 
     return
 
@@ -114,14 +118,14 @@ def mc_incident_alread_exists(action=None, success=None, container=None, results
 def debug_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("debug_2() called")
 
-    container_artifact_data = phantom.collect2(container=container, datapath=["artifact:*.id","artifact:*.id","artifact:*.external_id"])
+    container_artifact_data = phantom.collect2(container=container, datapath=["artifact:*.cef.id","artifact:*.id","artifact:*.external_id"])
 
-    container_artifact_header_item_0 = [item[0] for item in container_artifact_data]
+    container_artifact_fields_item_0 = [item[0] for item in container_artifact_data]
 
     parameters = []
 
     parameters.append({
-        "input_1": container_artifact_header_item_0,
+        "input_1": container_artifact_fields_item_0,
         "input_2": None,
         "input_3": None,
         "input_4": None,
@@ -144,6 +148,26 @@ def debug_2(action=None, success=None, container=None, results=None, handle=None
     ################################################################################
 
     phantom.custom_function(custom_function="community/debug", parameters=parameters, name="debug_2")
+
+    return
+
+
+@phantom.playbook_block()
+def filter_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("filter_2() called")
+
+    # collect filtered artifact ids and results for 'if' condition 1
+    matched_artifacts_1, matched_results_1 = phantom.condition(
+        container=container,
+        conditions=[
+            ["artifact:*.name", "==", "mc_id"]
+        ],
+        name="filter_2:condition_1",
+        delimiter=None)
+
+    # call connected blocks if filtered artifacts or results
+    if matched_artifacts_1 or matched_results_1:
+        debug_2(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
     return
 
