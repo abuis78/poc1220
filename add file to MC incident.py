@@ -43,7 +43,7 @@ def vault_file_to_base64_2(action=None, success=None, container=None, results=No
     ## Custom Code End
     ################################################################################
 
-    phantom.custom_function(custom_function="local/vault_file_to_base64", parameters=parameters, name="vault_file_to_base64_2", callback=add_incident_file_1)
+    phantom.custom_function(custom_function="local/vault_file_to_base64", parameters=parameters, name="vault_file_to_base64_2", callback=debug_1)
 
     return
 
@@ -79,6 +79,40 @@ def add_incident_file_1(action=None, success=None, container=None, results=None,
     ################################################################################
 
     phantom.act("add incident file", parameters=parameters, name="add_incident_file_1", assets=["builtin_mc_connector"])
+
+    return
+
+
+@phantom.playbook_block()
+def debug_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("debug_1() called")
+
+    parameters = []
+
+    parameters.append({
+        "input_1": None,
+        "input_2": None,
+        "input_3": None,
+        "input_4": None,
+        "input_5": None,
+        "input_6": None,
+        "input_7": None,
+        "input_8": None,
+        "input_9": None,
+        "input_10": None,
+    })
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.custom_function(custom_function="community/debug", parameters=parameters, name="debug_1")
 
     return
 
