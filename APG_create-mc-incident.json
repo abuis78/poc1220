@@ -28,7 +28,7 @@
                     "targetPort": "1_in"
                 }
             ],
-            "hash": "d7b47ed7155dcc247ebe94dd0db899c18d2509fb",
+            "hash": "28045aeb94836d6bfc845331c9d59d9270d5fb9c",
             "nodes": {
                 "0": {
                     "data": {
@@ -321,7 +321,11 @@
                     "errors": {},
                     "id": "5",
                     "type": "decision",
-                    "warnings": {},
+                    "warnings": {
+                        "context": [
+                            "Connect block to playbook flow."
+                        ]
+                    },
                     "x": 80,
                     "y": 148
                 },
@@ -499,11 +503,7 @@
                     "errors": {},
                     "id": "8",
                     "type": "utility",
-                    "warnings": {
-                        "context": [
-                            "Connect block to playbook flow."
-                        ]
-                    },
+                    "warnings": {},
                     "x": 280,
                     "y": 580
                 }
