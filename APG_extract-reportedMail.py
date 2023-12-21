@@ -245,6 +245,19 @@ def filter_email_artifact_types(action=None, success=None, container=None, resul
     if matched_artifacts_1 or matched_results_1:
         artifact_update_7(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
+    # collect filtered artifact ids and results for 'if' condition 2
+    matched_artifacts_2, matched_results_2 = phantom.condition(
+        container=container,
+        conditions=[
+            ["filtered-data:select_reported_mail_artifacts_0:condition_1:artifact:*.label", "==", "Email Artifact"]
+        ],
+        name="filter_email_artifact_types:condition_2",
+        delimiter=None)
+
+    # call connected blocks if filtered artifacts or results
+    if matched_artifacts_2 or matched_results_2:
+        artifact_update_8(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_2, filtered_results=matched_results_2)
+
     return
 
 
@@ -282,6 +295,44 @@ def artifact_update_7(action=None, success=None, container=None, results=None, h
     ################################################################################
 
     phantom.custom_function(custom_function="community/artifact_update", parameters=parameters, name="artifact_update_7")
+
+    return
+
+
+@phantom.playbook_block()
+def artifact_update_8(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("artifact_update_8() called")
+
+    filtered_artifact_0_data_filter_email_artifact_types = phantom.collect2(container=container, datapath=["filtered-data:filter_email_artifact_types:condition_2:artifact:*.id","filtered-data:filter_email_artifact_types:condition_2:artifact:*.id","filtered-data:filter_email_artifact_types:condition_2:artifact:*.external_id"])
+
+    parameters = []
+
+    # build parameters list for 'artifact_update_8' call
+    for filtered_artifact_0_item_filter_email_artifact_types in filtered_artifact_0_data_filter_email_artifact_types:
+        parameters.append({
+            "artifact_id": filtered_artifact_0_item_filter_email_artifact_types[0],
+            "name": "Reported Mail",
+            "label": None,
+            "severity": None,
+            "cef_field": None,
+            "cef_value": None,
+            "cef_data_type": None,
+            "tags": None,
+            "overwrite_tags": None,
+            "input_json": None,
+        })
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.custom_function(custom_function="community/artifact_update", parameters=parameters, name="artifact_update_8")
 
     return
 
