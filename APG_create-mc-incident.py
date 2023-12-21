@@ -105,7 +105,7 @@ def mc_incident_alread_exists(action=None, success=None, container=None, results
 
     # call connected blocks if condition 1 matched
     if found_match_1:
-        create_incidents_1(action=action, success=success, container=container, results=results, handle=handle)
+        debug_3(action=action, success=success, container=container, results=results, handle=handle)
         return
 
     return
@@ -145,6 +145,44 @@ def debug_2(action=None, success=None, container=None, results=None, handle=None
     ################################################################################
 
     phantom.custom_function(custom_function="community/debug", parameters=parameters, name="debug_2", callback=mc_incident_alread_exists)
+
+    return
+
+
+@phantom.playbook_block()
+def debug_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("debug_3() called")
+
+    playbook_input_subject = phantom.collect2(container=container, datapath=["playbook_input:subject"])
+
+    playbook_input_subject_values = [item[0] for item in playbook_input_subject]
+
+    parameters = []
+
+    parameters.append({
+        "input_1": playbook_input_subject_values,
+        "input_2": None,
+        "input_3": None,
+        "input_4": None,
+        "input_5": None,
+        "input_6": None,
+        "input_7": None,
+        "input_8": None,
+        "input_9": None,
+        "input_10": None,
+    })
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.custom_function(custom_function="community/debug", parameters=parameters, name="debug_3", callback=create_incidents_1)
 
     return
 
