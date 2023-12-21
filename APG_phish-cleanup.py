@@ -283,7 +283,7 @@ def artifact_update_4(action=None, success=None, container=None, results=None, h
             "cef_value": None,
             "cef_data_type": None,
             "tags": "to_delete",
-            "overwrite_tags": True,
+            "overwrite_tags": False,
             "input_json": None,
         })
 
