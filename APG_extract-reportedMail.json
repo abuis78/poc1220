@@ -112,6 +112,20 @@
                     "sourcePort": "13_out",
                     "targetNode": "16",
                     "targetPort": "16_in"
+                },
+                {
+                    "id": "port_15_to_port_1",
+                    "sourceNode": "15",
+                    "sourcePort": "15_out",
+                    "targetNode": "1",
+                    "targetPort": "1_in"
+                },
+                {
+                    "id": "port_16_to_port_1",
+                    "sourceNode": "16",
+                    "sourcePort": "16_out",
+                    "targetNode": "1",
+                    "targetPort": "1_in"
                 }
             ],
             "hash": "3b32123b60c1b3e98fdcb8a0bb6054844e3e9fc7",
@@ -129,7 +143,7 @@
                     "id": "0",
                     "type": "start",
                     "warnings": {},
-                    "x": 190,
+                    "x": 360,
                     "y": 0
                 },
                 "1": {
@@ -145,8 +159,8 @@
                     "id": "1",
                     "type": "end",
                     "warnings": {},
-                    "x": 20,
-                    "y": 688
+                    "x": 360,
+                    "y": 1476
                 },
                 "13": {
                     "data": {
@@ -195,8 +209,8 @@
                             "Reconfigure invalid datapath."
                         ]
                     },
-                    "x": 400,
-                    "y": 1148
+                    "x": 570,
+                    "y": 1132
                 },
                 "15": {
                     "data": {
@@ -361,8 +375,8 @@
                             "Reconfigure invalid datapath."
                         ]
                     },
-                    "x": 170,
-                    "y": 1328
+                    "x": 340,
+                    "y": 1320
                 },
                 "16": {
                     "data": {
@@ -527,8 +541,8 @@
                             "Reconfigure invalid datapath."
                         ]
                     },
-                    "x": 510,
-                    "y": 1328
+                    "x": 680,
+                    "y": 1320
                 },
                 "2": {
                     "data": {
@@ -586,7 +600,7 @@
                     "id": "2",
                     "type": "filter",
                     "warnings": {},
-                    "x": 230,
+                    "x": 400,
                     "y": 328
                 },
                 "3": {
@@ -665,8 +679,8 @@
                             "Reconfigure invalid datapath."
                         ]
                     },
-                    "x": 340,
-                    "y": 516
+                    "x": 510,
+                    "y": 508
                 },
                 "5": {
                     "data": {
@@ -697,8 +711,8 @@
                     "id": "5",
                     "type": "playbook",
                     "warnings": {},
-                    "x": 340,
-                    "y": 852
+                    "x": 510,
+                    "y": 836
                 },
                 "6": {
                     "data": {
@@ -770,7 +784,7 @@
                         ]
                     },
                     "x": 0,
-                    "y": 508
+                    "y": 1312
                 },
                 "7": {
                     "data": {
@@ -803,7 +817,7 @@
                     "id": "7",
                     "type": "filter",
                     "warnings": {},
-                    "x": 230,
+                    "x": 400,
                     "y": 148
                 },
                 "8": {
@@ -837,8 +851,8 @@
                     "id": "8",
                     "type": "filter",
                     "warnings": {},
-                    "x": 400,
-                    "y": 672
+                    "x": 570,
+                    "y": 656
                 },
                 "9": {
                     "data": {
@@ -1003,8 +1017,8 @@
                             "Reconfigure invalid datapath."
                         ]
                     },
-                    "x": 340,
-                    "y": 1000
+                    "x": 510,
+                    "y": 984
                 }
             },
             "notes": ""
