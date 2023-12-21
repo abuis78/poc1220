@@ -40,21 +40,28 @@
                     "targetPort": "3_in"
                 },
                 {
-                    "id": "port_8_to_port_1",
-                    "sourceNode": "8",
-                    "sourcePort": "8_out",
-                    "targetNode": "1",
-                    "targetPort": "1_in"
-                },
-                {
                     "id": "port_0_to_port_12",
                     "sourceNode": "0",
                     "sourcePort": "0_out",
                     "targetNode": "12",
                     "targetPort": "12_in"
+                },
+                {
+                    "id": "port_8_to_port_13",
+                    "sourceNode": "8",
+                    "sourcePort": "8_out",
+                    "targetNode": "13",
+                    "targetPort": "13_in"
+                },
+                {
+                    "id": "port_13_to_port_1",
+                    "sourceNode": "13",
+                    "sourcePort": "13_out",
+                    "targetNode": "1",
+                    "targetPort": "1_in"
                 }
             ],
-            "hash": "945515d4a3494f6aeefab0aa9cf406522029a45a",
+            "hash": "7180072d9c4e5c1e1011f075c787f33559f717c1",
             "nodes": {
                 "0": {
                     "data": {
@@ -69,8 +76,8 @@
                     "id": "0",
                     "type": "start",
                     "warnings": {},
-                    "x": 20,
-                    "y": 0
+                    "x": 19.999999999999986,
+                    "y": -6.394884621840902e-14
                 },
                 "1": {
                     "data": {
@@ -85,7 +92,7 @@
                     "id": "1",
                     "type": "end",
                     "warnings": {},
-                    "x": 20,
+                    "x": 19.999999999999986,
                     "y": 980
                 },
                 "11": {
@@ -147,6 +154,51 @@
                     "x": 0,
                     "y": 148
                 },
+                "13": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionId": 1,
+                        "functionName": "playbook_APG_mc_emailIncident_1",
+                        "id": "13",
+                        "inputs": {
+                            "mail_tag": {
+                                "datapaths": [
+                                    "reported_mail"
+                                ],
+                                "deduplicate": false
+                            },
+                            "mc_id": {
+                                "datapaths": [
+                                    "playbook_apg_create_mc_incident_2:playbook_output:mc_id"
+                                ],
+                                "deduplicate": false
+                            }
+                        },
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "playbookName": "APG_mc-emailIncident",
+                        "playbookRepo": 3,
+                        "playbookRepoName": "poc1220",
+                        "playbookType": "data",
+                        "synchronous": false,
+                        "type": "playbook"
+                    },
+                    "errors": {},
+                    "id": "13",
+                    "type": "playbook",
+                    "warnings": {},
+                    "x": 0,
+                    "y": 884.5
+                },
                 "3": {
                     "data": {
                         "advanced": {
@@ -176,8 +228,8 @@
                     "id": "3",
                     "type": "playbook",
                     "warnings": {},
-                    "x": 0,
-                    "y": 296
+                    "x": -1.4210854715202004e-14,
+                    "y": 295.99999999999994
                 },
                 "5": {
                     "data": {
@@ -274,7 +326,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-20T12:31:49.246834+00:00",
+    "create_time": "2023-12-21T13:53:07.894596+00:00",
     "draft_mode": false,
     "labels": [
         "phishing_mail"

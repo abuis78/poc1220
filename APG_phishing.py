@@ -81,19 +81,7 @@ def playbook_apg_create_mc_incident_2(action=None, success=None, container=None,
     ################################################################################
 
     # call playbook "poc1220/APG_create-mc-incident", returns the playbook_run_id
-    playbook_run_id = phantom.playbook("poc1220/APG_create-mc-incident", container=container, name="playbook_apg_create_mc_incident_2", callback=playbook_apg_create_mc_incident_2_callback, inputs=inputs)
-
-    return
-
-
-@phantom.playbook_block()
-def playbook_apg_create_mc_incident_2_callback(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("playbook_apg_create_mc_incident_2_callback() called")
-
-    
-    # Downstream End block cannot be called directly, since execution will call on_finish automatically.
-    # Using placeholder callback function so child playbook is run synchronously.
-
+    playbook_run_id = phantom.playbook("poc1220/APG_create-mc-incident", container=container, name="playbook_apg_create_mc_incident_2", callback=playbook_apg_mc_emailincident_1, inputs=inputs)
 
     return
 
@@ -144,6 +132,35 @@ def playbook_apg_phish_cleanup_1(action=None, success=None, container=None, resu
 
     # call playbook "poc1220/APG_phish-cleanup", returns the playbook_run_id
     playbook_run_id = phantom.playbook("poc1220/APG_phish-cleanup", container=container, name="playbook_apg_phish_cleanup_1", callback=playbook_apg_extract_reportedmail_1, inputs=inputs)
+
+    return
+
+
+@phantom.playbook_block()
+def playbook_apg_mc_emailincident_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("playbook_apg_mc_emailincident_1() called")
+
+    playbook_apg_create_mc_incident_2_output_mc_id = phantom.collect2(container=container, datapath=["playbook_apg_create_mc_incident_2:playbook_output:mc_id"])
+
+    playbook_apg_create_mc_incident_2_output_mc_id_values = [item[0] for item in playbook_apg_create_mc_incident_2_output_mc_id]
+
+    inputs = {
+        "mc_id": playbook_apg_create_mc_incident_2_output_mc_id_values,
+        "mail_tag": ["reported_mail"],
+    }
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    # call playbook "poc1220/APG_mc-emailIncident", returns the playbook_run_id
+    playbook_run_id = phantom.playbook("poc1220/APG_mc-emailIncident", container=container, inputs=inputs)
 
     return
 
