@@ -138,11 +138,12 @@ def select_mc_id(action=None, success=None, container=None, results=None, handle
 def format_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("format_1() called")
 
-    template = """{0}"""
+    template = """{0}\n"""
 
     # parameter list for template variable replacement
     parameters = [
-        "filtered-data:select_mc_id:condition_1:artifact:*.cef.id"
+        "filtered-data:select_mc_id:condition_1:artifact:*.cef.id",
+        "create_incidents_1:action_result.data.*.id"
     ]
 
     ################################################################################
