@@ -129,12 +129,14 @@ def join_debug_2(action=None, success=None, container=None, results=None, handle
 def debug_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("debug_2() called")
 
-    format_1 = phantom.get_format_data(name="format_1")
+    container_artifact_data = phantom.collect2(container=container, datapath=["artifact:*.id","artifact:*.id","artifact:*.external_id"])
+
+    container_artifact_header_item_0 = [item[0] for item in container_artifact_data]
 
     parameters = []
 
     parameters.append({
-        "input_1": format_1,
+        "input_1": container_artifact_header_item_0,
         "input_2": None,
         "input_3": None,
         "input_4": None,
