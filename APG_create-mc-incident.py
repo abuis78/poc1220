@@ -167,12 +167,12 @@ def format_1(action=None, success=None, container=None, results=None, handle=Non
 def debug_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("debug_2() called")
 
-    format_1__as_list = phantom.get_format_data(name="format_1__as_list")
+    format_1 = phantom.get_format_data(name="format_1")
 
     parameters = []
 
     parameters.append({
-        "input_1": format_1__as_list,
+        "input_1": format_1,
         "input_2": None,
         "input_3": None,
         "input_4": None,

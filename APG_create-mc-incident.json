@@ -64,7 +64,7 @@
                     "targetPort": "8_in"
                 }
             ],
-            "hash": "ae6098c44f12ba1174f03d9d64d298110831d498",
+            "hash": "62186637c2f7bb48c7ce2bdcb1793afb57126b0e",
             "nodes": {
                 "0": {
                     "data": {
@@ -578,7 +578,7 @@
                         "values": {
                             "debug": {
                                 "input_1": [
-                                    "format_1:formatted_data.*"
+                                    "format_1:formatted_data"
                                 ],
                                 "input_10": null,
                                 "input_2": null,
@@ -631,7 +631,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-21T11:56:28.663394+00:00",
+    "create_time": "2023-12-21T11:56:57.815844+00:00",
     "draft_mode": false,
     "labels": [
         "*"
