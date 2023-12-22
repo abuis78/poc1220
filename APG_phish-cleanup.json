@@ -121,7 +121,7 @@
                     "targetPort": "1_in"
                 }
             ],
-            "hash": "75c28927ae4ca7cc4077ff456c9a84f7b2731af9",
+            "hash": "dd327940e4695060c343c833b9cff7e965bff7b0",
             "nodes": {
                 "0": {
                     "data": {
@@ -588,7 +588,7 @@
                     "errors": {},
                     "id": "15",
                     "type": "code",
-                    "userCode": "\n    # Write your custom code here...\n    \n    for id in filtered_artifact_0__id:\n        phantom.debug(phantom.delete_artifact(id))\n\n",
+                    "userCode": "\n    # Write your custom code here...\n    \n    for id in filtered_artifact_0__id:\n        phantom.debug(\"Delete artifact \" + id)\n        success = phantom.delete_artifact(id)\n        phantom.debug(\"Successfull\" if success else \"Failed\")\n\n",
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
@@ -1017,7 +1017,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-22T10:10:23.870823+00:00",
+    "create_time": "2023-12-22T10:14:24.896987+00:00",
     "draft_mode": false,
     "labels": [
         "*"
