@@ -114,7 +114,7 @@
                     "targetPort": "15_in"
                 }
             ],
-            "hash": "5140a34fab64024ea4c8607513e72087f13b72bc",
+            "hash": "7099087adaa8468e82d82980d4396ff9ef3cbdbb",
             "nodes": {
                 "0": {
                     "data": {
@@ -722,6 +722,9 @@
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
+                        ],
+                        "context": [
+                            "Connect block to playbook flow."
                         ]
                     },
                     "x": 840,
@@ -747,7 +750,7 @@
                     "errors": {},
                     "id": "15",
                     "type": "code",
-                    "userCode": "\n    # Write your custom code here...\n    \n    phantom.debug(filtered_artifact_0__id)\n\n",
+                    "userCode": "\n    # Write your custom code here...\n    \n    for id in filtered_artifact_0__id:\n        phantom.debug(id)\n\n",
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
@@ -1176,7 +1179,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-22T09:52:09.391177+00:00",
+    "create_time": "2023-12-22T09:56:21.892913+00:00",
     "draft_mode": false,
     "labels": [
         "*"

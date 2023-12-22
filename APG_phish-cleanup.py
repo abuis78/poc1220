@@ -316,7 +316,8 @@ def artifact_delete(action=None, success=None, container=None, results=None, han
 
     # Write your custom code here...
     
-    phantom.debug(filtered_artifact_0__id)
+    for id in filtered_artifact_0__id:
+        phantom.debug(id)
 
     ################################################################################
     ## Custom Code End
