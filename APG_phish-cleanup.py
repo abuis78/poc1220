@@ -265,44 +265,6 @@ def select_all_extracted_artifacts_0(action=None, success=None, container=None, 
 
 
 @phantom.playbook_block()
-def artifact_update_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("artifact_update_4() called")
-
-    filtered_artifact_0_data_select_all_extracted_artifacts_0 = phantom.collect2(container=container, datapath=["filtered-data:select_all_extracted_artifacts_0:condition_1:artifact:*.id","filtered-data:select_all_extracted_artifacts_0:condition_1:artifact:*.id","filtered-data:select_all_extracted_artifacts_0:condition_1:artifact:*.external_id"])
-
-    parameters = []
-
-    # build parameters list for 'artifact_update_4' call
-    for filtered_artifact_0_item_select_all_extracted_artifacts_0 in filtered_artifact_0_data_select_all_extracted_artifacts_0:
-        parameters.append({
-            "artifact_id": filtered_artifact_0_item_select_all_extracted_artifacts_0[0],
-            "name": None,
-            "label": None,
-            "severity": None,
-            "cef_field": None,
-            "cef_value": None,
-            "cef_data_type": None,
-            "tags": "to_delete",
-            "overwrite_tags": False,
-            "input_json": None,
-        })
-
-    ################################################################################
-    ## Custom Code Start
-    ################################################################################
-
-    # Write your custom code here...
-
-    ################################################################################
-    ## Custom Code End
-    ################################################################################
-
-    phantom.custom_function(custom_function="community/artifact_update", parameters=parameters, name="artifact_update_4")
-
-    return
-
-
-@phantom.playbook_block()
 def artifact_delete(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("artifact_delete() called")
 
