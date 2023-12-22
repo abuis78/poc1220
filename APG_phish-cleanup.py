@@ -279,7 +279,7 @@ def artifact_delete(action=None, success=None, container=None, results=None, han
     # Write your custom code here...
     
     for id in filtered_artifact_0__id:
-        phantom.debug("Delete artifact " + id)
+        phantom.debug("Delete artifact %d" % id)
         success = phantom.delete_artifact(id)
         phantom.debug("Successfull" if success else "Failed")
 
