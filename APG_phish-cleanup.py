@@ -259,7 +259,7 @@ def select_all_extracted_artifacts_0(action=None, success=None, container=None, 
 
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_1 or matched_results_1:
-        artifact_update_4(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+        artifact_delete(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
     return
 
@@ -298,6 +298,29 @@ def artifact_update_4(action=None, success=None, container=None, results=None, h
     ################################################################################
 
     phantom.custom_function(custom_function="community/artifact_update", parameters=parameters, name="artifact_update_4")
+
+    return
+
+
+@phantom.playbook_block()
+def artifact_delete(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("artifact_delete() called")
+
+    filtered_artifact_0_data_select_all_extracted_artifacts_0 = phantom.collect2(container=container, datapath=["filtered-data:select_all_extracted_artifacts_0:condition_1:artifact:*.id"])
+
+    filtered_artifact_0__id = [item[0] for item in filtered_artifact_0_data_select_all_extracted_artifacts_0]
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+    
+    phantom.debug(filtered_artifact_0__id)
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
 
     return
 

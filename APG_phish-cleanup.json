@@ -107,21 +107,14 @@
                             "index": 0
                         }
                     ],
-                    "id": "port_13_to_port_14",
+                    "id": "port_13_to_port_15",
                     "sourceNode": "13",
                     "sourcePort": "13_out",
-                    "targetNode": "14",
-                    "targetPort": "14_in"
-                },
-                {
-                    "id": "port_14_to_port_1",
-                    "sourceNode": "14",
-                    "sourcePort": "14_out",
-                    "targetNode": "1",
-                    "targetPort": "1_in"
+                    "targetNode": "15",
+                    "targetPort": "15_in"
                 }
             ],
-            "hash": "e801e2b9c5c344cad24d4c58315ff4c0cf7392dd",
+            "hash": "5140a34fab64024ea4c8607513e72087f13b72bc",
             "nodes": {
                 "0": {
                     "data": {
@@ -137,7 +130,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 700,
-                    "y": 0
+                    "y": -1.2789769243681803e-13
                 },
                 "1": {
                     "data": {
@@ -731,8 +724,37 @@
                             "Reconfigure invalid datapath."
                         ]
                     },
+                    "x": 840,
+                    "y": 940
+                },
+                "15": {
+                    "customCode": null,
+                    "data": {
+                        "advanced": {
+                            "customName": "artifact_delete",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "functionId": 1,
+                        "functionName": "artifact_delete",
+                        "id": "15",
+                        "inputParameters": [
+                            "filtered-data:select_all_extracted_artifacts_0:condition_1:artifact:*.id"
+                        ],
+                        "outputVariables": [],
+                        "type": "code"
+                    },
+                    "errors": {},
+                    "id": "15",
+                    "type": "code",
+                    "userCode": "\n    # Write your custom code here...\n    \n    phantom.debug(filtered_artifact_0__id)\n\n",
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
                     "x": 1020,
-                    "y": 656
+                    "y": 660
                 },
                 "2": {
                     "data": {
@@ -1154,7 +1176,7 @@
         "schema": "5.0.11",
         "version": "6.2.0.355"
     },
-    "create_time": "2023-12-21T09:51:41.858715+00:00",
+    "create_time": "2023-12-22T09:52:09.391177+00:00",
     "draft_mode": false,
     "labels": [
         "*"
